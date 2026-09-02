@@ -57,4 +57,3 @@ function Index() {
   );
 }
 
-export { Why } from "@/components/site/Sections";
