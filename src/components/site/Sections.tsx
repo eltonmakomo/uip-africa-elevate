@@ -53,82 +53,85 @@ function SectionHead({
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden bg-ink pt-20 text-ink-foreground">
-      <div className="absolute inset-0">
-        <img
-          src="/images/hero-infrastructure.webp"
-          alt="New concrete road bridge and dual carriageway crossing a river in the Zimbabwean highveld at golden hour"
-          className="h-full w-full object-cover opacity-55"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/40" />
-      </div>
-
-      <div className="shell relative flex min-h-[88vh] flex-col justify-end pb-14 pt-24">
+    <section id="top" className="relative bg-background pt-20">
+      <div className="shell pb-10 pt-20 md:pt-28">
         <Reveal>
-          <p className="font-mono text-[0.6875rem] uppercase tracking-[0.28em] text-ink-accent">
-            UIP Africa · Harare, Zimbabwe
-          </p>
-        </Reveal>
-
-        <Reveal delay={90}>
-          <h1 className="display-xl mt-6 max-w-[16ch]">
+          <h1 className="display-xl max-w-[13ch] text-foreground">
             Boundless
-            <span className="block text-ink-accent">Engineering</span>
+            <span className="block">Engineering</span>
           </h1>
         </Reveal>
 
-        <div className="mt-12 grid gap-10 border-t border-ink-border pt-10 lg:grid-cols-12 lg:items-start">
-          <Reveal delay={140} className="lg:col-span-6">
-            <p className="max-w-xl text-base leading-relaxed text-ink-muted md:text-lg">
-              Civil and structural engineering consultancy, construction advisory and CAD drafting
-              across Zimbabwe and the region, from engineers who stay on a project until it is
-              built.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+        <div className="mt-14 grid gap-10 lg:grid-cols-12 lg:items-end">
+          <Reveal delay={120} className="lg:col-span-7">
+            <div className="flex flex-wrap gap-3">
               <a
                 href="#projects"
-                className="bg-ink-foreground px-6 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-ink transition-colors hover:bg-ink-accent"
+                className="bg-primary px-7 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-primary-foreground transition-colors hover:bg-accent"
               >
                 Our projects
               </a>
               <a
                 href="#services"
-                className="border border-ink-border px-6 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-ink-foreground transition-colors hover:border-ink-accent hover:text-ink-accent"
+                className="border border-foreground/20 px-7 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-foreground transition-colors hover:border-foreground"
               >
                 What we do
               </a>
             </div>
           </Reveal>
 
-          <Reveal delay={200} className="lg:col-span-6">
-            <div className="grid grid-cols-2 gap-px overflow-hidden border border-ink-border bg-ink-border sm:grid-cols-3">
-              <div className="bg-ink p-6">
-                <p className="index-num text-4xl font-semibold">120+</p>
-                <p className="mt-2 text-xs uppercase tracking-[0.14em] text-ink-muted">
-                  Projects delivered
-                </p>
-              </div>
-              <div className="bg-ink p-6">
-                <p className="index-num text-4xl font-semibold">25+</p>
-                <p className="mt-2 text-xs uppercase tracking-[0.14em] text-ink-muted">
-                  Years in practice
-                </p>
-              </div>
-              <div className="col-span-2 flex items-center gap-4 bg-ink p-6 sm:col-span-1">
-                <img
-                  src="/images/badges/iso-9001-2015-light.svg"
-                  alt="ISO 9001:2015 certified quality management system badge"
-                  className="h-12 w-12"
-                />
-                <p className="text-xs uppercase leading-relaxed tracking-[0.14em] text-ink-muted">
-                  ISO 9001:2015
-                  <br />
-                  Quality certified
-                </p>
-              </div>
-            </div>
+          <Reveal delay={180} className="lg:col-span-5">
+            <p className="font-mono text-[0.6875rem] uppercase tracking-[0.28em] text-muted-foreground">
+              ▽ UIP Africa · Harare, Zimbabwe
+            </p>
+            <p className="mt-4 max-w-md text-base leading-relaxed text-foreground/80 md:text-lg">
+              Civil and structural engineering consultancy, construction advisory and CAD drafting
+              across Zimbabwe and the region, from engineers who stay on a project until it is
+              built.
+            </p>
           </Reveal>
         </div>
+      </div>
+
+      <Reveal delay={100} className="shell">
+        <div className="media-zoom relative">
+          <img
+            src="/images/hero-infrastructure.webp"
+            alt="New concrete road bridge and dual carriageway crossing a river in the Zimbabwean highveld at golden hour"
+            className="h-[46vh] w-full object-cover md:h-[62vh]"
+          />
+        </div>
+      </Reveal>
+
+      <div className="shell pt-px">
+        <Reveal delay={140}>
+          <div className="grid grid-cols-2 gap-px border border-border bg-border sm:grid-cols-3">
+            <div className="bg-background p-6">
+              <p className="index-num text-4xl font-semibold">120+</p>
+              <p className="mt-2 text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                Projects delivered
+              </p>
+            </div>
+            <div className="bg-background p-6">
+              <p className="index-num text-4xl font-semibold">25+</p>
+              <p className="mt-2 text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                Years in practice
+              </p>
+            </div>
+            <div className="col-span-2 flex items-center gap-4 bg-background p-6 sm:col-span-1">
+              <img
+                src="/images/badges/iso-9001-2015-light.svg"
+                alt="ISO 9001:2015 certified quality management system badge"
+                className="h-12 w-12 invert"
+              />
+              <p className="text-xs uppercase leading-relaxed tracking-[0.14em] text-muted-foreground">
+                ISO 9001:2015
+                <br />
+                Quality certified
+              </p>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

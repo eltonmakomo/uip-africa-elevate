@@ -22,10 +22,10 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+      className={`fixed inset-x-0 top-0 z-50 text-foreground transition-all duration-500 ${
         scrolled
           ? "border-b border-border bg-background/90 backdrop-blur-xl"
-          : "border-b border-transparent text-ink-foreground"
+          : "border-b border-transparent bg-background"
       }`}
     >
       <div className="shell flex h-20 items-center justify-between gap-6">
@@ -41,7 +41,7 @@ export function SiteHeader() {
             <a
               key={n.href}
               href={n.href}
-              className={`link-underline text-sm font-medium ${scrolled ? "text-foreground/80 hover:text-foreground" : "text-ink-foreground/80 hover:text-ink-foreground"}`}
+              className="link-underline text-sm font-medium text-foreground/75 hover:text-foreground"
             >
               {n.label}
             </a>
@@ -60,7 +60,7 @@ export function SiteHeader() {
             aria-label="Toggle menu"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className={`inline-flex h-11 w-11 items-center justify-center border lg:hidden ${scrolled ? "border-border" : "border-ink-border"}`}
+            className="inline-flex h-11 w-11 items-center justify-center border border-border lg:hidden"
           >
             <span className="relative block h-3 w-5">
               <span
