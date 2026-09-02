@@ -60,7 +60,7 @@ export function SiteHeader() {
             aria-label="Toggle menu"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className={`inline-flex h-11 w-11 items-center justify-center border lg:hidden ${scrolled ? "border-border" : "border-ink-border"}`}
+            className="inline-flex h-11 w-11 items-center justify-center border border-border lg:hidden"
           >
             <span className="relative block h-3 w-5">
               <span
