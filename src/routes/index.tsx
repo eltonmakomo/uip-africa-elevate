@@ -13,6 +13,7 @@ import {
   Services,
   SiteFooter,
   Stats,
+  Why,
 } from "@/components/site/Sections";
 
 const title = "UIP Africa | Civil & Structural Engineering Consultancy, Harare";
