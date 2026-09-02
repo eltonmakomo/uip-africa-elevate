@@ -116,7 +116,7 @@
   h4 {
     font-family: var(--font-syne);
     font-weight: 700;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.015em;
   }
 
   ::selection {
@@ -154,17 +154,18 @@
 
 @utility display-xl {
   font-family: var(--font-syne);
-  font-weight: 800;
-  line-height: 0.92;
-  letter-spacing: -0.045em;
+  font-weight: 900;
+  line-height: 0.94;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
   font-size: clamp(2.85rem, 8.5vw, 7.5rem);
 }
 
 @utility display-lg {
   font-family: var(--font-syne);
   font-weight: 700;
-  line-height: 0.98;
-  letter-spacing: -0.04em;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
   font-size: clamp(2.1rem, 4.6vw, 3.9rem);
 }
 
