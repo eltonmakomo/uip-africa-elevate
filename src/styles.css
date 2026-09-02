@@ -55,8 +55,8 @@
 }
 
 :root {
-  --font-syne: "Syne", ui-sans-serif, sans-serif;
-  --font-plex: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-syne: "Titillium Web", ui-sans-serif, sans-serif;
+  --font-plex: "Titillium Web", ui-sans-serif, system-ui, sans-serif;
   --font-plex-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
 
   --radius: 0.125rem;
