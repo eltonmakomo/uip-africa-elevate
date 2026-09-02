@@ -41,7 +41,7 @@ export function SiteHeader() {
             <a
               key={n.href}
               href={n.href}
-              className={`link-underline text-sm font-medium ${scrolled ? "text-foreground/80 hover:text-foreground" : "text-ink-foreground/80 hover:text-ink-foreground"}`}
+              className="link-underline text-sm font-medium text-foreground/75 hover:text-foreground"
             >
               {n.label}
             </a>
