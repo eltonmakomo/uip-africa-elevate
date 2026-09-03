@@ -5,6 +5,10 @@ import marketCommercial from "@/assets/market-commercial.jpg.asset.json";
 import marketEnergy from "@/assets/market-energy.jpg.asset.json";
 import marketMining from "@/assets/market-mining.jpg.asset.json";
 import marketPublic from "@/assets/market-public.jpg.asset.json";
+import projectMbare from "@/assets/project-mbare-musika.jpg.asset.json";
+import projectPomona from "@/assets/project-pomona-flats.jpg.asset.json";
+import projectDacomb from "@/assets/project-dacomb-cluster.jpg.asset.json";
+import projectZiminya from "@/assets/project-ziminya-dam.jpg.asset.json";
 
 export const stats = [
   {
@@ -176,7 +180,7 @@ export const services = [
 export const featuredProject = {
   name: "Mbare Musika Temporary Traders Market Redevelopment",
   meta: "Featured · Public & Institutional · 2025",
-  image: "/images/project-northgate-estate.webp",
+  image: projectMbare.url,
   copy: "Emergency rebuild of one of Zimbabwe's largest fresh-produce and informal trading hubs after the fire that destroyed it, delivered in roughly three months ahead of the festive season.",
 };
 
@@ -185,21 +189,21 @@ export const projects = [
     name: "WestProp Pomona City Flats",
     sector: "Residential",
     meta: "WestProp Holdings · 2025",
-    image: "/images/project-pomona-flats.webp",
+    image: projectPomona.url,
     copy: "Structural and civil design for 352 apartments across 22 blocks, Harare North's first high-rise residential enclave within the wider Pomona City development.",
   },
   {
     name: "Dacomb Drive Cluster Housing Development",
     sector: "Residential",
     meta: "Vesta Properties · 2024",
-    image: "/images/project-dacomb-cluster.webp",
+    image: projectDacomb.url,
     copy: "Civil and structural engineering for a 36-unit luxury cluster housing scheme across 4.7 hectares of constrained suburban infill.",
   },
   {
     name: "Ziminya Dam Water Security & Irrigation Project",
     sector: "Water & Sanitation",
     meta: "Zimbabwe National Water Authority (ZINWA) · 2023",
-    image: "/images/project-ziminya-dam.webp",
+    image: projectZiminya.url,
     copy: "Engineering support on a strategic national dam addressing chronic water shortages in drought-prone Nkayi District, with roughly 98 million cubic metres of storage.",
   },
 ];
