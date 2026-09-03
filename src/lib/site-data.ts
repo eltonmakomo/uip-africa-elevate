@@ -108,37 +108,37 @@ export const disciplines = [
 export const markets = [
   {
     name: "Residential",
-    image: marketResidential.url,
+    image: marketResidential,
     copy: "Structural design and civil services for residential estates and cluster housing, from reinforced concrete frames to the roads, stormwater and reticulation that make a stand ready to build on.",
   },
   {
     name: "Water & Sanitation",
-    image: marketWater.url,
+    image: marketWater,
     copy: "Civil works, hydrology and hydraulic design for water security and irrigation infrastructure, with construction supervision support through to commissioning.",
   },
   {
     name: "Transportation",
-    image: marketTransport.url,
+    image: marketTransport,
     copy: "Pavement investigation, rehabilitation design and drainage for urban roads that carry real traffic and real rainfall.",
   },
   {
     name: "Commercial",
-    image: marketCommercial.url,
+    image: marketCommercial,
     copy: "Structural and civil design for forecourts, retail and event buildings, where heavy-duty engineering and everyday use have to work side by side.",
   },
   {
     name: "Energy",
-    image: marketEnergy.url,
+    image: marketEnergy,
     copy: "Civil and structural works for power generation infrastructure, delivered against compressed programmes where the civils sit on the critical path.",
   },
   {
     name: "Mining",
-    image: marketMining.url,
+    image: marketMining,
     copy: "Access roads and civil infrastructure for mining operations, engineered for heavy haulage and remote terrain so production is never stranded by the season.",
   },
   {
     name: "Public & Institutional",
-    image: marketPublic.url,
+    image: marketPublic,
     copy: "Structural design and project management for government, municipal and institutional clients, from emergency rebuilds to facilities that have to perform under public scrutiny.",
   },
 ];
@@ -183,7 +183,7 @@ export const services = [
 export const featuredProject = {
   name: "Mbare Musika Temporary Traders Market Redevelopment",
   meta: "Featured · Public & Institutional · 2025",
-  image: projectMbare.url,
+  image: projectMbare,
   copy: "Emergency rebuild of one of Zimbabwe's largest fresh-produce and informal trading hubs after the fire that destroyed it, delivered in roughly three months ahead of the festive season.",
 };
 
@@ -192,21 +192,21 @@ export const projects = [
     name: "WestProp Pomona City Flats",
     sector: "Residential",
     meta: "WestProp Holdings · 2025",
-    image: projectPomona.url,
+    image: projectPomona,
     copy: "Structural and civil design for 352 apartments across 22 blocks, Harare North's first high-rise residential enclave within the wider Pomona City development.",
   },
   {
     name: "Dacomb Drive Cluster Housing Development",
     sector: "Residential",
     meta: "Vesta Properties · 2024",
-    image: projectDacomb.url,
+    image: projectDacomb,
     copy: "Civil and structural engineering for a 36-unit luxury cluster housing scheme across 4.7 hectares of constrained suburban infill.",
   },
   {
     name: "Ziminya Dam Water Security & Irrigation Project",
     sector: "Water & Sanitation",
     meta: "Zimbabwe National Water Authority (ZINWA) · 2023",
-    image: projectZiminya.url,
+    image: projectZiminya,
     copy: "Engineering support on a strategic national dam addressing chronic water shortages in drought-prone Nkayi District, with roughly 98 million cubic metres of storage.",
   },
 ];
