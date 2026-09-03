@@ -12,6 +12,8 @@ import {
   services,
   stats,
 } from "@/lib/site-data";
+import heroInterchange from "@/assets/hero-interchange.jpg.asset.json";
+import aboutEngineers from "@/assets/about-engineers.jpg.asset.json";
 
 const pad = (n: number) => String(n + 1).padStart(2, "0");
 
