@@ -12,6 +12,8 @@ import {
   services,
   stats,
 } from "@/lib/site-data";
+import heroInterchange from "@/assets/hero-interchange.jpg.asset.json";
+import aboutEngineers from "@/assets/about-engineers.jpg.asset.json";
 
 const pad = (n: number) => String(n + 1).padStart(2, "0");
 
@@ -96,8 +98,8 @@ export function Hero() {
       <Reveal delay={100} className="shell">
         <div className="media-zoom relative">
           <img
-            src="/images/hero-infrastructure.webp"
-            alt="New concrete road bridge and dual carriageway crossing a river in the Zimbabwean highveld at golden hour"
+            src={heroInterchange.url}
+            alt="Aerial view of a complex multi-level highway interchange with overlapping flyovers and curved ramps"
             className="h-[46vh] w-full object-cover md:h-[62vh]"
           />
         </div>
@@ -189,8 +191,8 @@ export function About() {
         <Reveal delay={120} className="lg:col-span-6">
           <figure className="media-zoom relative">
             <img
-              src="/images/about-site-engineers.webp"
-              alt="Civil engineers in hard hats reviewing technical drawings on a construction site"
+              src={aboutEngineers.url}
+              alt="Civil engineers in hard hats and high-visibility vests reviewing blueprints on a construction site with a city skyline behind them"
               className="aspect-4/3 w-full object-cover"
               loading="lazy"
             />
