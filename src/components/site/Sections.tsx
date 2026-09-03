@@ -98,8 +98,8 @@ export function Hero() {
       <Reveal delay={100} className="shell">
         <div className="media-zoom relative">
           <img
-            src="/images/hero-infrastructure.webp"
-            alt="New concrete road bridge and dual carriageway crossing a river in the Zimbabwean highveld at golden hour"
+            src={heroInterchange.url}
+            alt="Aerial view of a complex multi-level highway interchange with overlapping flyovers and curved ramps"
             className="h-[46vh] w-full object-cover md:h-[62vh]"
           />
         </div>
