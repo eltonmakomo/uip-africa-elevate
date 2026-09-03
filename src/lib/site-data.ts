@@ -1,3 +1,11 @@
+import marketResidential from "@/assets/market-residential.jpg.asset.json";
+import marketWater from "@/assets/market-water.jpg.asset.json";
+import marketTransport from "@/assets/market-transport.jpg.asset.json";
+import marketCommercial from "@/assets/market-commercial.jpg.asset.json";
+import marketEnergy from "@/assets/market-energy.jpg.asset.json";
+import marketMining from "@/assets/market-mining.jpg.asset.json";
+import marketPublic from "@/assets/market-public.jpg.asset.json";
+
 export const stats = [
   {
     value: "25+",
@@ -93,40 +101,41 @@ export const disciplines = [
 export const markets = [
   {
     name: "Residential",
-    image: "/images/project-pomona-flats.webp",
+    image: marketResidential.url,
     copy: "Structural design and civil services for residential estates and cluster housing, from reinforced concrete frames to the roads, stormwater and reticulation that make a stand ready to build on.",
   },
   {
     name: "Water & Sanitation",
-    image: "/images/project-ziminya-dam.webp",
+    image: marketWater.url,
     copy: "Civil works, hydrology and hydraulic design for water security and irrigation infrastructure, with construction supervision support through to commissioning.",
   },
   {
     name: "Transportation",
-    image: "/images/project-sherwood-road.webp",
+    image: marketTransport.url,
     copy: "Pavement investigation, rehabilitation design and drainage for urban roads that carry real traffic and real rainfall.",
   },
   {
     name: "Commercial",
-    image: "/images/project-total-kadoma.webp",
+    image: marketCommercial.url,
     copy: "Structural and civil design for forecourts, retail and event buildings, where heavy-duty engineering and everyday use have to work side by side.",
   },
   {
     name: "Energy",
-    image: "/images/project-dema-power.webp",
+    image: marketEnergy.url,
     copy: "Civil and structural works for power generation infrastructure, delivered against compressed programmes where the civils sit on the critical path.",
   },
   {
     name: "Mining",
-    image: "/images/project-zvirenje-road.webp",
+    image: marketMining.url,
     copy: "Access roads and civil infrastructure for mining operations, engineered for heavy haulage and remote terrain so production is never stranded by the season.",
   },
   {
     name: "Public & Institutional",
-    image: "/images/harare-skyline.webp",
+    image: marketPublic.url,
     copy: "Structural design and project management for government, municipal and institutional clients, from emergency rebuilds to facilities that have to perform under public scrutiny.",
   },
 ];
+
 
 export const clients = [
   { name: "WestProp Holdings", logo: "/images/clients/westprop.png", href: "https://www.westprop.com/" },
