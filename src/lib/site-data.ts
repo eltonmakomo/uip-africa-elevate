@@ -1,3 +1,11 @@
+import marketResidential from "@/assets/market-residential.jpg.asset.json";
+import marketWater from "@/assets/market-water.jpg.asset.json";
+import marketTransport from "@/assets/market-transport.jpg.asset.json";
+import marketCommercial from "@/assets/market-commercial.jpg.asset.json";
+import marketEnergy from "@/assets/market-energy.jpg.asset.json";
+import marketMining from "@/assets/market-mining.jpg.asset.json";
+import marketPublic from "@/assets/market-public.jpg.asset.json";
+
 export const stats = [
   {
     value: "25+",
