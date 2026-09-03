@@ -1,14 +1,17 @@
-import marketResidential from "@/assets/market-residential.jpg.asset.json";
-import marketWater from "@/assets/market-water.jpg.asset.json";
-import marketTransport from "@/assets/market-transport.jpg.asset.json";
-import marketCommercial from "@/assets/market-commercial.jpg.asset.json";
-import marketEnergy from "@/assets/market-energy.jpg.asset.json";
-import marketMining from "@/assets/market-mining.jpg.asset.json";
-import marketPublic from "@/assets/market-public.jpg.asset.json";
-import projectMbare from "@/assets/project-mbare-musika.jpg.asset.json";
-import projectPomona from "@/assets/project-pomona-flats.jpg.asset.json";
-import projectDacomb from "@/assets/project-dacomb-cluster.jpg.asset.json";
-import projectZiminya from "@/assets/project-ziminya-dam.jpg.asset.json";
+// Image files live under /public/images/ and are managed locally.
+// Add the actual image files yourself; the paths below are where the
+// code expects them.
+const marketResidential = "/images/market-residential.jpg";
+const marketWater = "/images/market-water.jpg";
+const marketTransport = "/images/market-transport.jpg";
+const marketCommercial = "/images/market-commercial.jpg";
+const marketEnergy = "/images/market-energy.jpg";
+const marketMining = "/images/market-mining.jpg";
+const marketPublic = "/images/market-public.jpg";
+const projectMbare = "/images/project-mbare-musika.jpg";
+const projectPomona = "/images/project-pomona-flats.jpg";
+const projectDacomb = "/images/project-dacomb-cluster.jpg";
+const projectZiminya = "/images/project-ziminya-dam.jpg";
 
 export const stats = [
   {
