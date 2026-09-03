@@ -191,8 +191,8 @@ export function About() {
         <Reveal delay={120} className="lg:col-span-6">
           <figure className="media-zoom relative">
             <img
-              src="/images/about-site-engineers.webp"
-              alt="Civil engineers in hard hats reviewing technical drawings on a construction site"
+              src={aboutEngineers.url}
+              alt="Civil engineers in hard hats and high-visibility vests reviewing blueprints on a construction site with a city skyline behind them"
               className="aspect-4/3 w-full object-cover"
               loading="lazy"
             />
