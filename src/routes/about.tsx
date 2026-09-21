@@ -4,7 +4,7 @@ import { About, Why, Clients } from "@/components/site/Sections";
 
 const title = "About UIP Africa | Harare civil & structural engineering practice";
 const description =
-  "Urban Infrastructure Projects Africa is a Harare-based civil and structural engineering consultancy delivering across property, public infrastructure, mining and energy.";
+  "Urban Infrastructure Projects Africa provides high-quality, innovative, cost-effective and sustainable civil and structural engineering solutions from Harare.";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -25,8 +25,8 @@ function AboutPage() {
     <PageShell>
       <PageHero
         eyebrow="Who we are"
-        title="Better infrastructure. Greater possibilities."
-        copy="An integrated infrastructure engineering consultancy working to improve everyday life across Zimbabwe and the region."
+        title="Innovative solutions for a growing continent."
+        copy="UIP Africa provides high-quality, appropriate, cost-effective and sustainable engineering solutions that satisfy clients and improve the quality of life for communities across Africa."
       />
       <About />
       <Why />
