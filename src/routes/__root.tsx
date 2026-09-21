@@ -90,9 +90,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Civil and structural engineering consultancy, construction advisory and CAD drafting across Zimbabwe and the region.",
       },
-      { property: "og:image", content: "/uip-logo.png" },
+      { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "/uip-logo.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
