@@ -504,7 +504,7 @@ export function Services() {
             className={`group min-h-[30rem] ${tileStyles[i] ?? tileStyles[0]}`}
           >
             <a href="#contact" className="flex h-full min-h-[30rem] flex-col p-8 md:p-10">
-              <div className="mt-auto pt-10">
+              <div className="mt-2">
                 <h3 className="max-w-[14ch] text-3xl uppercase leading-[1.05] md:text-4xl">{s.name}</h3>
                 <p className="mt-6 max-w-sm text-base leading-relaxed opacity-75">{s.copy}</p>
                 <span className="mt-8 flex items-center justify-between border-t border-current/35 pt-4 text-xs font-semibold uppercase tracking-[0.16em]">
