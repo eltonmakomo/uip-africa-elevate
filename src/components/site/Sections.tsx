@@ -15,8 +15,6 @@ import {
 import heroInterchange from "@/assets/hero-interchange.jpg";
 import aboutEngineers from "@/assets/about-engineers.jpg";
 
-const pad = (n: number) => String(n + 1).padStart(2, "0");
-
 function SectionHead({
   eyebrow,
   title,
@@ -96,12 +94,24 @@ export function Hero() {
       </div>
 
       <Reveal delay={100} className="shell">
-        <div className="media-zoom relative">
-          <img
-            src={heroInterchange}
-            alt="Aerial view of a complex multi-level highway interchange with overlapping flyovers and curved ramps"
+        <div className="media-zoom relative overflow-hidden bg-ink">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster={heroInterchange}
             className="h-[46vh] w-full object-cover md:h-[62vh]"
-          />
+            aria-label="Aerial view of highway interchange engineering project"
+          >
+            <source src="/images/Video%20Project.mp4" type="video/mp4" />
+            <source src="/images/Video Project.mp4" type="video/mp4" />
+            <img
+              src={heroInterchange}
+              alt="Aerial view of a complex multi-level highway interchange with overlapping flyovers and curved ramps"
+              className="h-[46vh] w-full object-cover md:h-[62vh]"
+            />
+          </video>
         </div>
       </Reveal>
 
@@ -115,7 +125,7 @@ export function Hero() {
               </p>
             </div>
             <div className="bg-background p-6">
-              <p className="index-num text-4xl font-semibold">25+</p>
+              <p className="index-num text-4xl font-semibold">10+</p>
               <p className="mt-2 text-xs uppercase tracking-[0.14em] text-muted-foreground">
                 Years in practice
               </p>
@@ -150,8 +160,7 @@ export function Stats() {
       <ul className="mt-16 grid gap-px border border-border bg-border md:grid-cols-3">
         {stats.map((s, i) => (
           <Reveal as="li" key={s.label} delay={i * 90} className="bg-card p-8 md:p-10">
-            <span className="index-num text-xs text-muted-foreground">{pad(i)}</span>
-            <p className="display-lg mt-6 text-primary">{s.value}</p>
+            <p className="display-lg text-primary">{s.value}</p>
             <h3 className="mt-4 text-lg">{s.label}</h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.copy}</p>
           </Reveal>
@@ -228,15 +237,10 @@ export function Why() {
             delay={i * 70}
             className="group bg-card p-8 transition-colors hover:bg-secondary md:p-12"
           >
-            <div className="flex items-baseline gap-6">
-              <span className="index-num text-sm text-accent">{pad(i)}</span>
-              <div>
-                <h3 className="text-xl md:text-2xl">{d.title}</h3>
-                <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
-                  {d.copy}
-                </p>
-              </div>
-            </div>
+            <h3 className="text-xl md:text-2xl">{d.title}</h3>
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
+              {d.copy}
+            </p>
           </Reveal>
         ))}
       </ul>
@@ -270,13 +274,12 @@ export function Disciplines() {
               key={d.id}
               type="button"
               onClick={() => setActive(i)}
-              className={`flex flex-1 items-center gap-3 px-5 py-5 text-left text-sm font-medium transition-colors sm:px-7 ${
+              className={`flex flex-1 items-center justify-center px-5 py-5 text-center text-sm font-medium transition-colors sm:px-7 ${
                 i === active
                   ? "bg-ink-foreground text-ink"
                   : "bg-ink text-ink-muted hover:text-ink-foreground"
               }`}
             >
-              <span className="index-num text-xs opacity-70">{pad(i)}</span>
               <span className="whitespace-nowrap">{d.name}</span>
             </button>
           ))}
@@ -325,7 +328,7 @@ export function Markets() {
     <section id="markets" className="shell py-24 md:py-32">
       <SectionHead
         eyebrow="Markets"
-        title="Seven client industries"
+        title="Client industries"
         copy="Each backed by work we have actually delivered, not a list of markets we hope to break into."
         action={{ label: "Explore all markets", href: "#contact" }}
       />
@@ -342,10 +345,7 @@ export function Markets() {
                 />
               </div>
               <div className="flex flex-1 flex-col p-7">
-                <p className="index-num text-xs text-muted-foreground">
-                  Market {pad(i)}/07
-                </p>
-                <h3 className="mt-3 text-xl">{m.name}</h3>
+                <h3 className="text-xl">{m.name}</h3>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{m.copy}</p>
                 <span className="link-underline mt-6 self-start font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-accent">
                   Explore {m.name} →
@@ -400,7 +400,7 @@ export function Services() {
     <section id="services" className="shell py-24 md:py-32">
       <SectionHead
         eyebrow="Services"
-        title="Fourteen engineering services across the project life cycle"
+        title="Engineering services across the project life cycle"
         copy="From the first feasibility sketch through design, approvals and construction supervision."
         action={{ label: "Explore all services", href: "#contact" }}
       />
@@ -413,8 +413,7 @@ export function Services() {
             className="group border-b border-border transition-colors hover:bg-secondary/70"
           >
             <a href="#contact" className="grid gap-4 py-8 md:grid-cols-12 md:items-baseline md:gap-8">
-              <span className="index-num text-xs text-accent md:col-span-1">{pad(i)}</span>
-              <h3 className="text-2xl md:col-span-5 md:text-3xl">{s.name}</h3>
+              <h3 className="text-2xl md:col-span-6 md:text-3xl">{s.name}</h3>
               <p className="text-sm leading-relaxed text-muted-foreground md:col-span-5">{s.copy}</p>
               <span className="font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-accent md:col-span-1 md:text-right">
                 Read →
@@ -428,7 +427,7 @@ export function Services() {
           href="#contact"
           className="mt-10 inline-block bg-primary px-7 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-primary-foreground transition-colors hover:bg-accent"
         >
-          All 14 services
+          All services
         </a>
       </Reveal>
     </section>
@@ -556,8 +555,7 @@ export function Appointments() {
         <ul className="mt-14 grid gap-px border border-border bg-border md:grid-cols-2 xl:grid-cols-4">
           {appointments.map((a, i) => (
             <Reveal as="li" key={a.name} delay={i * 70} className="bg-card p-8">
-              <span className="index-num text-xs text-accent">{pad(i)}</span>
-              <h3 className="mt-5 text-xl leading-snug">{a.name}</h3>
+              <h3 className="text-xl leading-snug">{a.name}</h3>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{a.copy}</p>
               <a
                 href="#contact"
@@ -615,7 +613,13 @@ export function SiteFooter() {
     <footer className="bg-ink pb-12 text-ink-muted">
       <div className="shell flex flex-col gap-6 border-t border-ink-border pt-10 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-3">
-          <img src="/images/uip-mark.png" alt="UIP Africa" className="h-8 w-auto" />
+          <a href="#top" aria-label="UIP Africa Home">
+            <img
+              src="/uip-logo.png"
+              alt="UIP Africa"
+              className="h-8 w-auto rounded bg-background/90 px-2 py-0.5 object-contain"
+            />
+          </a>
           <p className="text-xs uppercase tracking-[0.18em]">
             Urban Infrastructure Projects Africa
           </p>

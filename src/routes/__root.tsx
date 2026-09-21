@@ -90,9 +90,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Civil and structural engineering consultancy, construction advisory and CAD drafting across Zimbabwe and the region.",
       },
-      { property: "og:type", content: "website" },
+      { property: "og:image", content: "/uip-logo.png" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:image", content: "/uip-logo.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -105,7 +105,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/uip-logo.png", type: "image/png" },
+      { rel: "shortcut icon", href: "/favicon.ico" },
+      { rel: "apple-touch-icon", href: "/uip-logo.png" },
     ],
   }),
   shellComponent: RootShell,

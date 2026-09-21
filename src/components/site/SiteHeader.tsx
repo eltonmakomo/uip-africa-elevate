@@ -22,18 +22,17 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 text-foreground transition-all duration-500 ${
-        scrolled
-          ? "border-b border-border bg-background/90 backdrop-blur-xl"
-          : "border-b border-transparent bg-background"
+      className={`fixed inset-x-0 top-0 z-50 glass-header text-foreground transition-all duration-300 ${
+        scrolled ? "border-b border-border shadow-sm" : "border-b border-border/50"
       }`}
     >
       <div className="shell flex h-20 items-center justify-between gap-6">
-        <a href="#top" className="flex items-center gap-3">
-          <img src="/images/uip-mark.png" alt="UIP Africa" className="h-9 w-auto" />
-          <span className="hidden text-sm font-semibold tracking-tight sm:block">
-            UIP Africa
-          </span>
+        <a href="#top" className="flex items-center" aria-label="UIP Africa Home">
+          <img
+            src="/uip-logo.png"
+            alt="UIP Africa - Urban Infrastructure Projects Africa"
+            className="h-10 sm:h-12 w-auto object-contain"
+          />
         </a>
 
         <nav className="hidden items-center gap-8 lg:flex">
@@ -41,7 +40,7 @@ export function SiteHeader() {
             <a
               key={n.href}
               href={n.href}
-              className="link-underline text-sm font-medium text-foreground/75 hover:text-foreground"
+              className="link-underline text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
             >
               {n.label}
             </a>
@@ -60,7 +59,7 @@ export function SiteHeader() {
             aria-label="Toggle menu"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex h-11 w-11 items-center justify-center border border-border lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center border border-border bg-background/90 lg:hidden"
           >
             <span className="relative block h-3 w-5">
               <span
@@ -75,14 +74,14 @@ export function SiteHeader() {
       </div>
 
       {open ? (
-        <div className="border-t border-border bg-background lg:hidden">
+        <div className="border-t border-border/70 glass-header shadow-lg lg:hidden">
           <nav className="shell flex flex-col py-4">
             {nav.map((n) => (
               <a
                 key={n.href}
                 href={n.href}
                 onClick={() => setOpen(false)}
-                className="border-b border-border/60 py-4 font-display text-2xl"
+                className="border-b border-border/50 py-4 font-display text-2xl transition-colors hover:text-accent"
               >
                 {n.label}
               </a>
@@ -90,7 +89,7 @@ export function SiteHeader() {
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="mt-5 bg-primary px-5 py-4 text-center text-xs font-semibold uppercase tracking-[0.16em] text-primary-foreground"
+              className="mt-5 bg-primary px-5 py-4 text-center text-xs font-semibold uppercase tracking-[0.16em] text-primary-foreground transition-colors hover:bg-accent"
             >
               Talk to an engineer
             </a>
