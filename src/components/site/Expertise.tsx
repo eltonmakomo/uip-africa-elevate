@@ -159,7 +159,7 @@ function ExpertiseBlock({ block, index }: ExpertiseBlockProps) {
                                 : "text-muted-foreground"
                           }`}
                         >
-                          {stage.path ? `${stage.path} · ` : ""}
+                          {"path" in stage && stage.path ? `${stage.path} · ` : ""}
                           {stage.note}
                         </span>
                       </span>
