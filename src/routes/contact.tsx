@@ -3,7 +3,7 @@ import { PageHero, PageShell } from "@/components/site/PageShell";
 
 const title = "Contact UIP Africa | Talk to an engineer in Harare";
 const description =
-  "Tell us where your project stands. UIP Africa brings engineering clarity to residential, commercial, industrial and public infrastructure in Zimbabwe.";
+  "Contact UIP Africa at 39 Hillside Road, Hillside, Harare for civil and structural engineering, project delivery and infrastructure consulting.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -24,11 +24,22 @@ function ContactPage() {
     <PageShell>
       <PageHero
         eyebrow="Get in touch"
-        title="Talk to an engineer."
-        copy="Whether it is residential, commercial, industrial or public infrastructure, tell us where the project stands and we will bring the engineering clarity to move it forward."
+        title="Let’s connect and build your dream project."
+        copy="We’d love to hear about your project. Reach out, share your ideas, and let’s start shaping them into something real and lasting."
       />
       <section className="border-t border-border bg-secondary/60 py-20 md:py-28">
         <div className="shell grid gap-px border border-border bg-border sm:grid-cols-3">
+          <div className="bg-card p-8">
+            <p className="eyebrow">Phone</p>
+            <div className="mt-4 space-y-2 text-lg leading-snug">
+              <a href="tel:+263242709222" className="link-underline block">
+                +263 (0) 242 709 222
+              </a>
+              <a href="tel:+2638677009615" className="link-underline block">
+                +263 (0) 867 700 9615
+              </a>
+            </div>
+          </div>
           <div className="bg-card p-8">
             <p className="eyebrow">Email</p>
             <a
@@ -40,7 +51,7 @@ function ContactPage() {
           </div>
           <div className="bg-card p-8">
             <p className="eyebrow">Office</p>
-            <p className="mt-4 text-lg leading-snug">Hillside, Harare, Zimbabwe</p>
+            <p className="mt-4 text-lg leading-snug">39 Hillside Road, Hillside, Harare, Zimbabwe</p>
           </div>
           <div className="bg-card p-8">
             <p className="eyebrow">Accreditation</p>
