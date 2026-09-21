@@ -501,14 +501,10 @@ export function Services() {
             as="li"
             key={s.name}
             delay={(i % 3) * 60}
-            className={`group min-h-96 ${tileStyles[i] ?? tileStyles[0]}`}
+            className={`group min-h-[30rem] ${tileStyles[i] ?? tileStyles[0]}`}
           >
-            <a href="#contact" className="flex h-full min-h-96 flex-col p-8 md:p-10">
-              <div className="flex items-start justify-between gap-6 font-mono text-[0.6875rem] uppercase tracking-[0.18em]">
-                <span>Service</span>
-                <span>{String(i + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")}</span>
-              </div>
-              <div className="mt-auto pt-20">
+            <a href="#contact" className="flex h-full min-h-[30rem] flex-col p-8 md:p-10">
+              <div className="mt-auto pt-24">
                 <h3 className="max-w-[14ch] text-3xl uppercase leading-[1.05] md:text-4xl">{s.name}</h3>
                 <p className="mt-6 max-w-sm text-base leading-relaxed opacity-75">{s.copy}</p>
                 <span className="mt-8 flex items-center justify-between border-t border-current/35 pt-4 text-xs font-semibold uppercase tracking-[0.16em]">
