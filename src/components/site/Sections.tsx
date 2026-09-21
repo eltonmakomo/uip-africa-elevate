@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { Reveal } from "./Reveal";
 import {
   appointments,
@@ -10,7 +12,6 @@ import {
   markets,
   projects,
   services,
-  stats,
 } from "@/lib/site-data";
 import heroInterchange from "@/assets/hero-interchange.jpg";
 import aboutEngineers from "@/assets/about-engineers.jpg";
@@ -150,22 +151,101 @@ export function Hero() {
 }
 
 export function Stats() {
+  const showcaseProjects = [
+    {
+      ...projects[0],
+      location: "Harare, Zimbabwe",
+      headline: "A new perspective on urban living.",
+      highlight: "352 apartments across 22 blocks",
+      client: "WestProp Pomona City",
+      alt: "Pomona City entrance and access road in Harare",
+    },
+    {
+      ...projects[1],
+      location: "Harare, Zimbabwe",
+      headline: "Considered living, engineered in detail.",
+      highlight: "36 homes across 4.7 hectares",
+      client: "Dacomb Drive Cluster Housing",
+      alt: "Dacomb Drive cluster housing development",
+    },
+    {
+      ...projects[2],
+      location: "Nkayi, Zimbabwe",
+      headline: "Water security built for generations.",
+      highlight: "98 million cubic metres of storage",
+      client: "Ziminya Dam",
+      alt: "Ziminya Dam water security and irrigation project",
+    },
+  ];
+  const [activeProject, setActiveProject] = useState(0);
+  const currentProject = showcaseProjects[activeProject] ?? showcaseProjects[0];
+
+  if (!currentProject) return null;
+
+  const moveProject = (direction: number) => {
+    setActiveProject((current) =>
+      (current + direction + showcaseProjects.length) % showcaseProjects.length,
+    );
+  };
+
   return (
-    <section className="shell py-24 md:py-32">
-      <SectionHead
-        eyebrow="Impact by numbers"
-        title="Engineering that endures"
-        copy="Measured in years on site, projects delivered, and disciplines working as one team."
-      />
-      <ul className="mt-16 grid gap-px border border-border bg-border md:grid-cols-3">
-        {stats.map((s, i) => (
-          <Reveal as="li" key={s.label} delay={i * 90} className="bg-card p-8 md:p-10">
-            <p className="display-lg text-primary">{s.value}</p>
-            <h3 className="mt-4 text-lg">{s.label}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.copy}</p>
-          </Reveal>
-        ))}
-      </ul>
+    <section aria-label="Featured projects" className="relative overflow-hidden bg-ink">
+      <div className="relative min-h-[38rem] md:min-h-[46rem]">
+        <img
+          key={currentProject.name}
+          src={currentProject.image}
+          alt={currentProject.alt}
+          className="absolute inset-0 h-full w-full object-cover motion-safe:animate-in motion-safe:fade-in motion-safe:duration-700"
+        />
+        <div className="absolute inset-0 bg-showcase-overlay" />
+
+        <div className="shell relative flex min-h-[38rem] flex-col justify-end pb-9 pt-24 text-ink-foreground md:min-h-[46rem] md:pb-12">
+          <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
+            <div className="lg:col-span-7">
+              <p className="text-sm font-medium">{currentProject.location}</p>
+              <h2 className="mt-6 max-w-[12ch] font-display text-5xl font-normal leading-[0.94] md:text-7xl">
+                {currentProject.headline}
+              </h2>
+              <p className="mt-7 inline-flex border border-ink-foreground/45 px-4 py-2 text-sm font-semibold">
+                {currentProject.highlight}
+              </p>
+              <a
+                href="#projects"
+                className="mt-6 flex max-w-sm items-center justify-between border-b border-ink-foreground/60 pb-3 text-base font-semibold"
+              >
+                {currentProject.client}
+                <ArrowUpRight aria-hidden="true" className="h-5 w-5" />
+              </a>
+            </div>
+
+            <div className="flex items-center gap-5 lg:col-span-5 lg:justify-end">
+              <p className="index-num mr-2 text-sm font-semibold">
+                {String(activeProject + 1).padStart(2, "0")} / {String(showcaseProjects.length).padStart(2, "0")}
+              </p>
+              <Button
+                type="button"
+                variant="outline"
+                size="icon"
+                aria-label="Previous project"
+                onClick={() => moveProject(-1)}
+                className="h-12 w-12 rounded-full border-ink-foreground/65 bg-transparent text-ink-foreground shadow-none hover:bg-ink-foreground hover:text-ink"
+              >
+                <ArrowLeft aria-hidden="true" />
+              </Button>
+              <Button
+                type="button"
+                variant="outline"
+                size="icon"
+                aria-label="Next project"
+                onClick={() => moveProject(1)}
+                className="h-12 w-12 rounded-full border-ink-foreground/65 bg-transparent text-ink-foreground shadow-none hover:bg-ink-foreground hover:text-ink"
+              >
+                <ArrowRight aria-hidden="true" />
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
@@ -396,40 +476,50 @@ export function Clients() {
 }
 
 export function Services() {
+  const tileStyles = [
+    "bg-sand text-foreground",
+    "bg-ochre text-foreground",
+    "bg-ink text-ink-foreground",
+    "bg-clay text-foreground",
+    "bg-slate-tile text-ink-foreground",
+    "bg-accent text-accent-foreground",
+  ];
+
   return (
-    <section id="services" className="shell py-24 md:py-32">
-      <SectionHead
-        eyebrow="Services"
-        title="Engineering services across the project life cycle"
-        copy="From the first feasibility sketch through design, approvals and construction supervision."
-        action={{ label: "Explore all services", href: "#contact" }}
-      />
-      <ul className="mt-14 border-t border-border">
+    <section id="services" className="py-24 md:py-32">
+      <div className="shell">
+        <SectionHead
+          eyebrow="Services"
+          title="Engineering that stays connected"
+          copy="From the appointed engineer to the team on site, our services carry one line of technical responsibility through the project."
+          action={{ label: "Explore all services", href: "#contact" }}
+        />
+      </div>
+      <ul className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3">
         {services.map((s, i) => (
           <Reveal
             as="li"
             key={s.name}
-            delay={i * 50}
-            className="group border-b border-border transition-colors hover:bg-secondary/70"
+            delay={(i % 3) * 60}
+            className={`group min-h-96 ${tileStyles[i] ?? tileStyles[0]}`}
           >
-            <a href="#contact" className="grid gap-4 py-8 md:grid-cols-12 md:items-baseline md:gap-8">
-              <h3 className="text-2xl md:col-span-6 md:text-3xl">{s.name}</h3>
-              <p className="text-sm leading-relaxed text-muted-foreground md:col-span-5">{s.copy}</p>
-              <span className="font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-accent md:col-span-1 md:text-right">
-                Read →
-              </span>
+            <a href="#contact" className="flex h-full min-h-96 flex-col p-8 md:p-10">
+              <div className="flex items-start justify-between gap-6 font-mono text-[0.6875rem] uppercase tracking-[0.18em]">
+                <span>Service</span>
+                <span>{String(i + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")}</span>
+              </div>
+              <div className="mt-auto pt-20">
+                <h3 className="max-w-[14ch] text-3xl uppercase leading-[1.05] md:text-4xl">{s.name}</h3>
+                <p className="mt-6 max-w-sm text-base leading-relaxed opacity-75">{s.copy}</p>
+                <span className="mt-8 flex items-center justify-between border-t border-current/35 pt-4 text-xs font-semibold uppercase tracking-[0.16em]">
+                  Read more
+                  <ArrowUpRight aria-hidden="true" className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
+                </span>
+              </div>
             </a>
           </Reveal>
         ))}
       </ul>
-      <Reveal delay={120}>
-        <a
-          href="#contact"
-          className="mt-10 inline-block bg-primary px-7 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-primary-foreground transition-colors hover:bg-accent"
-        >
-          All services
-        </a>
-      </Reveal>
     </section>
   );
 }
