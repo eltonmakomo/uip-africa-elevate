@@ -598,37 +598,67 @@ export function Projects() {
 
 export function Insights() {
   return (
-    <section id="insights" className="shell py-24 md:py-32">
-      <SectionHead
-        eyebrow="Insights"
-        title="Notes from the work"
-        copy="What we are seeing on site and at the drawing board, written for the people who commission infrastructure."
-        action={{ label: "All insights", href: "#contact" }}
-      />
-      <div className="mt-14 -mx-5 overflow-x-auto px-5 pb-4 md:-mx-10 md:px-10">
-        <ul className="flex min-w-max gap-6">
-          {insights.map((n) => (
-            <li key={n.title} className="w-72 shrink-0 md:w-80">
-              <a href="#contact" className="group block">
-                <div className="media-zoom">
+    <section id="insights" className="bg-background py-24 md:py-32">
+      <div className="shell">
+        <Reveal className="flex items-end justify-between gap-8 border-b border-border pb-7">
+          <h2 className="font-display text-5xl font-normal leading-none md:text-7xl">Thinking forward.</h2>
+          <a
+            href="#contact"
+            className="group hidden min-w-28 items-center justify-between border-b border-foreground pb-3 text-sm font-semibold sm:flex"
+          >
+            All insights
+            <ArrowUpRight aria-hidden="true" className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
+          </a>
+        </Reveal>
+
+        <ul className="mt-11 grid gap-12 md:grid-cols-3 md:gap-6">
+          {insights.map((n, i) => (
+            <Reveal as="li" key={n.title} delay={i * 80}>
+              <article className="group flex h-full flex-col">
+                <a href="#contact" className="media-zoom block bg-muted">
                   <img
                     src={n.image}
                     alt={n.title}
-                    className="aspect-4/3 w-full object-cover"
+                    className="aspect-3/2 w-full object-cover"
                     loading="lazy"
                   />
+                </a>
+                <p className="mt-5 text-xs text-muted-foreground">{n.tag}</p>
+                <h3 className="mt-4 min-h-20 text-2xl font-normal leading-[1.12] lg:text-[1.7rem]">
+                  {n.title}
+                </h3>
+                <div className="mt-7 flex items-center gap-3 border-t border-border pt-5">
+                  <img
+                    src={n.portrait}
+                    alt={n.author}
+                    className="h-11 w-11 rounded-full object-cover object-top"
+                    loading="lazy"
+                  />
+                  <div className="min-w-0">
+                    <p className="text-sm font-semibold leading-tight">{n.author}</p>
+                    <p className="mt-1 text-xs text-muted-foreground">{n.role}</p>
+                  </div>
                 </div>
-                <p className="eyebrow mt-5">{n.tag}</p>
-                <h3 className="mt-3 text-lg leading-snug">{n.title}</h3>
-                <p className="index-num mt-3 text-xs text-muted-foreground">{n.date} · Read</p>
-              </a>
-            </li>
+                <a
+                  href="#contact"
+                  className="mt-7 flex w-28 items-center justify-between border-b border-transparent pb-2 text-sm transition-colors hover:border-foreground"
+                >
+                  Read insight
+                  <ArrowUpRight aria-hidden="true" className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
+                </a>
+              </article>
+            </Reveal>
           ))}
         </ul>
+
+        <a
+          href="#contact"
+          className="mt-12 flex items-center justify-between border-b border-foreground pb-3 text-sm font-semibold sm:hidden"
+        >
+          All insights
+          <ArrowUpRight aria-hidden="true" className="h-5 w-5" />
+        </a>
       </div>
-      <p className="mt-2 font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-muted-foreground">
-        Drag or scroll →
-      </p>
     </section>
   );
 }
