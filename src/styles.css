@@ -47,12 +47,6 @@
   --color-clay: var(--tile-clay);
   --color-slate-tile: var(--tile-slate);
   --color-sand: var(--tile-sand);
-  --color-service-rust: var(--service-rust);
-  --color-service-teal: var(--service-teal);
-  --color-service-orange: var(--service-orange);
-  --color-service-lime: var(--service-lime);
-  --color-service-gold: var(--service-gold);
-  --color-service-blue: var(--service-blue);
   --color-ink: var(--ink);
   --color-ink-foreground: var(--ink-foreground);
   --color-ink-muted: var(--ink-muted);
@@ -91,12 +85,6 @@
   --tile-clay: oklch(0.788 0.048 68);
   --tile-slate: oklch(0.575 0.033 247);
   --tile-sand: oklch(0.898 0.014 85);
-  --service-rust: oklch(0.55 0.15 42);
-  --service-teal: oklch(0.52 0.1 190);
-  --service-orange: oklch(0.68 0.2 42);
-  --service-lime: oklch(0.82 0.17 112);
-  --service-gold: oklch(0.76 0.15 82);
-  --service-blue: oklch(0.61 0.1 240);
 
   --ink: oklch(0.185 0.006 165);
   --ink-foreground: oklch(0.955 0.005 85);

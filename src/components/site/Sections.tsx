@@ -477,64 +477,49 @@ export function Clients() {
 
 export function Services() {
   const tileStyles = [
-    "bg-service-rust text-foreground lg:col-start-3 lg:row-start-1",
-    "bg-service-teal text-foreground lg:col-start-4 lg:row-start-1",
-    "bg-service-orange text-foreground lg:col-start-2 lg:row-start-2",
-    "bg-service-lime text-foreground lg:col-start-3 lg:row-start-2",
-    "bg-service-gold text-foreground lg:col-start-4 lg:row-start-2",
-    "bg-service-blue text-foreground lg:col-start-2 lg:row-start-3",
+    "bg-sand text-foreground",
+    "bg-ochre text-foreground",
+    "bg-ink text-ink-foreground",
+    "bg-clay text-foreground",
+    "bg-slate-tile text-ink-foreground",
+    "bg-accent text-accent-foreground",
   ];
 
   return (
-    <section id="services" className="bg-background py-20 md:py-28">
-      <div className="shell grid gap-12 lg:grid-cols-4 lg:gap-3">
-        <Reveal className="self-start lg:col-span-2 lg:row-start-1 lg:pr-16">
-          <p className="font-display text-[clamp(3.5rem,7vw,7rem)] font-semibold uppercase leading-[0.82]">
-            Services
-          </p>
-          <p className="mt-7 max-w-xl text-xl leading-[1.18] md:text-2xl">
-            Delivering sustainable engineering, design, and advisory services across Africa,
-            creating local impact at every stage.
-          </p>
-          <a
-            href="#contact"
-            className="mt-9 inline-flex items-center gap-px text-xs font-semibold uppercase"
-          >
-            <span className="bg-primary px-5 py-4 text-primary-foreground">Read more</span>
-            <span className="grid h-11 w-11 place-items-center bg-primary text-primary-foreground">
-              <ArrowRight aria-hidden="true" className="h-4 w-4" />
-            </span>
-          </a>
-        </Reveal>
-
-        <ul className="contents">
+    <section id="services" className="py-24 md:py-32">
+      <div className="shell">
+        <SectionHead
+          eyebrow="Services"
+          title="Engineering that stays connected"
+          copy="From the appointed engineer to the team on site, our services carry one line of technical responsibility through the project."
+          action={{ label: "Explore all services", href: "#contact" }}
+        />
+      </div>
+      <ul className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3">
         {services.map((s, i) => (
           <Reveal
             as="li"
             key={s.name}
             delay={(i % 3) * 60}
-            className={`group min-h-[28rem] lg:min-h-[31rem] ${tileStyles[i] ?? tileStyles[0]}`}
+            className={`group min-h-96 ${tileStyles[i] ?? tileStyles[0]}`}
           >
-            <a href="#contact" className="flex h-full min-h-[28rem] flex-col p-7 lg:min-h-[31rem]">
-              <p className="text-xs font-semibold uppercase leading-none">
-                Service
-                <span className="block">{i + 1}/{services.length}</span>
-              </p>
-              <h3 className="mt-9 max-w-[15ch] text-2xl font-semibold uppercase leading-[1.02]">
-                {s.name}
-              </h3>
-              <div className="mt-auto pt-16">
-                <p className="max-w-sm text-base leading-[1.18]">{s.copy}</p>
-                <span className="mt-7 flex items-center justify-between border-t border-current/60 pt-5 text-xs font-semibold uppercase">
+            <a href="#contact" className="flex h-full min-h-96 flex-col p-8 md:p-10">
+              <div className="flex items-start justify-between gap-6 font-mono text-[0.6875rem] uppercase tracking-[0.18em]">
+                <span>Service</span>
+                <span>{String(i + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")}</span>
+              </div>
+              <div className="mt-auto pt-20">
+                <h3 className="max-w-[14ch] text-3xl uppercase leading-[1.05] md:text-4xl">{s.name}</h3>
+                <p className="mt-6 max-w-sm text-base leading-relaxed opacity-75">{s.copy}</p>
+                <span className="mt-8 flex items-center justify-between border-t border-current/35 pt-4 text-xs font-semibold uppercase tracking-[0.16em]">
                   Read more
-                  <ArrowRight aria-hidden="true" className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  <ArrowUpRight aria-hidden="true" className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
                 </span>
               </div>
             </a>
           </Reveal>
         ))}
-        </ul>
-      </div>
+      </ul>
     </section>
   );
 }
