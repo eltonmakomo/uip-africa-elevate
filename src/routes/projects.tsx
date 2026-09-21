@@ -31,7 +31,6 @@ function ProjectsPage() {
       />
       <Stats />
       <Projects />
-      <PeopleGrid />
     </PageShell>
   );
 }

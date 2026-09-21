@@ -17,7 +17,7 @@ export function PageHero({
       <div className="shell grid gap-8 pb-16 lg:grid-cols-12 lg:items-end md:pb-24">
         <Reveal className="lg:col-span-7">
           <p className="eyebrow">{eyebrow}</p>
-          <h1 className="display-xl mt-5 text-balance">{title}</h1>
+          <h1 className="display-xl mt-5 max-w-[10ch] break-words text-balance">{title}</h1>
         </Reveal>
         <Reveal delay={100} className="lg:col-span-5">
           <p className="max-w-md text-base leading-relaxed text-muted-foreground md:text-lg">
