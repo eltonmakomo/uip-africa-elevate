@@ -330,7 +330,9 @@ export function Why() {
 
 export function Disciplines() {
   const [active, setActive] = useState(0);
-  const current = disciplines[active]!;
+  const current = disciplines[active] ?? disciplines[0];
+
+  if (!current) return null;
 
   return (
     <section id="disciplines" className="bg-ink py-24 text-ink-foreground md:py-32">
@@ -491,6 +493,7 @@ export function Services() {
     "bg-clay text-foreground",
     "bg-slate-tile text-ink-foreground",
     "bg-accent text-accent-foreground",
+    "bg-card text-foreground",
   ];
 
   return (
