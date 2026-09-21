@@ -116,7 +116,7 @@ export function Hero() {
         </div>
       </Reveal>
 
-      <div className="shell pt-px">
+      <div className="shell pt-12 md:pt-16">
         <Reveal delay={140}>
           <div className="grid grid-cols-2 gap-px border border-border bg-border sm:grid-cols-3">
             <div className="bg-background p-6">
