@@ -440,30 +440,37 @@ export function Markets() {
 }
 
 export function Clients() {
+  const marquee = [...clients, ...clients];
   return (
-    <section className="border-y border-border bg-secondary/60 py-20">
-      <div className="shell grid gap-10 lg:grid-cols-12 lg:items-center">
-        <Reveal className="lg:col-span-4">
+    <section className="overflow-hidden border-y border-border bg-secondary/60 py-20">
+      <div className="shell grid gap-8 lg:grid-cols-12 lg:items-start">
+        <Reveal className="lg:col-span-7">
           <p className="eyebrow">Trusted by</p>
-          <h2 className="mt-4 font-display text-2xl">Clients who build at scale</h2>
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+          <h2 className="mt-4 font-display text-3xl md:text-4xl">Clients who build at scale</h2>
+        </Reveal>
+        <Reveal className="lg:col-span-5 lg:pt-10">
+          <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
             Property developers, municipalities, mining houses and energy operators, we engineer the
             infrastructure they depend on.
           </p>
         </Reveal>
-        <ul className="grid grid-cols-2 gap-px border border-border bg-border sm:grid-cols-3 lg:col-span-8">
-          {clients.map((c) => (
-            <li key={c.name} className="bg-card">
+      </div>
+      <div className="marquee mt-12">
+        <ul className="marquee-track">
+          {marquee.map((c, i) => (
+            <li key={`${c.name}-${i}`} className="shrink-0">
               <a
                 href={c.href}
                 target="_blank"
                 rel="noreferrer"
-                className="flex h-24 items-center justify-center px-6 opacity-60 transition-opacity hover:opacity-100"
+                aria-hidden={i >= clients.length}
+                tabIndex={i >= clients.length ? -1 : undefined}
+                className="flex h-20 w-56 items-center justify-center px-8 opacity-70 transition-opacity hover:opacity-100"
               >
                 <img
                   src={c.logo}
                   alt={`${c.name} logo`}
-                  className="max-h-10 w-auto object-contain"
+                  className="max-h-12 w-auto object-contain"
                   loading="lazy"
                 />
               </a>
@@ -474,6 +481,7 @@ export function Clients() {
     </section>
   );
 }
+
 
 export function Services() {
   const tileStyles = [
