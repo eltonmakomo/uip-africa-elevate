@@ -9,6 +9,12 @@ import projectMbare from "@/assets/project-mbare-musika.jpg";
 import projectPomona from "@/assets/project-pomona-flats.jpg";
 import projectDacomb from "@/assets/project-dacomb-cluster.jpg";
 import projectZiminya from "@/assets/project-ziminya-dam.jpg";
+import insightWater from "@/assets/insight-water.jpg";
+import insightStructures from "@/assets/insight-structures.jpg";
+import insightDelivery from "@/assets/insight-delivery.jpg";
+import authorLauretta from "@/assets/author-lauretta-makope.jpg";
+import authorLincoln from "@/assets/author-lincoln-chitura.jpg";
+import authorBrighton from "@/assets/author-brighton-chidzvete.jpg";
 
 export const stats = [
   {
@@ -213,37 +219,28 @@ export const insights = [
     tag: "Water",
     title: "Sizing stormwater for a rainfall pattern that is no longer typical",
     date: "22 July 2026",
-    image: "/images/water-sanitation.webp",
+    image: insightWater,
+    author: "Lauretta Makope",
+    role: "Civil & Water Engineer",
+    portrait: authorLauretta,
   },
   {
     tag: "Structures",
     title: "The certainty a ground investigation buys",
     date: "30 June 2026",
-    image: "/images/project-zvirenje-road.webp",
+    image: insightStructures,
+    author: "Lincoln Chitura",
+    role: "Senior Structural Engineer",
+    portrait: authorLincoln,
   },
   {
     tag: "Delivery",
     title: "Phasing services so capital follows demand",
     date: "11 June 2026",
-    image: "/images/project-northgate-estate.webp",
-  },
-  {
-    tag: "Digital",
-    title: "Drone monitoring changes the conversation, not just the reporting",
-    date: "19 May 2026",
-    image: "/images/harare-skyline.webp",
-  },
-  {
-    tag: "Transport",
-    title: "Designing haul roads for the wet season, not the dry one",
-    date: "28 April 2026",
-    image: "/images/project-sherwood-road.webp",
-  },
-  {
-    tag: "Sustainability",
-    title: "The operating cost of a building is decided in the first fortnight",
-    date: "2 April 2026",
-    image: "/images/services-structural.webp",
+    image: insightDelivery,
+    author: "Brighton Chidzvete",
+    role: "Project Manager, Pr. Eng.",
+    portrait: authorBrighton,
   },
 ];
 
