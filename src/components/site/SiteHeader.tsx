@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
 
 const nav = [
-  { label: "About", href: "#about" },
-  { label: "Disciplines", href: "#disciplines" },
-  { label: "Markets", href: "#markets" },
-  { label: "Services", href: "#services" },
-  { label: "Projects", href: "#projects" },
-  { label: "Insights", href: "#insights" },
-];
+  { label: "About", to: "/about" },
+  { label: "Expertise", to: "/expertise" },
+  { label: "Disciplines", to: "/disciplines" },
+  { label: "Markets", to: "/markets" },
+  { label: "Services", to: "/services" },
+  { label: "Projects", to: "/projects" },
+  { label: "Insights", to: "/insights" },
+] as const;
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -27,33 +29,34 @@ export function SiteHeader() {
       }`}
     >
       <div className="shell flex h-20 items-center justify-between gap-6">
-        <a href="#top" className="flex items-center" aria-label="UIP Africa Home">
+        <Link to="/" className="flex items-center" aria-label="UIP Africa Home">
           <img
             src="/uip-logo.png"
             alt="UIP Africa - Urban Infrastructure Projects Africa"
             className="h-10 sm:h-12 w-auto object-contain"
           />
-        </a>
+        </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-7 lg:flex">
           {nav.map((n) => (
-            <a
-              key={n.href}
-              href={n.href}
+            <Link
+              key={n.to}
+              to={n.to}
+              activeProps={{ className: "text-foreground" }}
               className="link-underline text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
             >
               {n.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         <div className="flex items-center gap-3">
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="hidden items-center gap-2 bg-primary px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-primary-foreground transition-colors hover:bg-accent sm:inline-flex"
           >
             Talk to an engineer
-          </a>
+          </Link>
           <button
             type="button"
             aria-label="Toggle menu"
@@ -77,22 +80,22 @@ export function SiteHeader() {
         <div className="border-t border-border/70 glass-header shadow-lg lg:hidden">
           <nav className="shell flex flex-col py-4">
             {nav.map((n) => (
-              <a
-                key={n.href}
-                href={n.href}
+              <Link
+                key={n.to}
+                to={n.to}
                 onClick={() => setOpen(false)}
                 className="border-b border-border/50 py-4 font-display text-2xl transition-colors hover:text-accent"
               >
                 {n.label}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               onClick={() => setOpen(false)}
               className="mt-5 bg-primary px-5 py-4 text-center text-xs font-semibold uppercase tracking-[0.16em] text-primary-foreground transition-colors hover:bg-accent"
             >
               Talk to an engineer
-            </a>
+            </Link>
           </nav>
         </div>
       ) : null}
