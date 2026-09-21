@@ -18,7 +18,7 @@ import {
 
 const title = "UIP Africa | Civil & Structural Engineering Consultancy, Harare";
 const description =
-  "Harare-based civil and structural engineering consultancy: transport, structures, water and project delivery across Zimbabwe. 25+ years, 120+ projects, ISO 9001:2015 certified.";
+  "Harare-based civil and structural engineering consultancy: transport, structures, water and project delivery across Zimbabwe. 10+ years, 120+ projects, ISO 9001:2015 certified.";
 
 export const Route = createFileRoute("/")({
   head: () => ({

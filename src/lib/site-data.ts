@@ -12,9 +12,9 @@ import projectZiminya from "@/assets/project-ziminya-dam.jpg";
 
 export const stats = [
   {
-    value: "25+",
+    value: "10+",
     label: "Years of experience",
-    copy: "A quarter-century of civil and structural engineering across Zimbabwe and the region.",
+    copy: "Over a decade of civil and structural engineering across Zimbabwe and the region.",
   },
   {
     value: "120+",
@@ -30,7 +30,7 @@ export const stats = [
 
 export const differentiators = [
   {
-    title: "25+ years, 120+ projects",
+    title: "10+ years, 120+ projects",
     copy: "A track record built on delivery, across residential, transport, water and energy infrastructure.",
   },
   {
