@@ -15,6 +15,12 @@ import insightDelivery from "@/assets/insight-delivery.jpg";
 import authorLauretta from "@/assets/author-lauretta-makope.jpg";
 import authorLincoln from "@/assets/author-lincoln-chitura.jpg";
 import authorBrighton from "@/assets/author-brighton-chidzvete.jpg";
+import expertiseInterchange from "@/assets/hero-interchange.jpg";
+import expertiseBridge from "@/assets/project-ziminya-dam.jpg";
+import expertiseStructure from "@/assets/project-dacomb-cluster.jpg";
+import expertiseWater from "@/assets/insight-water.jpg";
+import expertiseEnergy from "@/assets/market-energy.jpg";
+import expertiseDigital from "@/assets/market-transport.jpg";
 
 export const stats = [
   {
@@ -260,5 +266,119 @@ export const appointments = [
   {
     name: "Advisory drafting & CAD detailing",
     copy: "CAD drafting, advisory detailing, reinforcement schedules and revision-controlled civil and structural drawings for Zimbabwe projects.",
+  },
+];
+
+export const expertise = [
+  {
+    slug: "transport",
+    eyebrow: "Transportation",
+    title: "From red earth to open road.",
+    intro:
+      "An interchange is built in a strict order. Every stage below has to be closed out before the next one can start, and the last stage is the only one the public ever sees.",
+    image: expertiseInterchange,
+    imageAlt:
+      "Aerial view of a multi-level highway interchange with curved ramps and merge lanes",
+    caption: "Construction timeline · Entries, exits and connections",
+    stages: [
+      { name: "Site clearing", note: "Set-out, clear, grade" },
+      { name: "Reinforcement", note: "Rebar cages and pile caps" },
+      { name: "Concrete & stone", note: "Piers, walls and drainage" },
+      { name: "Decks & base", note: "Girders, slabs and pavement" },
+      { name: "Surfacing", note: "Asphalt, barriers and markings" },
+      { name: "Open road", note: "Entries, exits and connections" },
+    ],
+  },
+  {
+    slug: "bridges",
+    eyebrow: "Bridge delivery",
+    title: "Watch the crossing become real.",
+    intro:
+      "A river crossing moves from earthworks in a rocky valley to a deck carrying traffic. The sequence is the design: each stage is surveyed, checked and signed before the next load is placed on it.",
+    image: expertiseBridge,
+    imageAlt: "Bridge foundations and abutment earthworks in a river valley",
+    caption: "Bridge delivery sequence · Below ground to open crossing",
+    stages: [
+      { name: "Foundations", note: "Below ground" },
+      { name: "Piers & abutments", note: "Rising from the valley floor" },
+      { name: "Girders", note: "Spans landed and seated" },
+      { name: "Deck", note: "Slab, parapets and surfacing" },
+      { name: "Crossing complete", note: "Approaches tied in and opened" },
+    ],
+  },
+  {
+    slug: "structures",
+    eyebrow: "Structural engineering",
+    title: "Watch the structure rise.",
+    intro:
+      "The structural grid is set underground long before a floor plate is visible. From there the building rises one controlled level at a time, exactly as it was detailed.",
+    image: expertiseStructure,
+    imageAlt: "Reinforced foundations and ground beams for a new building",
+    caption: "UIP Africa building · Ground plane to complete frame",
+    stages: [
+      { name: "Foundations", note: "Reinforced bases, ground beams and the core" },
+      { name: "Level one", note: "First suspended slab and columns" },
+      { name: "Level two", note: "Frame repeats, services coordinated" },
+      { name: "Level three", note: "Stability walls and stair cores complete" },
+      { name: "Level four", note: "Roof plate and parapets cast" },
+      { name: "Complete", note: "Frame handed over for finishes" },
+    ],
+  },
+  {
+    slug: "water",
+    eyebrow: "Water & sanitation",
+    title: "From river to residence. And safely back again.",
+    intro:
+      "Water supply and sanitation are one system read in two directions: a potable path from the river to the tap, and a separate sewer path that treats what comes back before it reaches the river again.",
+    image: expertiseWater,
+    imageAlt: "Dam and bulk water infrastructure supplying a growing settlement",
+    caption:
+      "Solid line: raw and potable water · Dashed line: sewer and treated return",
+    stages: [
+      { name: "Greenfield baseline", note: "Undisturbed ground, surveyed corridor" },
+      { name: "River intake", note: "Capture" },
+      { name: "Raw-water pumping", note: "Lift" },
+      { name: "Drinking-water treatment", note: "Treat" },
+      { name: "Storage & pressure", note: "Store" },
+      { name: "Supply to homes", note: "Deliver" },
+      { name: "Sewer network", note: "Collect" },
+      { name: "Treat & safely return", note: "Return" },
+    ],
+  },
+  {
+    slug: "energy",
+    eyebrow: "Energy & power",
+    title: "From groundworks to grid.",
+    intro:
+      "A solar plant is a civil project first. Access, drainage and survey control decide whether the arrays can be installed on programme, and whether the site survives its first wet season.",
+    image: expertiseEnergy,
+    imageAlt: "Prepared solar site with access roads and surveyed array rows",
+    caption: "UIP Africa · Solar delivery sequence",
+    stages: [
+      { name: "Ground & access", note: "Survey control, clearing, drainage, all-weather roads" },
+      { name: "Driven piles", note: "Foundation piles set to line and level" },
+      { name: "Mounting rails", note: "Torque tubes and tracker structure" },
+      { name: "Panels", note: "Modules installed and strung" },
+      { name: "Substation & grid", note: "Switchyard civils and connection" },
+      { name: "Complete", note: "Energised and handed over" },
+    ],
+  },
+  {
+    slug: "digital-delivery",
+    eyebrow: "Digital delivery · AI-MC",
+    title: "Build. Scan. Update. Decide.",
+    intro:
+      "Automated and Intelligent Machine-Aided Construction keeps the approved design, the machine on site and the progress report in one loop, so decisions are made against what has actually been built.",
+    image: expertiseDigital,
+    imageAlt: "Road construction corridor under machine-controlled earthworks",
+    caption: "Mobile field link · Approved corridor and design surface",
+    stages: [
+      { name: "Load the design", note: "Model" },
+      { name: "Guide the grader", note: "Control" },
+      { name: "Scan as work moves", note: "Scan" },
+      { name: "Update progress", note: "Sync" },
+      { name: "Read live status", note: "Decide" },
+      { name: "Close the loop", note: "Deliver" },
+    ],
   },
 ];
