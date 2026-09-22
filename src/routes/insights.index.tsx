@@ -28,7 +28,7 @@ function InsightsPage() {
         title="Thinking forward."
         copy="Engineering perspectives on the decisions that shape cost, programme and long-term infrastructure performance."
       />
-      <Insights />
+      <Insights showHead={false} />
     </PageShell>
   );
 }

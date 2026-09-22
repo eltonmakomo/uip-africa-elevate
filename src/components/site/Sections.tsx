@@ -638,6 +638,7 @@ export function Insights({ showHead = true }: { showHead?: boolean } = {}) {
             <ArrowUpRight aria-hidden="true" className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
           </a>
         </Reveal>
+        )}
 
         <ul className="mt-11 grid gap-12 md:grid-cols-3 md:gap-6">
           {insights.map((n, i) => (
