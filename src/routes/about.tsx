@@ -24,24 +24,24 @@ function AboutPage() {
   return (
     <PageShell>
       <PageHero
-        eyebrow="Who we are"
+        eyebrow="About Us"
         title="Innovative solutions for a growing continent."
-        copy="UIP Africa provides high-quality, appropriate, cost-effective and sustainable engineering solutions that satisfy clients and improve the quality of life for communities across Africa."
+        copy="Urban Infrastructure Projects Africa’s core purpose and mission is to provide a full range of high quality innovative, appropriate, cost effective and sustainable engineering solutions that satisfy the needs of its clients and the communities it serves. The company’s management and staff strive to use their expertise to make a meaningful contribution and improve the quality of life for the people of the African continent. Our passion to see a better environment spurs us to design and approach every project with the future in mind. The result of this thrust is that every development we embark on is done so with sustainability and respect for the environment in mind. Firmly founded on a project implementation background with top Local and International Contracting firms, we are intimate of the Infrastructure Development landscape. This footing allows us to add value to any project regardless of size at all project life cycle stages, it also allows us to anticipate and mitigate challenges."
       />
       <About />
       <section className="border-y border-border bg-background py-20 md:py-28">
         <div className="shell grid gap-px border border-border bg-border lg:grid-cols-3">
           <article className="bg-card p-8 md:p-10">
             <p className="eyebrow">Our vision</p>
-            <h2 className="mt-6 text-3xl leading-tight">Africa’s infrastructure development consultancy of choice.</h2>
+            <h2 className="mt-6 text-3xl leading-tight">To be Africa’s leading Infrastructure development consultancy of choice.</h2>
           </article>
           <article className="bg-card p-8 md:p-10">
             <p className="eyebrow">Our mission</p>
-            <p className="mt-6 text-lg leading-relaxed">To provide unique and sustainable solutions for clients at every stage of a project lifecycle, opening opportunities through creative thinking and optimum service delivery.</p>
+            <p className="mt-6 text-lg leading-relaxed">To provide unique and sustainable solutions for our clients at all stages of a project life cycle, whilst opening opportunities through creative thinking and optimum delivery of services.</p>
           </article>
           <article className="bg-card p-8 md:p-10">
-            <p className="eyebrow">Our scope</p>
-            <p className="mt-6 text-lg leading-relaxed">From 39 Hillside Road in Harare, UIP Africa provides civil and structural engineering design, infrastructure consultancy and CAD drafting services across Zimbabwe.</p>
+            <p className="eyebrow">Scope</p>
+            <p className="mt-6 text-lg leading-relaxed">Located at 39 Hillside Road Harare, Urban Infrastructure Projects Africa (UIPA), is an engineering consultancy , providing civil/structural engineering design and CAD drafting services in Zimbabwe.</p>
           </article>
         </div>
       </section>
