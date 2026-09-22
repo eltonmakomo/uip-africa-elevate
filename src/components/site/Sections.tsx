@@ -137,15 +137,11 @@ export function Hero() {
               </p>
             </div>
             <div className="col-span-2 flex items-center gap-4 bg-background p-6 sm:col-span-1">
-              <img
-                src="/images/badges/iso-9001-2015-light.svg"
-                alt="ISO 9001:2015 certified quality management system badge"
-                className="h-12 w-12 invert"
-              />
+              <span aria-hidden="true" className="index-num text-4xl font-semibold">04</span>
               <p className="text-xs uppercase leading-relaxed tracking-[0.14em] text-muted-foreground">
-                ISO 9001:2015
+                Connected
                 <br />
-                Quality certified
+                disciplines
               </p>
             </div>
           </div>
@@ -159,6 +155,8 @@ export function Stats() {
   const showcaseProjects = [
     {
       ...projects[0],
+      name: projects[0]?.name ?? "WestProp Pomona City Flats",
+      image: projects[0]?.image ?? featuredProject.image,
       location: "Harare, Zimbabwe",
       headline: "A new perspective on urban living.",
       highlight: "352 apartments across 22 blocks",
@@ -167,6 +165,8 @@ export function Stats() {
     },
     {
       ...projects[1],
+      name: projects[1]?.name ?? "Dacomb Drive Cluster Housing Development",
+      image: projects[1]?.image ?? featuredProject.image,
       location: "Harare, Zimbabwe",
       headline: "Considered living, engineered in detail.",
       highlight: "36 homes across 4.7 hectares",
@@ -175,6 +175,8 @@ export function Stats() {
     },
     {
       ...projects[2],
+      name: projects[2]?.name ?? "Ziminya Dam Water Security & Irrigation Project",
+      image: projects[2]?.image ?? featuredProject.image,
       location: "Nkayi, Zimbabwe",
       headline: "Water security built for generations.",
       highlight: "98 million cubic metres of storage",
@@ -565,7 +567,8 @@ export function Projects({ limit }: { limit?: number } = {}) {
                 {featuredProject.copy}
               </p>
               <Link
-                to="/projects"
+                 to="/projects/$slug"
+                 params={{ slug: "mbare-musika-temporary-traders-market-redevelopment" }}
                 className="link-underline mt-8 self-start font-mono text-xs uppercase tracking-[0.2em] text-accent"
               >
                 View case study →
@@ -595,7 +598,7 @@ export function Projects({ limit }: { limit?: number } = {}) {
                   </p>
                   <Link
                     to="/projects/$slug"
-                    params={{ slug: toSlug(p.name) }}
+                     params={{ slug: p.slug }}
                     className="link-underline mt-6 self-start font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-accent"
                   >
                     View project →
