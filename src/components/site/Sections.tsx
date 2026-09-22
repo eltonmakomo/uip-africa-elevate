@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "./Reveal";
@@ -39,12 +40,12 @@ function SectionHead({
             <p className="max-w-md text-base leading-relaxed text-muted-foreground">{copy}</p>
           ) : null}
           {action ? (
-            <a
-              href={action.href}
+            <Link
+              to={action.href}
               className="link-underline mt-6 inline-block font-mono text-xs uppercase tracking-[0.2em] text-accent"
             >
               {action.label} →
-            </a>
+            </Link>
           ) : null}
         </Reveal>
       ) : null}
@@ -73,7 +74,7 @@ export function Hero() {
                 Our projects
               </a>
               <a
-                href="#services"
+                href="/services"
                 className="border border-foreground/20 px-7 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-foreground transition-colors hover:border-foreground"
               >
                 What we do
@@ -270,7 +271,7 @@ export function About() {
             actually exists on the ground.
           </p>
           <a
-            href="#contact"
+            href="/about"
             className="link-underline mt-8 inline-block font-mono text-xs uppercase tracking-[0.2em] text-accent"
           >
             Our story →
@@ -393,7 +394,7 @@ export function Disciplines() {
               ))}
             </ul>
             <a
-              href="#services"
+              href="/services"
               className="link-underline mt-9 inline-block font-mono text-xs uppercase tracking-[0.2em] text-ink-accent"
             >
               View related services →
@@ -514,7 +515,7 @@ export function Services() {
             delay={(i % 3) * 60}
             className={`group min-h-[30rem] ${tileStyles[i] ?? tileStyles[0]}`}
           >
-            <a href="#contact" className="flex h-full min-h-[30rem] flex-col p-8 md:p-10">
+            <a href="/contact" className="flex h-full min-h-[30rem] flex-col p-8 md:p-10">
               <h3 className="max-w-[14ch] text-3xl uppercase leading-[1.05] md:text-4xl">{s.name}</h3>
               <div className="mt-auto">
                 <p className="max-w-sm text-base leading-relaxed opacity-75">{s.copy}</p>
@@ -560,7 +561,7 @@ export function Projects({ limit }: { limit?: number } = {}) {
                 {featuredProject.copy}
               </p>
               <a
-                href="#contact"
+                href="/contact"
                 className="link-underline mt-8 self-start font-mono text-xs uppercase tracking-[0.2em] text-accent"
               >
                 View case study →
@@ -589,7 +590,7 @@ export function Projects({ limit }: { limit?: number } = {}) {
                     {p.copy}
                   </p>
                   <a
-                    href="#contact"
+                    href="/contact"
                     className="link-underline mt-6 self-start font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-accent"
                   >
                     View project →
@@ -611,7 +612,7 @@ export function Insights() {
         <Reveal className="flex items-end justify-between gap-8 border-b border-border pb-7">
           <h2 className="font-display text-5xl font-normal leading-none md:text-7xl">Thinking forward.</h2>
           <a
-            href="#contact"
+            href="/insights"
             className="group hidden min-w-28 items-center justify-between border-b border-foreground pb-3 text-sm font-semibold sm:flex"
           >
             All insights
@@ -623,7 +624,7 @@ export function Insights() {
           {insights.map((n, i) => (
             <Reveal as="li" key={n.title} delay={i * 80}>
               <article className="group flex h-full flex-col">
-                <a href="#contact" className="media-zoom block bg-muted">
+                <a href="/insights" className="media-zoom block bg-muted">
                   <img
                     src={n.image}
                     alt={n.title}
@@ -648,7 +649,7 @@ export function Insights() {
                   </div>
                 </div>
                 <a
-                  href="#contact"
+                  href="/insights"
                   className="mt-7 flex w-28 items-center justify-between border-b border-transparent pb-2 text-sm transition-colors hover:border-foreground"
                 >
                   Read insight
@@ -660,7 +661,7 @@ export function Insights() {
         </ul>
 
         <a
-          href="#contact"
+          href="/insights"
           className="mt-12 flex items-center justify-between border-b border-foreground pb-3 text-sm font-semibold sm:hidden"
         >
           All insights
@@ -686,7 +687,7 @@ export function Appointments() {
               <h3 className="text-xl leading-snug">{a.name}</h3>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{a.copy}</p>
               <a
-                href="#contact"
+                href="/contact"
                 className="link-underline mt-6 inline-block font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-accent"
               >
                 Learn more →
