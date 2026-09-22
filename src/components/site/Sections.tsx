@@ -507,7 +507,7 @@ export function Services() {
           eyebrow="Services"
           title="Engineering that stays connected"
           copy="From the appointed engineer to the team on site, our services carry one line of technical responsibility through the project."
-          action={{ label: "Explore all services", href: "#contact" }}
+          action={{ label: "Explore all services", href: "/services" }}
         />
       </div>
       <ul className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3">
@@ -563,12 +563,12 @@ export function Projects({ limit }: { limit?: number } = {}) {
               <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
                 {featuredProject.copy}
               </p>
-                <Link
-                  to="/projects"
+              <Link
+                to="/projects"
                 className="link-underline mt-8 self-start font-mono text-xs uppercase tracking-[0.2em] text-accent"
               >
                 View case study →
-              </a>
+              </Link>
             </div>
           </article>
         </Reveal>
@@ -592,12 +592,13 @@ export function Projects({ limit }: { limit?: number } = {}) {
                   <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
                     {p.copy}
                   </p>
-                  <a
-                    href="/contact"
+                  <Link
+                    to="/projects/$slug"
+                    params={{ slug: toSlug(p.name) }}
                     className="link-underline mt-6 self-start font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-accent"
                   >
                     View project →
-                  </a>
+                  </Link>
                 </div>
               </article>
             </Reveal>
@@ -658,7 +659,7 @@ export function Insights() {
                 >
                   Read insight
                   <ArrowUpRight aria-hidden="true" className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
-                </a>
+                </Link>
               </article>
             </Reveal>
           ))}
@@ -690,13 +691,12 @@ export function Appointments() {
             <Reveal as="li" key={a.name} delay={i * 70} className="bg-card p-8">
               <h3 className="text-xl leading-snug">{a.name}</h3>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{a.copy}</p>
-                  <Link
-                    to="/projects/$slug"
-                    params={{ slug: toSlug(p.name) }}
+              <Link
+                to="/contact"
                 className="link-underline mt-6 inline-block font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-accent"
               >
                 Learn more →
-                  </Link>
+              </Link>
             </Reveal>
           ))}
         </ul>
@@ -728,13 +728,13 @@ export function CallToAction() {
               className="bg-ink-foreground px-7 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-ink transition-colors hover:bg-ink-accent"
             >
               Talk to an engineer
-                </Link>
+            </a>
             <a
               href="mailto:info@uipafrica.com"
               className="link-underline font-mono text-sm text-ink-accent"
             >
               info@uipafrica.com
-                </Link>
+            </a>
           </div>
         </Reveal>
       </div>
