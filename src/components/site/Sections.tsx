@@ -531,7 +531,8 @@ export function Services() {
   );
 }
 
-export function Projects() {
+export function Projects({ limit = 3 }: { limit?: number }) {
+  const featured = limit >= 1 ? projects.slice(0, limit) : projects;
   return (
     <section id="projects" className="bg-secondary/60 py-24 md:py-32">
       <div className="shell">
@@ -539,7 +540,7 @@ export function Projects() {
           eyebrow="Projects"
           title="Work that inspires and endures"
           copy="Sound engineering, sustainable practice and careful detailing, every project stands as proof of how we work."
-          action={{ label: "All projects", href: "/projects" }}
+          action={limit < projects.length ? { label: "All projects", href: "/projects" } : undefined}
         />
 
         <Reveal className="mt-16">
