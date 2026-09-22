@@ -263,7 +263,7 @@ export function Stats() {
 
 export function About() {
   return (
-    <section id="about" className="bg-secondary/60 py-24 md:py-32">
+    <section id="about" className="bg-secondary/60 py-16 md:py-24">
       <div className="shell grid gap-14 lg:grid-cols-12 lg:items-center">
         <Reveal className="lg:col-span-6">
           <p className="eyebrow">Who we are</p>
@@ -313,14 +313,14 @@ export function About() {
 
 export function Why() {
   return (
-    <section className="shell py-24 md:py-32">
+    <section className="shell py-16 md:py-24">
       <SectionHead
         eyebrow="Why partner with us"
         title="Designed for today. Built for African conditions."
         copy="Firmly founded on a project implementation background with top local and international contracting firms, we anticipate the challenges between design intent and a completed asset, and we design them out before they cost time on site."
         action={{ label: "Talk to an engineer", href: "#contact" }}
       />
-      <ul className="mt-16 grid gap-px border border-border bg-border md:grid-cols-2">
+      <ul className="mt-10 grid gap-px border border-border md:mt-12 md:grid-cols-2">
         {differentiators.map((d, i) => (
           <Reveal
             as="li"
@@ -346,7 +346,7 @@ export function Disciplines() {
   if (!current) return null;
 
   return (
-    <section id="disciplines" className="bg-ink py-24 text-ink-foreground md:py-32">
+    <section id="disciplines" className="bg-ink py-16 text-ink-foreground md:py-24">
       <div className="shell">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
@@ -418,13 +418,13 @@ export function Disciplines() {
 
 export function Markets() {
   return (
-    <section id="markets" className="shell py-24 md:py-32">
+    <section id="markets" className="shell py-16 md:py-24">
       <SectionHead
         eyebrow="Markets"
         title="Client industries"
         copy="Each backed by work we have actually delivered, not a list of markets we hope to break into."
       />
-      <ul className="mt-16 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="mt-10 grid gap-px border border-border bg-border md:mt-12 sm:grid-cols-2 lg:grid-cols-3">
         {markets.map((m, i) => (
           <Reveal as="li" key={m.name} delay={(i % 3) * 80} className="group bg-card">
             <article className="flex h-full flex-col">
@@ -451,7 +451,7 @@ export function Markets() {
 export function Clients() {
   const marquee = [...clients, ...clients];
   return (
-    <section className="overflow-hidden border-y border-border bg-secondary/60 py-20">
+    <section className="overflow-hidden border-y border-border bg-secondary/60 py-16 md:py-20">
       <div className="shell grid gap-8 lg:grid-cols-12 lg:items-start">
         <Reveal className="lg:col-span-7">
           <p className="eyebrow">Trusted by</p>
@@ -504,7 +504,7 @@ export function Services({ showHead = true }: { showHead?: boolean } = {}) {
   ];
 
   return (
-    <section id="services" className="pb-24 pt-10 md:pb-32 md:pt-14">
+    <section id="services" className="pb-16 pt-8 md:pb-24 md:pt-10">
       {showHead && (
         <div className="shell">
           <SectionHead
@@ -515,7 +515,7 @@ export function Services({ showHead = true }: { showHead?: boolean } = {}) {
           />
         </div>
       )}
-      <ul className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="mt-10 grid md:mt-12 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((s, i) => (
           <Reveal
             as="li"
@@ -543,7 +543,7 @@ export function Services({ showHead = true }: { showHead?: boolean } = {}) {
 export function Projects({ limit }: { limit?: number } = {}) {
   const featured = limit ? projects.slice(0, limit) : projects;
   return (
-    <section id="projects" className="bg-secondary/60 py-24 md:py-32">
+    <section id="projects" className="bg-secondary/60 py-16 md:py-24">
       <div className="shell">
         <SectionHead
           eyebrow="Projects"
@@ -552,7 +552,7 @@ export function Projects({ limit }: { limit?: number } = {}) {
           {...(limit ? { action: { label: "All projects", href: "/projects" } } : {})}
         />
 
-        <Reveal className="mt-16">
+        <Reveal className="mt-10 md:mt-12">
           <article className="grid gap-px border border-border bg-border lg:grid-cols-12">
             <Link to="/projects/$slug" params={{ slug: featuredProject.slug }} className="media-zoom bg-card lg:col-span-7">
               <img
@@ -621,7 +621,7 @@ export function Projects({ limit }: { limit?: number } = {}) {
 
 export function Insights({ showHead = true }: { showHead?: boolean } = {}) {
   return (
-    <section id="insights" className="bg-background py-24 md:py-32">
+    <section id="insights" className="bg-background py-16 md:py-24">
       <div className="shell">
         {showHead && (
           <Reveal className="flex items-end justify-between gap-8 border-b border-border pb-7">
@@ -691,7 +691,7 @@ export function Insights({ showHead = true }: { showHead?: boolean } = {}) {
 
 export function Appointments() {
   return (
-    <section className="border-t border-border bg-secondary/60 py-24 md:py-32">
+    <section className="border-t border-border bg-secondary/60 py-16 md:py-24">
       <div className="shell">
         <SectionHead
           eyebrow="Find what you need"
@@ -719,7 +719,7 @@ export function Appointments() {
 
 export function CallToAction() {
   return (
-    <section id="contact" className="bg-ink py-24 text-ink-foreground md:py-32">
+    <section id="contact" className="bg-ink py-16 text-ink-foreground md:py-24">
       <div className="shell grid gap-12 lg:grid-cols-12 lg:items-end">
         <Reveal className="lg:col-span-7">
           <p className="font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-ink-accent">
@@ -764,8 +764,8 @@ export function SiteFooter() {
 
   return (
     <footer className="bg-ink text-ink-foreground">
-      <div className="shell border-t border-ink-border py-16 md:py-24">
-        <div className="grid gap-14 py-16 lg:grid-cols-12">
+      <div className="shell border-t border-ink-border py-12 md:py-16">
+        <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <Link to="/" aria-label="UIP Africa Home" className="inline-block">
               <img src="/uip-logo-white.png?v=2" alt="UIP Africa" className="h-20 w-auto object-contain md:h-24" />

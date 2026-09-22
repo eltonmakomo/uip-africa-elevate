@@ -39,8 +39,8 @@ function ServiceDetail() {
       </figure>
     </Reveal>
 
-    <section className="shell py-20 md:py-28">
-      <div className="grid gap-10 border-b border-border pb-16 lg:grid-cols-12 md:pb-24">
+    <section className="shell py-16 md:py-24">
+      <div className="grid gap-10 border-b border-border pb-12 md:pb-16 lg:grid-cols-12">
         <Reveal className="lg:col-span-4">
           <p className="eyebrow">Overview</p>
         </Reveal>
@@ -49,7 +49,7 @@ function ServiceDetail() {
         </Reveal>
       </div>
 
-      <div className="grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4 md:py-24">
+      <div className="grid gap-10 py-12 md:grid-cols-2 md:py-16 lg:grid-cols-4">
         <DetailList title="What we offer" items={service.offers} />
         <DetailList title="Client benefits" items={service.benefits} />
         <DetailList title="Why UIP Africa" items={service.differentiators} />
@@ -57,7 +57,7 @@ function ServiceDetail() {
       </div>
     </section>
 
-    <section className="border-y border-border bg-secondary/60 py-20 md:py-28">
+    <section className="border-y border-border bg-secondary/60 py-16 md:py-24">
       <div className="shell">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>

@@ -22,7 +22,7 @@ function ProjectDetail() {
   const project = Route.useLoaderData();
   return <PageShell>
     <PageHero eyebrow={project.sector} title={project.name} copy={project.meta} />
-    <section className="shell py-20 md:py-28">
+    <section className="shell py-16 md:py-24">
       <img src={project.image} alt={project.name} className="aspect-16/9 w-full object-cover" />
       <div className="mt-10 grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-7"><p className="text-xl leading-relaxed">{project.copy}</p>{project.details?.length ? <ul className="mt-8 space-y-3 border-t border-border pt-6">{project.details.map((detail) => <li key={detail} className="flex gap-3 text-sm leading-relaxed text-muted-foreground"><span className="mt-2 h-1.5 w-1.5 shrink-0 bg-accent" />{detail}</li>)}</ul> : null}</div>
