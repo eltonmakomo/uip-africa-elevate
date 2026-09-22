@@ -232,6 +232,7 @@ export const clients = [
 export const services = [
   {
     name: "Transportation Engineering",
+    image: marketTransport,
     copy: "Planning, design and optimisation of transport networks grounded in rigorous engineering principles and international best practice.",
     overview:
       "UIP Africa delivers comprehensive planning, design and optimisation of transportation networks. Our approach is grounded in rigorous engineering principles and international best practices to enhance mobility, safety and infrastructure reliability.",
@@ -242,6 +243,7 @@ export const services = [
   },
   {
     name: "Structural Engineering",
+    image: marketCommercial,
     copy: "Design and advisory solutions for reinforced concrete, steel and composite structures that optimise safety, durability and material efficiency.",
     overview:
       "UIP Africa supports clients from conceptual design through construction supervision, ensuring compliance with international and local standards.",
@@ -252,6 +254,7 @@ export const services = [
   },
   {
     name: "Water & Sanitation Engineering",
+    image: marketWater,
     copy: "Reliable water supply, wastewater collection and treatment solutions designed for compliance, stewardship and public health.",
     overview:
       "UIP Africa provides end-to-end Water and Sanitation Engineering services, ensuring sustainable and reliable water supply, wastewater collection and treatment solutions. Our designs prioritise regulatory compliance, environmental stewardship and public health outcomes.",
@@ -262,6 +265,7 @@ export const services = [
   },
   {
     name: "Project Management",
+    image: marketPublic,
     copy: "Structured planning, coordination and control to safeguard quality, cost and timelines across infrastructure delivery.",
     overview:
       "UIP Africa applies project management methodologies aligned with global standards to coordinate stakeholders, manage risks and monitor contractor performance.",
@@ -272,6 +276,7 @@ export const services = [
   },
   {
     name: "Stormwater Management & Design",
+    image: projectZiminya,
     copy: "Engineered drainage solutions that mitigate flooding, erosion and stormwater impacts on infrastructure and communities.",
     overview:
       "UIP Africa’s Stormwater Management service delivers engineered solutions to mitigate flooding, erosion and stormwater impacts on infrastructure and communities. Our designs prioritise regulatory compliance, environmental protection and resilience against extreme weather events.",
@@ -282,6 +287,7 @@ export const services = [
   },
   {
     name: "Infrastructure Asset Management",
+    image: marketEnergy,
     copy: "Structured asset management that helps clients maximise the value, reliability and lifespan of infrastructure assets.",
     overview:
       "UIP Africa provides structured Asset Management services that enable clients to maximise the value, reliability and lifespan of infrastructure assets. Our approach uses industry-standard frameworks and data-driven insight to inform strategic decisions.",
@@ -292,6 +298,7 @@ export const services = [
   },
   {
     name: "Survey & Geomatics",
+    image: marketResidential,
     copy: "High-accuracy spatial data for infrastructure design, construction and land development.",
     overview:
       "Our Survey & Geomatics service provides precise spatial data to support infrastructure design, construction and land development. Using advanced technology and best-practice methods, UIP Africa delivers high-accuracy measurements and actionable insight.",
