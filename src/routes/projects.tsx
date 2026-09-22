@@ -30,7 +30,7 @@ function ProjectsPage() {
         copy="A selection of the residential, water and public infrastructure projects we have carried from first sketch to final certificate."
       />
       <Stats />
-      <Projects limit={projects.length} />
+      <Projects />
     </PageShell>
   );
 }
