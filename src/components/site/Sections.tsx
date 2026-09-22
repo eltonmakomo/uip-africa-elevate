@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "./Reveal";
+import { TypewriterHeading } from "./TypewriterHeading";
 import {
   appointments,
   clients,
@@ -61,10 +62,10 @@ export function Hero() {
     <section id="top" className="relative bg-background pt-20">
       <div className="shell pb-10 pt-20 md:pt-28">
         <Reveal>
-          <h1 className="display-xl max-w-[13ch] text-foreground">
-            Boundless
-            <span className="block">Engineering</span>
-          </h1>
+          <TypewriterHeading
+            text={"Boundless\nEngineering"}
+            className="display-xl max-w-[13ch] whitespace-pre-line text-foreground"
+          />
         </Reveal>
 
         <div className="mt-14 grid gap-10 lg:grid-cols-12 lg:items-end">
