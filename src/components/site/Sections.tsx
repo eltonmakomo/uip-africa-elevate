@@ -628,16 +628,16 @@ export function Insights({ showHead = true }: { showHead?: boolean } = {}) {
     <section id="insights" className="bg-background py-24 md:py-32">
       <div className="shell">
         {showHead && (
-        <Reveal className="flex items-end justify-between gap-8 border-b border-border pb-7">
-          <h2 className="font-display text-5xl font-normal leading-none md:text-7xl">Thinking forward.</h2>
-          <a
-            href="/insights"
-            className="group hidden min-w-28 items-center justify-between border-b border-foreground pb-3 text-sm font-semibold sm:flex"
-          >
-            All insights
-            <ArrowUpRight aria-hidden="true" className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
-          </a>
-        </Reveal>
+          <Reveal className="flex items-end justify-between gap-8 border-b border-border pb-7">
+            <h2 className="font-display text-5xl font-normal leading-none md:text-7xl">Thinking forward.</h2>
+            <a
+              href="/insights"
+              className="group hidden min-w-28 items-center justify-between border-b border-foreground pb-3 text-sm font-semibold sm:flex"
+            >
+              All insights
+              <ArrowUpRight aria-hidden="true" className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
+            </a>
+          </Reveal>
         )}
 
         <ul className="mt-11 grid gap-12 md:grid-cols-3 md:gap-6">
