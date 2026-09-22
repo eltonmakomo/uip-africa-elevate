@@ -531,8 +531,8 @@ export function Services() {
   );
 }
 
-export function Projects({ limit = 3 }: { limit?: number }) {
-  const featured = limit >= 1 ? projects.slice(0, limit) : projects;
+export function Projects({ limit }: { limit?: number } = {}) {
+  const featured = limit ? projects.slice(0, limit) : projects;
   return (
     <section id="projects" className="bg-secondary/60 py-24 md:py-32">
       <div className="shell">
