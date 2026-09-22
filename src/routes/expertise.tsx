@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PageHero, PageShell } from "@/components/site/PageShell";
+import { PageShell } from "@/components/site/PageShell";
 import { ExpertiseSections } from "@/components/site/Expertise";
 
 const title = "Expertise | How UIP Africa builds — sequence by sequence";
@@ -23,11 +23,6 @@ export const Route = createFileRoute("/expertise")({
 function ExpertisePage() {
   return (
     <PageShell>
-      <PageHero
-        eyebrow="Expertise"
-        title="How the work actually gets built."
-        copy="Every discipline we practise has an order to it. These six sequences show what happens between the approved design and the asset in use."
-      />
       <ExpertiseSections />
     </PageShell>
   );

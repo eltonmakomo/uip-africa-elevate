@@ -1,16 +1,18 @@
-import { useState } from "react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Pause, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "./Reveal";
 import { expertise } from "@/lib/site-data";
 
+const STAGE_DURATION = 8;
+
 export function ExpertiseSections() {
   return (
-    <>
+    <div className="bg-background">
       {expertise.map((block, index) => (
         <ExpertiseBlock key={block.slug} block={block} index={index} />
       ))}
-    </>
+    </div>
   );
 }
 
@@ -20,163 +22,157 @@ type ExpertiseBlockProps = {
 };
 
 function ExpertiseBlock({ block, index }: ExpertiseBlockProps) {
+  const sectionRef = useRef<HTMLElement>(null);
   const [activeStage, setActiveStage] = useState(0);
-  const dark = index % 2 === 1;
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
+  const [elapsed, setElapsed] = useState(0);
   const currentStage = block.stages[activeStage] ?? block.stages[0];
+
+  useEffect(() => {
+    const node = sectionRef.current;
+    if (!node) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(Boolean(entry?.isIntersecting)),
+      { threshold: 0.35 },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isPlaying || !isVisible) return;
+    const timer = window.setInterval(() => {
+      setElapsed((current) => {
+        if (current >= STAGE_DURATION - 1) {
+          setActiveStage((stage) => (stage + 1) % block.stages.length);
+          return 0;
+        }
+        return current + 1;
+      });
+    }, 1000);
+    return () => window.clearInterval(timer);
+  }, [block.stages.length, isPlaying, isVisible]);
 
   if (!currentStage) return null;
 
-  const moveStage = (direction: number) => {
-    setActiveStage((current) => (current + direction + block.stages.length) % block.stages.length);
+  const selectStage = (stage: number) => {
+    setActiveStage(stage);
+    setElapsed(0);
   };
 
   return (
     <section
+      ref={sectionRef}
       id={block.slug}
-      className={
-        dark
-          ? "bg-ink py-24 text-ink-foreground md:py-32"
-          : "border-t border-border bg-background py-24 md:py-32"
-      }
+      className={`border-border bg-background pb-24 pt-20 md:pb-32 md:pt-28 ${index > 0 ? "border-t" : "pt-36 md:pt-44"}`}
     >
-      <div className="shell grid gap-12 lg:grid-cols-12 lg:items-start">
-        <Reveal className="lg:col-span-5 lg:sticky lg:top-28">
-          <p className={`eyebrow ${dark ? "text-ink-accent" : "text-accent"}`}>
-            {String(index + 1).padStart(2, "0")} · {block.eyebrow}
-          </p>
-          <h2 className="display-lg mt-5 text-balance">{block.title}</h2>
-          <p
-            className={`mt-7 max-w-xl text-base leading-relaxed ${
-              dark ? "text-ink-muted" : "text-muted-foreground"
-            }`}
-          >
-            {block.intro}
-          </p>
-
-          <div className="mt-10 flex items-center gap-4">
-            <Button
-              type="button"
-              variant="outline"
-              size="icon"
-              aria-label="Previous stage"
-              onClick={() => moveStage(-1)}
-              className={`h-12 w-12 rounded-full shadow-none ${
-                dark
-                  ? "border-ink-border bg-transparent text-ink-foreground hover:bg-ink-foreground hover:text-ink"
-                  : "border-border bg-background text-foreground hover:bg-secondary"
-              }`}
-            >
-              <ArrowLeft aria-hidden="true" className="h-5 w-5" />
-            </Button>
-            <p className="index-num text-sm">
-              {String(activeStage + 1).padStart(2, "0")} / {String(block.stages.length).padStart(2, "0")}
+      <div className="shell">
+        <div className="grid gap-8 pb-12 md:pb-16 lg:grid-cols-12 lg:items-start">
+          <Reveal className="lg:col-span-8">
+            <p className="eyebrow">{String(index + 1).padStart(2, "0")} · {block.eyebrow}</p>
+            <h2 className="mt-5 max-w-[10ch] text-balance font-display text-5xl font-semibold leading-[0.92] md:text-7xl lg:text-[5.75rem]">
+              {block.title}
+            </h2>
+          </Reveal>
+          <Reveal delay={100} className="lg:col-span-4 lg:pt-10">
+            <p className="max-w-sm text-base leading-relaxed text-muted-foreground md:text-lg">
+              {block.intro}
             </p>
-            <Button
-              type="button"
-              variant="outline"
-              size="icon"
-              aria-label="Next stage"
-              onClick={() => moveStage(1)}
-              className={`h-12 w-12 rounded-full shadow-none ${
-                dark
-                  ? "border-ink-border bg-transparent text-ink-foreground hover:bg-ink-foreground hover:text-ink"
-                  : "border-border bg-background text-foreground hover:bg-secondary"
-              }`}
-            >
-              <ArrowRight aria-hidden="true" className="h-5 w-5" />
-            </Button>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
 
-        <Reveal delay={120} className="lg:col-span-7">
+        <Reveal delay={150}>
+          <div className="h-px bg-accent" />
           <figure className="relative overflow-hidden bg-muted">
-            <div className="relative aspect-16/10">
-              {block.stages.map((stage, i) => (
+            <div className="relative aspect-[4/3] md:aspect-[16/9] lg:aspect-[16/8.9]">
+              {block.stages.map((stage, stageIndex) => (
                 <img
                   key={stage.image}
                   src={stage.image}
-                  alt={i === activeStage ? `${block.imageAlt}: ${stage.name}` : ""}
-                  aria-hidden={i !== activeStage}
-                  className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ease-out ${
-                    i === activeStage ? "scale-100 opacity-100" : "pointer-events-none scale-[1.015] opacity-0"
+                  alt={stageIndex === activeStage ? `${block.imageAlt}: ${stage.name}` : ""}
+                  aria-hidden={stageIndex !== activeStage}
+                  className={`absolute inset-0 h-full w-full object-cover transition-[opacity,transform] duration-700 ease-out ${
+                    stageIndex === activeStage
+                      ? "scale-100 opacity-100"
+                      : "pointer-events-none scale-[1.015] opacity-0"
                   }`}
-                  loading="lazy"
+                  loading={index === 0 ? "eager" : "lazy"}
                 />
               ))}
+
+              <div className="absolute inset-x-0 top-0 flex items-center justify-between p-4 text-ink-foreground md:p-7">
+                <p className="font-mono text-[0.625rem] uppercase tracking-[0.12em] drop-shadow-md">
+                  Construction film&nbsp;&nbsp; {String(elapsed).padStart(2, "0")}:00 / {STAGE_DURATION.toString().padStart(2, "0")}:00
+                </p>
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => setIsPlaying((playing) => !playing)}
+                  aria-label={isPlaying ? "Pause film" : "Play film"}
+                  className="h-10 rounded-none border-ink-muted bg-ink/70 px-3 text-xs text-ink-foreground backdrop-blur-sm hover:bg-ink hover:text-ink-foreground"
+                >
+                  {isPlaying ? <Pause className="h-3.5 w-3.5" aria-hidden="true" /> : <Play className="h-3.5 w-3.5" aria-hidden="true" />}
+                  <span className="hidden sm:inline">{isPlaying ? "Pause film" : "Play film"}</span>
+                </Button>
+              </div>
+
+              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/90 via-ink/45 to-transparent px-5 pb-6 pt-24 text-ink-foreground md:px-8 md:pb-9 md:pt-36">
+                <p className="font-mono text-[0.625rem] uppercase tracking-[0.14em] text-ink-accent">
+                  Stage {String(activeStage + 1).padStart(2, "0")} / {String(block.stages.length).padStart(2, "0")}
+                </p>
+                <h3 className="mt-2 text-3xl font-semibold leading-none md:text-5xl">{currentStage.name}</h3>
+                <p className="mt-3 max-w-xl text-sm leading-relaxed text-ink-foreground/90 md:text-base">
+                  {"path" in currentStage && currentStage.path ? `${currentStage.path}. ` : ""}{currentStage.note}
+                </p>
+              </figcaption>
             </div>
-            <figcaption className="absolute inset-x-0 bottom-0 bg-ink/85 p-5 text-ink-foreground backdrop-blur-sm">
-              <p className="font-mono text-[0.6875rem] uppercase text-ink-accent">
-                {block.caption}
-              </p>
-              <p className="mt-2 text-sm text-ink-muted">
-                {currentStage.name} · {currentStage.note}
-              </p>
-            </figcaption>
           </figure>
 
-          <ol
-            className={`mt-px grid gap-px ${
-              dark ? "border border-ink-border bg-ink-border" : "border border-border bg-border"
-            }`}
-          >
-            {block.stages.map((stage, i) => {
-              const active = i === activeStage;
-              return (
-                <li key={`${stage.name}-${i}`}>
-                  <Button
-                    type="button"
-                    variant="ghost"
-                    onClick={() => setActiveStage(i)}
-                    aria-current={active ? "step" : undefined}
-                    className={`group h-auto w-full justify-start rounded-none p-0 text-left shadow-none ${
-                      active
-                        ? dark
-                          ? "bg-ink-foreground text-ink hover:bg-ink-foreground hover:text-ink"
-                          : "bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground"
-                        : dark
-                          ? "bg-ink text-ink-foreground hover:bg-ink/95 hover:text-ink-foreground"
-                          : "bg-card text-foreground hover:bg-secondary hover:text-foreground"
-                    }`}
-                  >
-                    <span className="flex w-full items-start gap-5 p-5 md:p-6">
-                      <span
-                        className={`index-num mt-1 text-xs ${
-                          active
-                            ? dark
-                              ? "text-accent"
-                              : "text-primary-foreground/80"
-                            : dark
-                              ? "text-ink-accent"
-                              : "text-accent"
-                        }`}
-                      >
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span className="min-w-0 flex-1">
-                        <span className="block whitespace-normal text-lg leading-snug md:text-xl">
-                          {stage.name}
+          <div className="flex items-center justify-between border-x border-b border-border px-5 py-3 text-xs text-muted-foreground">
+            <span>Construction timeline</span>
+            <span className="font-semibold text-foreground">{currentStage.note}</span>
+          </div>
+
+          <div className="overflow-x-auto border-b border-border">
+            <ol
+              className="grid min-w-[54rem]"
+              style={{ gridTemplateColumns: `repeat(${block.stages.length}, minmax(0, 1fr))` }}
+            >
+              {block.stages.map((stage, stageIndex) => {
+                const active = stageIndex === activeStage;
+                return (
+                  <li key={`${stage.name}-${stageIndex}`} className="relative border-r border-border first:border-l">
+                    <span
+                      aria-hidden="true"
+                      className={`absolute -top-1 left-0 h-2 w-2 -translate-x-1/2 rotate-45 border ${active ? "border-primary-foreground bg-accent" : "border-accent bg-background"}`}
+                    />
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      onClick={() => selectStage(stageIndex)}
+                      aria-current={active ? "step" : undefined}
+                      className={`h-32 w-full justify-start rounded-none px-5 py-4 text-left shadow-none transition-colors ${
+                        active
+                          ? "bg-accent text-accent-foreground hover:bg-accent hover:text-accent-foreground"
+                          : "bg-background text-foreground hover:bg-secondary hover:text-secondary-foreground"
+                      }`}
+                    >
+                      <span className="flex h-full min-w-0 flex-col items-start">
+                        <span className={`font-mono text-[0.625rem] ${active ? "text-accent-foreground/75" : "text-muted-foreground"}`}>
+                          {String(stageIndex + 1).padStart(2, "0")}
                         </span>
-                        <span
-                          className={`mt-1 block whitespace-normal text-sm leading-relaxed ${
-                            active
-                              ? dark
-                                ? "text-ink/75"
-                                : "text-primary-foreground/80"
-                              : dark
-                                ? "text-ink-muted"
-                                : "text-muted-foreground"
-                          }`}
-                        >
-                          {"path" in stage && stage.path ? `${stage.path} · ` : ""}
+                        <span className="mt-auto block whitespace-normal text-base font-semibold leading-tight">{stage.name}</span>
+                        <span className={`mt-1 block whitespace-normal font-mono text-[0.5625rem] uppercase leading-relaxed ${active ? "text-accent-foreground/75" : "text-muted-foreground"}`}>
                           {stage.note}
                         </span>
                       </span>
-                    </span>
-                  </Button>
-                </li>
-              );
-            })}
-          </ol>
+                    </Button>
+                  </li>
+                );
+              })}
+            </ol>
+          </div>
         </Reveal>
       </div>
     </section>
