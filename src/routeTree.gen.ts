@@ -15,7 +15,6 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DisciplinesRouteImport } from './routes/disciplines'
 import { Route as ExpertiseRouteImport } from './routes/expertise'
 import { Route as InsightsRouteImport } from './routes/insights'
-import { Route as MarketsRouteImport } from './routes/markets'
 import { Route as PeopleRouteImport } from './routes/people'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as ServicesRouteImport } from './routes/services'
@@ -54,11 +53,6 @@ const ExpertiseRoute = ExpertiseRouteImport.update({
 const InsightsRoute = InsightsRouteImport.update({
   id: '/insights',
   path: '/insights',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MarketsRoute = MarketsRouteImport.update({
-  id: '/markets',
-  path: '/markets',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PeopleRoute = PeopleRouteImport.update({
@@ -114,7 +108,6 @@ export interface FileRoutesByFullPath {
   '/disciplines': typeof DisciplinesRoute
   '/expertise': typeof ExpertiseRoute
   '/insights': typeof InsightsRouteWithChildren
-  '/markets': typeof MarketsRoute
   '/people': typeof PeopleRoute
   '/projects': typeof ProjectsRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
@@ -131,7 +124,6 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/disciplines': typeof DisciplinesRoute
   '/expertise': typeof ExpertiseRoute
-  '/markets': typeof MarketsRoute
   '/people': typeof PeopleRoute
   '/insights/$slug': typeof InsightsSlugRoute
   '/projects/$slug': typeof ProjectsSlugRoute
@@ -148,7 +140,6 @@ export interface FileRoutesById {
   '/disciplines': typeof DisciplinesRoute
   '/expertise': typeof ExpertiseRoute
   '/insights': typeof InsightsRouteWithChildren
-  '/markets': typeof MarketsRoute
   '/people': typeof PeopleRoute
   '/projects': typeof ProjectsRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
@@ -168,7 +159,6 @@ export interface FileRouteTypes {
     | '/disciplines'
     | '/expertise'
     | '/insights'
-    | '/markets'
     | '/people'
     | '/projects'
     | '/services'
@@ -185,7 +175,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/disciplines'
     | '/expertise'
-    | '/markets'
     | '/people'
     | '/insights/$slug'
     | '/projects/$slug'
@@ -201,7 +190,6 @@ export interface FileRouteTypes {
     | '/disciplines'
     | '/expertise'
     | '/insights'
-    | '/markets'
     | '/people'
     | '/projects'
     | '/services'
@@ -220,7 +208,6 @@ export interface RootRouteChildren {
   DisciplinesRoute: typeof DisciplinesRoute
   ExpertiseRoute: typeof ExpertiseRoute
   InsightsRoute: typeof InsightsRouteWithChildren
-  MarketsRoute: typeof MarketsRoute
   PeopleRoute: typeof PeopleRoute
   ProjectsRoute: typeof ProjectsRouteWithChildren
   ServicesRoute: typeof ServicesRouteWithChildren
@@ -268,13 +255,6 @@ declare module '@tanstack/react-router' {
       path: '/insights'
       fullPath: '/insights'
       preLoaderRoute: typeof InsightsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/markets': {
-      id: '/markets'
-      path: '/markets'
-      fullPath: '/markets'
-      preLoaderRoute: typeof MarketsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/people': {
@@ -392,7 +372,6 @@ const rootRouteChildren: RootRouteChildren = {
   DisciplinesRoute: DisciplinesRoute,
   ExpertiseRoute: ExpertiseRoute,
   InsightsRoute: InsightsRouteWithChildren,
-  MarketsRoute: MarketsRoute,
   PeopleRoute: PeopleRoute,
   ProjectsRoute: ProjectsRouteWithChildren,
   ServicesRoute: ServicesRouteWithChildren,

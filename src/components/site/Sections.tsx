@@ -423,7 +423,6 @@ export function Markets() {
         eyebrow="Markets"
         title="Client industries"
         copy="Each backed by work we have actually delivered, not a list of markets we hope to break into."
-        action={{ label: "Explore all markets", href: "#contact" }}
       />
       <ul className="mt-16 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
         {markets.map((m, i) => (
@@ -440,9 +439,6 @@ export function Markets() {
               <div className="flex flex-1 flex-col p-7">
                 <h3 className="text-xl">{m.name}</h3>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{m.copy}</p>
-                <span className="link-underline mt-6 self-start font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-accent">
-                  Explore {m.name} →
-                </span>
               </div>
             </article>
           </Reveal>
@@ -763,7 +759,7 @@ export function SiteFooter() {
     ["About", "/about"], ["Expertise", "/expertise"], ["Projects", "/projects"], ["People", "/people"],
   ] as const;
   const secondaryLinks = [
-    ["Disciplines", "/disciplines"], ["Markets", "/markets"], ["Services", "/services"], ["Insights", "/insights"], ["Contact", "/contact"],
+    ["Disciplines", "/disciplines"], ["Services", "/services"], ["Insights", "/insights"], ["Contact", "/contact"],
   ] as const;
 
   return (
