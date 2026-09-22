@@ -623,10 +623,11 @@ export function Projects({ limit }: { limit?: number } = {}) {
   );
 }
 
-export function Insights() {
+export function Insights({ showHead = true }: { showHead?: boolean } = {}) {
   return (
     <section id="insights" className="bg-background py-24 md:py-32">
       <div className="shell">
+        {showHead && (
         <Reveal className="flex items-end justify-between gap-8 border-b border-border pb-7">
           <h2 className="font-display text-5xl font-normal leading-none md:text-7xl">Thinking forward.</h2>
           <a
