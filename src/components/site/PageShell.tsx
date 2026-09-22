@@ -20,7 +20,7 @@ export function PageHero({
           <p className="eyebrow">{eyebrow}</p>
           <TypewriterHeading
             text={title}
-            className="mt-5 max-w-[13ch] break-words text-balance font-display text-4xl font-bold uppercase leading-[0.92] md:text-6xl lg:text-7xl"
+            className="mt-5 w-full whitespace-normal text-balance font-display text-4xl font-bold uppercase leading-[0.92] [overflow-wrap:normal] [word-break:normal] md:text-6xl lg:text-7xl"
           />
         </Reveal>
         <Reveal delay={100} className="lg:col-span-5">
