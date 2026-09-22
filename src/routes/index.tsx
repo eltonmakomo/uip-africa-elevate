@@ -3,7 +3,6 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import {
   About,
   Appointments,
-  CallToAction,
   Clients,
   Disciplines,
   Hero,
