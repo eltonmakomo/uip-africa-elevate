@@ -539,7 +539,7 @@ export function Projects() {
           eyebrow="Projects"
           title="Work that inspires and endures"
           copy="Sound engineering, sustainable practice and careful detailing, every project stands as proof of how we work."
-          action={{ label: "All projects", href: "#contact" }}
+          action={{ label: "All projects", href: "/projects" }}
         />
 
         <Reveal className="mt-16">
