@@ -570,7 +570,7 @@ export function Projects({ limit = 3 }: { limit?: number }) {
         </Reveal>
 
         <ul className="mt-px grid gap-px border-x border-b border-border bg-border lg:grid-cols-3">
-          {projects.slice(0, 3).map((p, i) => (
+          {featured.map((p, i) => (
             <Reveal as="li" key={p.name} delay={i * 90} className="bg-card">
               <article className="flex h-full flex-col">
                 <div className="media-zoom">
