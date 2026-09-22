@@ -45,11 +45,11 @@ function Index() {
         <Why />
         <Disciplines />
         <Markets />
-        <Clients />
         <Services />
         <Projects limit={3} />
         <Insights />
         <Appointments />
+        <Clients />
         <CallToAction />
       </main>
       <SiteFooter />
