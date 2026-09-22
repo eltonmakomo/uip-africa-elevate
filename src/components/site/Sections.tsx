@@ -540,7 +540,7 @@ export function Projects({ limit }: { limit?: number } = {}) {
           eyebrow="Projects"
           title="Work that inspires and endures"
           copy="Sound engineering, sustainable practice and careful detailing, every project stands as proof of how we work."
-          action={limit < projects.length ? { label: "All projects", href: "/projects" } : undefined}
+          action={limit ? { label: "All projects", href: "/projects" } : undefined}
         />
 
         <Reveal className="mt-16">
