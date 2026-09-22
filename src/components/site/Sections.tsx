@@ -738,27 +738,47 @@ export function CallToAction() {
 }
 
 export function SiteFooter() {
+  const primaryLinks = [
+    ["About", "/about"], ["Expertise", "/expertise"], ["Projects", "/projects"], ["People", "/people"],
+  ] as const;
+  const secondaryLinks = [
+    ["Disciplines", "/disciplines"], ["Markets", "/markets"], ["Services", "/services"], ["Insights", "/insights"], ["Contact", "/contact"],
+  ] as const;
+
   return (
-    <footer className="bg-ink pb-12 text-ink-muted">
-      <div className="shell flex flex-col gap-6 border-t border-ink-border pt-10 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex items-center gap-3">
-          <a href="#top" aria-label="UIP Africa Home">
-            <img
-              src="/uip-logo.png"
-              alt="UIP Africa"
-              className="h-8 w-auto rounded bg-background/90 px-2 py-0.5 object-contain"
-            />
-          </a>
-          <p className="text-xs uppercase tracking-[0.18em]">
-            Urban Infrastructure Projects Africa
-          </p>
+    <footer className="bg-ink text-ink-foreground">
+      <div className="shell border-t border-ink-border py-16 md:py-24">
+        <div className="flex flex-col gap-8 border-b border-ink-border pb-16 md:flex-row md:items-end md:justify-between">
+          <h2 className="max-w-[10ch] font-display text-5xl uppercase leading-[0.9] tracking-[-0.04em] md:text-7xl">Let&apos;s build what comes next.</h2>
+          <Link to="/contact" aria-label="Start a conversation" className="flex h-20 w-20 items-center justify-center rounded-full border border-ink-muted text-2xl transition-colors hover:bg-ink-foreground hover:text-ink">↗</Link>
         </div>
-        <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em]">
-          Harare, Zimbabwe · ISO 9001:2015 · ZACE member
-        </p>
-        <a href="#top" className="link-underline font-mono text-[0.6875rem] uppercase tracking-[0.18em]">
-          Back to top ↑
-        </a>
+
+        <div className="grid gap-14 py-16 lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <Link to="/" aria-label="UIP Africa Home" className="inline-block bg-white p-3">
+              <img src="/uip-logo.png" alt="UIP Africa" className="h-14 w-auto object-contain md:h-16" />
+            </Link>
+            <p className="mt-7 max-w-xs text-sm leading-relaxed text-ink-muted">Integrated infrastructure engineering. Boundless possibilities.</p>
+          </div>
+          <nav aria-label="Footer navigation" className="grid grid-cols-2 gap-8 lg:col-span-4">
+            <ul className="space-y-3">{primaryLinks.map(([label, to]) => <li key={to}><Link to={to} className="footer-link">{label}</Link></li>)}</ul>
+            <ul className="space-y-3">{secondaryLinks.map(([label, to]) => <li key={to}><Link to={to} className="footer-link">{label}</Link></li>)}</ul>
+          </nav>
+          <div className="lg:col-span-3">
+            <p className="font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-ink-accent">Harare, Zimbabwe</p>
+            <address className="mt-5 space-y-3 text-sm not-italic leading-relaxed text-ink-muted">
+              <p>39 Hillside Road<br />Hillside, Harare<br />Zimbabwe</p>
+              <a href="mailto:info@uipafrica.com" className="footer-link block">info@uipafrica.com</a>
+              <a href="tel:+263242709222" className="footer-link block">+263 (0) 242 709 222</a>
+              <a href="tel:+2638677009615" className="footer-link block">+263 (0) 867 700 9615</a>
+            </address>
+          </div>
+        </div>
+
+        <div className="grid gap-5 border-t border-ink-border pt-8 text-xs text-ink-muted md:grid-cols-2">
+          <p>© {new Date().getFullYear()} Urban Infrastructure Projects Africa</p>
+          <p className="md:text-right">Engineering a better tomorrow.</p>
+        </div>
       </div>
     </footer>
   );
