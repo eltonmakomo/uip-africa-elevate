@@ -769,11 +769,6 @@ export function SiteFooter() {
   return (
     <footer className="bg-ink text-ink-foreground">
       <div className="shell border-t border-ink-border py-16 md:py-24">
-        <div className="flex flex-col gap-8 border-b border-ink-border pb-16 md:flex-row md:items-end md:justify-between">
-          <h2 className="max-w-[10ch] font-display text-5xl uppercase leading-[0.9] tracking-[-0.04em] md:text-7xl">Let&apos;s build what comes next.</h2>
-          <Link to="/contact" aria-label="Start a conversation" className="flex h-20 w-20 items-center justify-center rounded-full border border-ink-muted text-2xl transition-colors hover:bg-ink-foreground hover:text-ink">↗</Link>
-        </div>
-
         <div className="grid gap-14 py-16 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <Link to="/" aria-label="UIP Africa Home" className="inline-block">
