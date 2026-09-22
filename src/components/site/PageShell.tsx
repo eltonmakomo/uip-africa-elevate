@@ -15,7 +15,7 @@ export function PageHero({
 }) {
   return (
     <section id="top" className="bg-background pt-28 md:pt-32">
-      <div className="shell grid gap-8 pb-12 md:pb-16 lg:grid-cols-12 lg:items-end">
+      <div className="shell grid gap-8 pb-6 md:pb-8 lg:grid-cols-12 lg:items-end">
         <Reveal className="lg:col-span-6">
           <p className="eyebrow">{eyebrow}</p>
           <TypewriterHeading
