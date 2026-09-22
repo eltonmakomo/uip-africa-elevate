@@ -565,7 +565,8 @@ export function Projects({ limit }: { limit?: number } = {}) {
                 {featuredProject.copy}
               </p>
               <Link
-                to="/projects"
+                 to="/projects/$slug"
+                 params={{ slug: "mbare-musika-temporary-traders-market-redevelopment" }}
                 className="link-underline mt-8 self-start font-mono text-xs uppercase tracking-[0.2em] text-accent"
               >
                 View case study →
@@ -595,7 +596,7 @@ export function Projects({ limit }: { limit?: number } = {}) {
                   </p>
                   <Link
                     to="/projects/$slug"
-                    params={{ slug: toSlug(p.name) }}
+                     params={{ slug: p.slug }}
                     className="link-underline mt-6 self-start font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-accent"
                   >
                     View project →

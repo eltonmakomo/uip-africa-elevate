@@ -29,6 +29,22 @@ function AboutPage() {
         copy="UIP Africa provides high-quality, appropriate, cost-effective and sustainable engineering solutions that satisfy clients and improve the quality of life for communities across Africa."
       />
       <About />
+      <section className="border-y border-border bg-background py-20 md:py-28">
+        <div className="shell grid gap-px border border-border bg-border lg:grid-cols-3">
+          <article className="bg-card p-8 md:p-10">
+            <p className="eyebrow">Our vision</p>
+            <h2 className="mt-6 text-3xl leading-tight">Africa’s infrastructure development consultancy of choice.</h2>
+          </article>
+          <article className="bg-card p-8 md:p-10">
+            <p className="eyebrow">Our mission</p>
+            <p className="mt-6 text-lg leading-relaxed">To provide unique and sustainable solutions for clients at every stage of a project lifecycle, opening opportunities through creative thinking and optimum service delivery.</p>
+          </article>
+          <article className="bg-card p-8 md:p-10">
+            <p className="eyebrow">Our scope</p>
+            <p className="mt-6 text-lg leading-relaxed">From 39 Hillside Road in Harare, UIP Africa provides civil and structural engineering design, infrastructure consultancy and CAD drafting services across Zimbabwe.</p>
+          </article>
+        </div>
+      </section>
       <Why />
       <Clients />
     </PageShell>
