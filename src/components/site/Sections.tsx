@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "./Reveal";
@@ -15,6 +16,9 @@ import {
 } from "@/lib/site-data";
 import heroInterchange from "@/assets/hero-interchange.jpg";
 import aboutEngineers from "@/assets/about-engineers.jpg";
+
+const toSlug = (value: string) =>
+  value.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
 function SectionHead({
   eyebrow,
@@ -39,12 +43,12 @@ function SectionHead({
             <p className="max-w-md text-base leading-relaxed text-muted-foreground">{copy}</p>
           ) : null}
           {action ? (
-            <a
-              href={action.href}
+            <Link
+              to={action.href}
               className="link-underline mt-6 inline-block font-mono text-xs uppercase tracking-[0.2em] text-accent"
             >
               {action.label} →
-            </a>
+            </Link>
           ) : null}
         </Reveal>
       ) : null}
@@ -73,7 +77,7 @@ export function Hero() {
                 Our projects
               </a>
               <a
-                href="#services"
+                href="/services"
                 className="border border-foreground/20 px-7 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-foreground transition-colors hover:border-foreground"
               >
                 What we do
@@ -270,7 +274,7 @@ export function About() {
             actually exists on the ground.
           </p>
           <a
-            href="#contact"
+            href="/about"
             className="link-underline mt-8 inline-block font-mono text-xs uppercase tracking-[0.2em] text-accent"
           >
             Our story →
@@ -393,7 +397,7 @@ export function Disciplines() {
               ))}
             </ul>
             <a
-              href="#services"
+              href="/services"
               className="link-underline mt-9 inline-block font-mono text-xs uppercase tracking-[0.2em] text-ink-accent"
             >
               View related services →
@@ -503,7 +507,7 @@ export function Services() {
           eyebrow="Services"
           title="Engineering that stays connected"
           copy="From the appointed engineer to the team on site, our services carry one line of technical responsibility through the project."
-          action={{ label: "Explore all services", href: "#contact" }}
+          action={{ label: "Explore all services", href: "/services" }}
         />
       </div>
       <ul className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3">
@@ -514,7 +518,7 @@ export function Services() {
             delay={(i % 3) * 60}
             className={`group min-h-[30rem] ${tileStyles[i] ?? tileStyles[0]}`}
           >
-            <a href="#contact" className="flex h-full min-h-[30rem] flex-col p-8 md:p-10">
+            <Link to="/services/$slug" params={{ slug: toSlug(s.name) }} className="flex h-full min-h-[30rem] flex-col p-8 md:p-10">
               <h3 className="max-w-[14ch] text-3xl uppercase leading-[1.05] md:text-4xl">{s.name}</h3>
               <div className="mt-auto">
                 <p className="max-w-sm text-base leading-relaxed opacity-75">{s.copy}</p>
@@ -523,7 +527,7 @@ export function Services() {
                   <ArrowUpRight aria-hidden="true" className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
                 </span>
               </div>
-            </a>
+            </Link>
           </Reveal>
         ))}
       </ul>
@@ -559,12 +563,12 @@ export function Projects({ limit }: { limit?: number } = {}) {
               <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
                 {featuredProject.copy}
               </p>
-              <a
-                href="#contact"
+              <Link
+                to="/projects"
                 className="link-underline mt-8 self-start font-mono text-xs uppercase tracking-[0.2em] text-accent"
               >
                 View case study →
-              </a>
+              </Link>
             </div>
           </article>
         </Reveal>
@@ -588,12 +592,13 @@ export function Projects({ limit }: { limit?: number } = {}) {
                   <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
                     {p.copy}
                   </p>
-                  <a
-                    href="#contact"
+                  <Link
+                    to="/projects/$slug"
+                    params={{ slug: toSlug(p.name) }}
                     className="link-underline mt-6 self-start font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-accent"
                   >
                     View project →
-                  </a>
+                  </Link>
                 </div>
               </article>
             </Reveal>
@@ -611,7 +616,7 @@ export function Insights() {
         <Reveal className="flex items-end justify-between gap-8 border-b border-border pb-7">
           <h2 className="font-display text-5xl font-normal leading-none md:text-7xl">Thinking forward.</h2>
           <a
-            href="#contact"
+            href="/insights"
             className="group hidden min-w-28 items-center justify-between border-b border-foreground pb-3 text-sm font-semibold sm:flex"
           >
             All insights
@@ -623,14 +628,14 @@ export function Insights() {
           {insights.map((n, i) => (
             <Reveal as="li" key={n.title} delay={i * 80}>
               <article className="group flex h-full flex-col">
-                <a href="#contact" className="media-zoom block bg-muted">
+                <Link to="/insights/$slug" params={{ slug: toSlug(n.title) }} className="media-zoom block bg-muted">
                   <img
                     src={n.image}
                     alt={n.title}
                     className="aspect-3/2 w-full object-cover"
                     loading="lazy"
                   />
-                </a>
+                </Link>
                 <p className="mt-5 text-xs text-muted-foreground">{n.tag}</p>
                 <h3 className="mt-4 min-h-20 text-2xl font-normal leading-[1.12] lg:text-[1.7rem]">
                   {n.title}
@@ -647,20 +652,21 @@ export function Insights() {
                     <p className="mt-1 text-xs text-muted-foreground">{n.role}</p>
                   </div>
                 </div>
-                <a
-                  href="#contact"
+                <Link
+                  to="/insights/$slug"
+                  params={{ slug: toSlug(n.title) }}
                   className="mt-7 flex w-28 items-center justify-between border-b border-transparent pb-2 text-sm transition-colors hover:border-foreground"
                 >
                   Read insight
                   <ArrowUpRight aria-hidden="true" className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
-                </a>
+                </Link>
               </article>
             </Reveal>
           ))}
         </ul>
 
         <a
-          href="#contact"
+          href="/insights"
           className="mt-12 flex items-center justify-between border-b border-foreground pb-3 text-sm font-semibold sm:hidden"
         >
           All insights
@@ -685,12 +691,12 @@ export function Appointments() {
             <Reveal as="li" key={a.name} delay={i * 70} className="bg-card p-8">
               <h3 className="text-xl leading-snug">{a.name}</h3>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{a.copy}</p>
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 className="link-underline mt-6 inline-block font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-accent"
               >
                 Learn more →
-              </a>
+              </Link>
             </Reveal>
           ))}
         </ul>
@@ -737,27 +743,47 @@ export function CallToAction() {
 }
 
 export function SiteFooter() {
+  const primaryLinks = [
+    ["About", "/about"], ["Expertise", "/expertise"], ["Projects", "/projects"], ["People", "/people"],
+  ] as const;
+  const secondaryLinks = [
+    ["Disciplines", "/disciplines"], ["Markets", "/markets"], ["Services", "/services"], ["Insights", "/insights"], ["Contact", "/contact"],
+  ] as const;
+
   return (
-    <footer className="bg-ink pb-12 text-ink-muted">
-      <div className="shell flex flex-col gap-6 border-t border-ink-border pt-10 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex items-center gap-3">
-          <a href="#top" aria-label="UIP Africa Home">
-            <img
-              src="/uip-logo.png"
-              alt="UIP Africa"
-              className="h-8 w-auto rounded bg-background/90 px-2 py-0.5 object-contain"
-            />
-          </a>
-          <p className="text-xs uppercase tracking-[0.18em]">
-            Urban Infrastructure Projects Africa
-          </p>
+    <footer className="bg-ink text-ink-foreground">
+      <div className="shell border-t border-ink-border py-16 md:py-24">
+        <div className="flex flex-col gap-8 border-b border-ink-border pb-16 md:flex-row md:items-end md:justify-between">
+          <h2 className="max-w-[10ch] font-display text-5xl uppercase leading-[0.9] tracking-[-0.04em] md:text-7xl">Let&apos;s build what comes next.</h2>
+          <Link to="/contact" aria-label="Start a conversation" className="flex h-20 w-20 items-center justify-center rounded-full border border-ink-muted text-2xl transition-colors hover:bg-ink-foreground hover:text-ink">↗</Link>
         </div>
-        <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em]">
-          Harare, Zimbabwe · ISO 9001:2015 · ZACE member
-        </p>
-        <a href="#top" className="link-underline font-mono text-[0.6875rem] uppercase tracking-[0.18em]">
-          Back to top ↑
-        </a>
+
+        <div className="grid gap-14 py-16 lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <Link to="/" aria-label="UIP Africa Home" className="inline-block bg-white p-3">
+              <img src="/uip-logo.png" alt="UIP Africa" className="h-14 w-auto object-contain md:h-16" />
+            </Link>
+            <p className="mt-7 max-w-xs text-sm leading-relaxed text-ink-muted">Integrated infrastructure engineering. Boundless possibilities.</p>
+          </div>
+          <nav aria-label="Footer navigation" className="grid grid-cols-2 gap-8 lg:col-span-4">
+            <ul className="space-y-3">{primaryLinks.map(([label, to]) => <li key={to}><Link to={to} className="footer-link">{label}</Link></li>)}</ul>
+            <ul className="space-y-3">{secondaryLinks.map(([label, to]) => <li key={to}><Link to={to} className="footer-link">{label}</Link></li>)}</ul>
+          </nav>
+          <div className="lg:col-span-3">
+            <p className="font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-ink-accent">Harare, Zimbabwe</p>
+            <address className="mt-5 space-y-3 text-sm not-italic leading-relaxed text-ink-muted">
+              <p>39 Hillside Road<br />Hillside, Harare<br />Zimbabwe</p>
+              <a href="mailto:info@uipafrica.com" className="footer-link block">info@uipafrica.com</a>
+              <a href="tel:+263242709222" className="footer-link block">+263 (0) 242 709 222</a>
+              <a href="tel:+2638677009615" className="footer-link block">+263 (0) 867 700 9615</a>
+            </address>
+          </div>
+        </div>
+
+        <div className="grid gap-5 border-t border-ink-border pt-8 text-xs text-ink-muted md:grid-cols-2">
+          <p>© {new Date().getFullYear()} Urban Infrastructure Projects Africa</p>
+          <p className="md:text-right">Engineering a better tomorrow.</p>
+        </div>
       </div>
     </footer>
   );

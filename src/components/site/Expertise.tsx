@@ -89,14 +89,21 @@ function ExpertiseBlock({ block, index }: ExpertiseBlockProps) {
         </Reveal>
 
         <Reveal delay={120} className="lg:col-span-7">
-          <figure className="media-zoom relative overflow-hidden bg-muted">
-            <img
-              key={currentStage.image}
-              src={currentStage.image}
-              alt={`${block.imageAlt}: ${currentStage.name}`}
-              className="aspect-16/10 w-full object-cover motion-safe:animate-in motion-safe:fade-in motion-safe:duration-500"
-              loading="lazy"
-            />
+          <figure className="relative overflow-hidden bg-muted">
+            <div className="relative aspect-16/10">
+              {block.stages.map((stage, i) => (
+                <img
+                  key={stage.image}
+                  src={stage.image}
+                  alt={i === activeStage ? `${block.imageAlt}: ${stage.name}` : ""}
+                  aria-hidden={i !== activeStage}
+                  className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ease-out ${
+                    i === activeStage ? "scale-100 opacity-100" : "pointer-events-none scale-[1.015] opacity-0"
+                  }`}
+                  loading="lazy"
+                />
+              ))}
+            </div>
             <figcaption className="absolute inset-x-0 bottom-0 bg-ink/85 p-5 text-ink-foreground backdrop-blur-sm">
               <p className="font-mono text-[0.6875rem] uppercase text-ink-accent">
                 {block.caption}
@@ -120,6 +127,7 @@ function ExpertiseBlock({ block, index }: ExpertiseBlockProps) {
                     type="button"
                     variant="ghost"
                     onClick={() => setActiveStage(i)}
+                    aria-current={active ? "step" : undefined}
                     className={`group h-auto w-full justify-start rounded-none p-0 text-left shadow-none ${
                       active
                         ? dark
