@@ -216,13 +216,14 @@ export function Stats() {
               <p className="mt-7 inline-flex border border-ink-foreground/45 px-4 py-2 text-sm font-semibold">
                 {currentProject.highlight}
               </p>
-              <a
-                href="#projects"
+              <Link
+                to="/projects/$slug"
+                params={{ slug: currentProject.slug }}
                 className="mt-6 flex max-w-sm items-center justify-between border-b border-ink-foreground/60 pb-3 text-base font-semibold"
               >
                 {currentProject.client}
                 <ArrowUpRight aria-hidden="true" className="h-5 w-5" />
-              </a>
+              </Link>
             </div>
 
             <div className="flex items-center gap-5 lg:col-span-5 lg:justify-end">
