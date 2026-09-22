@@ -156,6 +156,7 @@ export function Stats() {
     {
       ...projects[0],
       name: projects[0]?.name ?? "WestProp Pomona City Flats",
+      slug: projects[0]?.slug ?? "westprop-pomona-city-flats",
       image: projects[0]?.image ?? featuredProject.image,
       location: "Harare, Zimbabwe",
       headline: "A new perspective on urban living.",
@@ -166,6 +167,7 @@ export function Stats() {
     {
       ...projects[1],
       name: projects[1]?.name ?? "Dacomb Drive Cluster Housing Development",
+      slug: projects[1]?.slug ?? "dacomb-drive-cluster-housing-development",
       image: projects[1]?.image ?? featuredProject.image,
       location: "Harare, Zimbabwe",
       headline: "Considered living, engineered in detail.",
@@ -176,6 +178,7 @@ export function Stats() {
     {
       ...projects[2],
       name: projects[2]?.name ?? "Ziminya Dam Water Security & Irrigation Project",
+      slug: projects[2]?.slug ?? "ziminya-dam-water-security-irrigation-project",
       image: projects[2]?.image ?? featuredProject.image,
       location: "Nkayi, Zimbabwe",
       headline: "Water security built for generations.",
@@ -553,14 +556,14 @@ export function Projects({ limit }: { limit?: number } = {}) {
 
         <Reveal className="mt-16">
           <article className="grid gap-px border border-border bg-border lg:grid-cols-12">
-            <div className="media-zoom bg-card lg:col-span-7">
+            <Link to="/projects/$slug" params={{ slug: featuredProject.slug }} className="media-zoom bg-card lg:col-span-7">
               <img
                 src={featuredProject.image}
                 alt={featuredProject.name}
                 className="h-full min-h-80 w-full object-cover"
                 loading="lazy"
               />
-            </div>
+            </Link>
             <div className="flex flex-col justify-center bg-card p-8 md:p-12 lg:col-span-5">
               <p className="index-num text-xs text-accent">{featuredProject.meta}</p>
               <h3 className="mt-5 text-3xl leading-tight md:text-4xl">{featuredProject.name}</h3>
@@ -569,7 +572,7 @@ export function Projects({ limit }: { limit?: number } = {}) {
               </p>
               <Link
                  to="/projects/$slug"
-                 params={{ slug: "mbare-musika-temporary-traders-market-redevelopment" }}
+                 params={{ slug: featuredProject.slug }}
                 className="link-underline mt-8 self-start font-mono text-xs uppercase tracking-[0.2em] text-accent"
               >
                 View case study →
@@ -582,18 +585,22 @@ export function Projects({ limit }: { limit?: number } = {}) {
           {featured.map((p, i) => (
             <Reveal as="li" key={p.name} delay={i * 90} className="bg-card">
               <article className="flex h-full flex-col">
-                <div className="media-zoom">
+                <Link to="/projects/$slug" params={{ slug: p.slug }} className="media-zoom">
                   <img
                     src={p.image}
                     alt={p.name}
                     className="aspect-4/3 w-full object-cover"
                     loading="lazy"
                   />
-                </div>
+                </Link>
                 <div className="flex flex-1 flex-col p-7">
                   <p className="eyebrow">{p.sector}</p>
                   <p className="index-num mt-2 text-xs text-muted-foreground">{p.meta}</p>
-                  <h3 className="mt-4 text-xl leading-snug">{p.name}</h3>
+                  <h3 className="mt-4 text-xl leading-snug">
+                    <Link to="/projects/$slug" params={{ slug: p.slug }} className="hover:text-accent">
+                      {p.name}
+                    </Link>
+                  </h3>
                   <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
                     {p.copy}
                   </p>
