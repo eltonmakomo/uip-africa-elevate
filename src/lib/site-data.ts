@@ -234,9 +234,11 @@ export const services = [
     name: "Transportation Engineering",
     copy: "Planning, design and optimisation of transport networks grounded in rigorous engineering principles and international best practice.",
     overview:
-      "From preliminary feasibility to detailed design, UIP Africa supports strategic transport development and enhances infrastructure reliability for urban, intercity and industrial access routes.",
+      "UIP Africa delivers comprehensive planning, design and optimisation of transportation networks. Our approach is grounded in rigorous engineering principles and international best practices to enhance mobility, safety and infrastructure reliability.",
     offers: ["Road design and rehabilitation", "Traffic engineering and analysis", "Transport infrastructure planning"],
+    differentiators: ["Rigorous engineering principles", "International best-practice design", "Integrated infrastructure planning"],
     benefits: ["Optimised road safety and operational efficiency", "Predictable lifecycle costs", "Enhanced mobility for economic and community development"],
+    idealFor: ["Urban and intercity roads", "Industrial and mining access routes", "Transport rehabilitation programmes"],
   },
   {
     name: "Structural Engineering",
@@ -244,15 +246,19 @@ export const services = [
     overview:
       "UIP Africa supports clients from conceptual design through construction supervision, ensuring compliance with international and local standards.",
     offers: ["Structural analysis and design", "Structural assessment and rehabilitation", "Construction support and supervision"],
+    differentiators: ["Strict adherence to international and local engineering codes", "Optimisation of structural efficiency and cost-effectiveness", "Collaboration with design teams and contractors"],
     benefits: ["Assurance of structural integrity", "Reduced material and construction costs", "Smooth delivery with minimal variation"],
+    idealFor: ["Commercial and industrial developments", "Warehousing and logistics infrastructure", "Institutional and mixed-use buildings"],
   },
   {
     name: "Water & Sanitation Engineering",
     copy: "Reliable water supply, wastewater collection and treatment solutions designed for compliance, stewardship and public health.",
     overview:
-      "The team plans potable networks, reservoirs, pumping systems, sewerage, wastewater systems and hydraulic studies for growing settlements and industrial users.",
+      "UIP Africa provides end-to-end Water and Sanitation Engineering services, ensuring sustainable and reliable water supply, wastewater collection and treatment solutions. Our designs prioritise regulatory compliance, environmental stewardship and public health outcomes.",
     offers: ["Water supply system design", "Sewerage and wastewater systems", "Hydraulic analysis and feasibility studies"],
+    differentiators: ["Long-term operational efficiency and resilience", "Environmental best-practice integration", "Planning, design and regulatory expertise"],
     benefits: ["Reliable water and wastewater management", "Reduced operational and lifecycle costs", "Compliance with environmental and public health standards"],
+    idealFor: ["Residential, commercial and industrial developments", "Municipal water and wastewater projects", "Large-scale township planning"],
   },
   {
     name: "Project Management",
@@ -260,31 +266,39 @@ export const services = [
     overview:
       "UIP Africa applies project management methodologies aligned with global standards to coordinate stakeholders, manage risks and monitor contractor performance.",
     offers: ["Project planning and scheduling", "Cost control and risk management", "Construction oversight and compliance"],
+    differentiators: ["Structured project management frameworks", "Effective stakeholder coordination", "Proactive risk identification and mitigation"],
     benefits: ["Predictable project costs and schedules", "Reduced operational and contractual risks", "High-quality project delivery"],
+    idealFor: ["Multi-disciplinary engineering projects", "Infrastructure and industrial developments", "Public and private sector capital projects"],
   },
   {
     name: "Stormwater Management & Design",
     copy: "Engineered drainage solutions that mitigate flooding, erosion and stormwater impacts on infrastructure and communities.",
     overview:
-      "Our stormwater work uses hydrological modelling, flood risk assessment and sustainable drainage thinking for roads, industrial parks and urban developments.",
+      "UIP Africa’s Stormwater Management service delivers engineered solutions to mitigate flooding, erosion and stormwater impacts on infrastructure and communities. Our designs prioritise regulatory compliance, environmental protection and resilience against extreme weather events.",
     offers: ["Stormwater drainage design", "Flood risk assessment", "Sustainable drainage systems"],
+    differentiators: ["Data-driven hydrological modelling", "Climate-resilient, environmentally sustainable design", "Integration with transportation and urban planning"],
     benefits: ["Mitigated flood and erosion risks", "Environmental and municipal compliance", "Long-term operational resilience"],
+    idealFor: ["Large-scale urban developments", "Industrial and logistics parks", "Road and public infrastructure projects"],
   },
   {
     name: "Infrastructure Asset Management",
     copy: "Structured asset management that helps clients maximise the value, reliability and lifespan of infrastructure assets.",
     overview:
-      "Using lifecycle-based planning, asset condition assessment and data-driven reporting, UIP Africa supports evidence-led capital planning.",
+      "UIP Africa provides structured Asset Management services that enable clients to maximise the value, reliability and lifespan of infrastructure assets. Our approach uses industry-standard frameworks and data-driven insight to inform strategic decisions.",
     offers: ["Asset condition assessment", "Maintenance and renewal planning", "Asset data and performance management"],
+    differentiators: ["Lifecycle planning aligned with ISO 55000 principles", "Data-driven asset allocation", "Municipal, industrial and commercial experience"],
     benefits: ["Extended asset longevity", "Reduced unplanned maintenance costs", "Evidence-based decision making"],
+    idealFor: ["Municipal and utility infrastructure", "Industrial and commercial facilities", "Multi-asset portfolios"],
   },
   {
     name: "Survey & Geomatics",
     copy: "High-accuracy spatial data for infrastructure design, construction and land development.",
     overview:
-      "Survey teams capture reliable site data, construction set-out and as-built verification to reduce errors and streamline coordination.",
+      "Our Survey & Geomatics service provides precise spatial data to support infrastructure design, construction and land development. Using advanced technology and best-practice methods, UIP Africa delivers high-accuracy measurements and actionable insight.",
     offers: ["Topographical surveys", "Engineering surveys", "Geospatial data processing and GIS"],
+    differentiators: ["High-precision surveying instruments", "Experienced survey teams", "GIS and spatial analytics integration"],
     benefits: ["Accurate and reliable site data", "Minimised design and construction errors", "Faster project coordination"],
+    idealFor: ["Large infrastructure projects", "Urban planning and development", "Industrial and commercial construction"],
   },
 ];
 
@@ -302,7 +316,7 @@ export const projects = [
     sector: "Residential Architecture",
     meta: "WestProp Holdings",
     image: projectPomona,
-    copy: "Artist’s impression and construction-stage view of the WestProp Pomona City Flats, illustrating multiple high-rise residential blocks integrated within the wider Pomona City smart city development.",
+    copy: "The WestProp Pomona City Flats form part of the landmark US$4 billion Pomona City Smart City initiative, representing Harare North’s first high-rise residential enclave. The development comprises 22 blocks of flats, each accommodating 16 residential units, resulting in a total of 352 apartment units, supported by a centrally located clubhouse and shared amenities. The project is designed around a 15-minute city model, blending smart infrastructure, lifestyle convenience, and environmental integration through robust civil and structural engineering solutions.",
     client: "WestProp Holdings",
     duration: "1 Year",
     details: ["The WestProp Pomona City Flats form part of the landmark US$4 billion Pomona City Smart City initiative, representing Harare North’s first high-rise residential enclave. The development comprises 22 blocks of flats, each accommodating 16 residential units, resulting in a total of 352 apartment units, supported by a centrally located clubhouse and shared amenities. The project is designed around a 15-minute city model, blending smart infrastructure, lifestyle convenience, and environmental integration through robust civil and structural engineering solutions.", "Despite the project’s urban and high-rise nature, the engineering challenges mirrored those of complex residential developments requiring integrated infrastructure delivery:", "Coordinating full civil infrastructure within a high-density residential layout", "Designing efficient structural systems suitable for multi-storey residential blocks", "Ensuring adequate water supply, sewer reticulation, and stormwater management for a large residential population", "Delivering value-driven engineering solutions while maintaining compliance with statutory and engineering standards", "Our approach combined integrated civil and structural engineering coordination with early-stage value engineering to support the scale, density, and long-term performance requirements of a high-rise residential environment. Close collaboration with the client and project team allowed infrastructure and structural systems to be developed in alignment with the broader Pomona City smart city framework.", "Structural engineering design for multi-storey residential blocks, optimized for load efficiency, constructability, and long-term durability", "Value-engineered structural systems to balance performance requirements with cost control", "Civil engineering design for water supply and reticulation, sewer reticulation, internal access roads, and stormwater drainage across the development", "Designed and coordinated water supply and sewer reticulation systems to support sanitation, hygiene, and fire response requirements", "Integrated stormwater management solutions to control runoff, protect downstream infrastructure, and support sustainable site drainage", "Infrastructure layouts coordinated to enable phased construction and future smart-city service integration", "Once complete, the development is expected to deliver significant engineering and urban value:", "A fully serviced, high-density residential precinct supporting the Pomona City smart city vision", "Efficient and resilient civil infrastructure designed to accommodate long-term population demand"],
@@ -313,7 +327,7 @@ export const projects = [
     sector: "Civil & Structural Engineering",
     meta: "Vesta Properties · Chisipite, Harare, Zimbabwe · 2024",
     image: projectDacomb,
-    copy: "Aerial view of the completed Dacomb Drive Cluster Housing Development, highlighting internal road networks, stormwater infrastructure, and single- and double-storey residential structures.",
+    copy: "Gweru, Zimbabwe",
     client: "Vesta Properties",
     location: "Chisipite, Harare, Zimbabwe",
     year: "2024",
@@ -340,7 +354,7 @@ export const projects = [
     sector: "Civil & Structural Engineering",
     meta: "DATVEST Investment · Harare, Zimbabwe · Ongoing (2024–2026)",
     image: projectNorthgate,
-    copy: "Aerial view of the Northgate Estate development corridor showing primary road networks, bulk infrastructure installation, and phased residential land development.",
+    copy: "Northgate Estate is one of the most significant integrated housing developments currently underway in the greater Harare region, designed to address Zimbabwe’s growing demand for serviced, well-planned residential land. Conceived as a multi-phase, mixed-use urban estate, the project integrates housing, social infrastructure, commercial activity, and public open spaces within a cohesive planning and infrastructure framework.",
     client: "DATVEST Investment",
     location: "Harare, Zimbabwe",
     year: "Ongoing (2024–2026)",
