@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, PageShell } from "@/components/site/PageShell";
-import { PeopleGrid } from "@/components/site/People";
 import { Projects, Stats } from "@/components/site/Sections";
 
 const title = "Projects | Delivered infrastructure across Zimbabwe";

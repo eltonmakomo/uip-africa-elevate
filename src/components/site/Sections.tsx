@@ -17,6 +17,9 @@ import {
 import heroInterchange from "@/assets/hero-interchange.jpg";
 import aboutEngineers from "@/assets/about-engineers.jpg";
 
+const toSlug = (value: string) =>
+  value.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+
 function SectionHead({
   eyebrow,
   title,
@@ -515,7 +518,7 @@ export function Services() {
             delay={(i % 3) * 60}
             className={`group min-h-[30rem] ${tileStyles[i] ?? tileStyles[0]}`}
           >
-            <a href="/contact" className="flex h-full min-h-[30rem] flex-col p-8 md:p-10">
+            <Link to="/services/$slug" params={{ slug: toSlug(s.name) }} className="flex h-full min-h-[30rem] flex-col p-8 md:p-10">
               <h3 className="max-w-[14ch] text-3xl uppercase leading-[1.05] md:text-4xl">{s.name}</h3>
               <div className="mt-auto">
                 <p className="max-w-sm text-base leading-relaxed opacity-75">{s.copy}</p>
@@ -524,7 +527,7 @@ export function Services() {
                   <ArrowUpRight aria-hidden="true" className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
                 </span>
               </div>
-            </a>
+            </Link>
           </Reveal>
         ))}
       </ul>
@@ -560,8 +563,8 @@ export function Projects({ limit }: { limit?: number } = {}) {
               <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
                 {featuredProject.copy}
               </p>
-              <a
-                href="/contact"
+                <Link
+                  to="/projects"
                 className="link-underline mt-8 self-start font-mono text-xs uppercase tracking-[0.2em] text-accent"
               >
                 View case study →
@@ -624,14 +627,14 @@ export function Insights() {
           {insights.map((n, i) => (
             <Reveal as="li" key={n.title} delay={i * 80}>
               <article className="group flex h-full flex-col">
-                <a href="/insights" className="media-zoom block bg-muted">
+                <Link to="/insights/$slug" params={{ slug: toSlug(n.title) }} className="media-zoom block bg-muted">
                   <img
                     src={n.image}
                     alt={n.title}
                     className="aspect-3/2 w-full object-cover"
                     loading="lazy"
                   />
-                </a>
+                </Link>
                 <p className="mt-5 text-xs text-muted-foreground">{n.tag}</p>
                 <h3 className="mt-4 min-h-20 text-2xl font-normal leading-[1.12] lg:text-[1.7rem]">
                   {n.title}
@@ -648,8 +651,9 @@ export function Insights() {
                     <p className="mt-1 text-xs text-muted-foreground">{n.role}</p>
                   </div>
                 </div>
-                <a
-                  href="/insights"
+                <Link
+                  to="/insights/$slug"
+                  params={{ slug: toSlug(n.title) }}
                   className="mt-7 flex w-28 items-center justify-between border-b border-transparent pb-2 text-sm transition-colors hover:border-foreground"
                 >
                   Read insight
@@ -686,12 +690,13 @@ export function Appointments() {
             <Reveal as="li" key={a.name} delay={i * 70} className="bg-card p-8">
               <h3 className="text-xl leading-snug">{a.name}</h3>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{a.copy}</p>
-              <a
-                href="/contact"
+                  <Link
+                    to="/projects/$slug"
+                    params={{ slug: toSlug(p.name) }}
                 className="link-underline mt-6 inline-block font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-accent"
               >
                 Learn more →
-              </a>
+                  </Link>
             </Reveal>
           ))}
         </ul>
@@ -723,13 +728,13 @@ export function CallToAction() {
               className="bg-ink-foreground px-7 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-ink transition-colors hover:bg-ink-accent"
             >
               Talk to an engineer
-            </a>
+                </Link>
             <a
               href="mailto:info@uipafrica.com"
               className="link-underline font-mono text-sm text-ink-accent"
             >
               info@uipafrica.com
-            </a>
+                </Link>
           </div>
         </Reveal>
       </div>
