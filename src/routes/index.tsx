@@ -50,7 +50,6 @@ function Index() {
         <Insights />
         <Appointments />
         <Clients />
-        <CallToAction />
       </main>
       <SiteFooter />
     </div>
