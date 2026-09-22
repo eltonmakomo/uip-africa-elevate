@@ -539,7 +539,7 @@ export function Projects() {
           eyebrow="Projects"
           title="Work that inspires and endures"
           copy="Sound engineering, sustainable practice and careful detailing, every project stands as proof of how we work."
-          action={{ label: "All projects", href: "#contact" }}
+          action={{ label: "All projects", href: "/projects" }}
         />
 
         <Reveal className="mt-16">
@@ -569,7 +569,7 @@ export function Projects() {
         </Reveal>
 
         <ul className="mt-px grid gap-px border-x border-b border-border bg-border lg:grid-cols-3">
-          {projects.map((p, i) => (
+          {projects.slice(0, 3).map((p, i) => (
             <Reveal as="li" key={p.name} delay={i * 90} className="bg-card">
               <article className="flex h-full flex-col">
                 <div className="media-zoom">
@@ -598,6 +598,16 @@ export function Projects() {
             </Reveal>
           ))}
         </ul>
+
+        <Reveal delay={120} className="mt-12 flex justify-center">
+          <a
+            href="/projects"
+            className="inline-flex items-center gap-2 border border-foreground px-8 py-4 font-mono text-xs uppercase tracking-[0.2em] text-foreground transition-colors duration-300 hover:bg-foreground hover:text-background"
+          >
+            View all projects
+            <ArrowRight aria-hidden="true" className="h-4 w-4" />
+          </a>
+        </Reveal>
       </div>
     </section>
   );
