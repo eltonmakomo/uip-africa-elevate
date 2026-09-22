@@ -25,7 +25,7 @@ function ProjectsPage() {
     <PageShell>
       <PageHero
         eyebrow="Our work"
-        title="Built, commissioned, in use."
+        title="Built,\ncommissioned,\nin use."
         copy="A selection of the residential, water and public infrastructure projects we have carried from first sketch to final certificate."
       />
       <Stats />
