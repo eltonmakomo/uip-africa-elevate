@@ -47,7 +47,7 @@ function Index() {
         <Markets />
         <Clients />
         <Services />
-        <Projects />
+        <Projects limit={3} />
         <Insights />
         <Appointments />
         <CallToAction />

@@ -531,7 +531,8 @@ export function Services() {
   );
 }
 
-export function Projects() {
+export function Projects({ limit }: { limit?: number } = {}) {
+  const featured = limit ? projects.slice(0, limit) : projects;
   return (
     <section id="projects" className="bg-secondary/60 py-24 md:py-32">
       <div className="shell">
@@ -539,7 +540,7 @@ export function Projects() {
           eyebrow="Projects"
           title="Work that inspires and endures"
           copy="Sound engineering, sustainable practice and careful detailing, every project stands as proof of how we work."
-          action={{ label: "All projects", href: "/projects" }}
+          {...(limit ? { action: { label: "All projects", href: "/projects" } } : {})}
         />
 
         <Reveal className="mt-16">
@@ -569,7 +570,7 @@ export function Projects() {
         </Reveal>
 
         <ul className="mt-px grid gap-px border-x border-b border-border bg-border lg:grid-cols-3">
-          {projects.slice(0, 3).map((p, i) => (
+          {featured.map((p, i) => (
             <Reveal as="li" key={p.name} delay={i * 90} className="bg-card">
               <article className="flex h-full flex-col">
                 <div className="media-zoom">
