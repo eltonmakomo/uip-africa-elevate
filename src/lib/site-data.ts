@@ -303,6 +303,7 @@ export const services = [
 ];
 
 export const featuredProject = {
+  slug: "mbare-musika-temporary-traders-market-redevelopment",
   name: "Mbare Musika Temporary Traders Market Redevelopment",
   meta: "Featured · Public & Institutional · 2025",
   image: projectMbare,
