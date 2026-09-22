@@ -4,7 +4,7 @@ import { Insights } from "@/components/site/Sections";
 
 const title = "Insights | Engineering thinking from UIP Africa";
 const description =
-  "Notes from our engineers on stormwater design, ground investigation and phasing services so capital follows demand.";
+  "UIP Africa perspectives on stormwater design, ground investigation and phasing services so capital follows demand.";
 
 export const Route = createFileRoute("/insights")({
   head: () => ({
@@ -26,7 +26,7 @@ function InsightsPage() {
       <PageHero
         eyebrow="Insights"
         title="Thinking forward."
-        copy="Practical notes from the engineers doing the work, on the decisions that shape cost, programme and performance."
+        copy="Engineering perspectives on the decisions that shape cost, programme and long-term infrastructure performance."
       />
       <Insights />
     </PageShell>

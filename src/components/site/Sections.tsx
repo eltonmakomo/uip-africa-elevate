@@ -137,15 +137,11 @@ export function Hero() {
               </p>
             </div>
             <div className="col-span-2 flex items-center gap-4 bg-background p-6 sm:col-span-1">
-              <img
-                src="/images/badges/iso-9001-2015-light.svg"
-                alt="ISO 9001:2015 certified quality management system badge"
-                className="h-12 w-12 invert"
-              />
+              <span aria-hidden="true" className="index-num text-4xl font-semibold">04</span>
               <p className="text-xs uppercase leading-relaxed tracking-[0.14em] text-muted-foreground">
-                ISO 9001:2015
+                Connected
                 <br />
-                Quality certified
+                disciplines
               </p>
             </div>
           </div>

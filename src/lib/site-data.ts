@@ -409,7 +409,7 @@ export const projects = [
     sector: "Structural Engineering",
     meta: "2017",
     image: projectDema,
-    copy: "Sakunda embarked on a landmark project to provide an emergency peaking power plant in Harare. UIP Africa was engaged to manage and provide structural designs on the construction of blast walls separating 50Megawatt Transformers. uce dependency on electricity for cooking and heating.",
+    copy: "Sakunda embarked on a landmark project to provide an emergency peaking power plant in Harare. UIP Africa was engaged to manage the work and provide structural designs for blast walls separating 50-megawatt transformers.",
     value: "USD$ 1,980,000",
     year: "2017",
   },
@@ -465,7 +465,7 @@ export const projects = [
     year: "2018",
   },
   {
-    slug: "fossil--agro",
+    slug: "fossil-agro",
     name: "Fossil Agro",
     sector: "Water & Sanitation",
     meta: "2021",
@@ -596,7 +596,7 @@ export const insights = [
   {
     tag: "Water",
     title: "Sizing stormwater for a rainfall pattern that is no longer typical",
-    date: "22 July 2026",
+    date: "UIP Africa perspective",
     image: insightWater,
     author: "Lauretta Makope",
     role: "Civil & Water Engineer",
@@ -605,7 +605,7 @@ export const insights = [
   {
     tag: "Structures",
     title: "The certainty a ground investigation buys",
-    date: "30 June 2026",
+    date: "UIP Africa perspective",
     image: insightStructures,
     author: "Lincoln Chitura",
     role: "Senior Structural Engineer",
@@ -614,7 +614,7 @@ export const insights = [
   {
     tag: "Delivery",
     title: "Phasing services so capital follows demand",
-    date: "11 June 2026",
+    date: "UIP Africa perspective",
     image: insightDelivery,
     author: "Brighton Chidzvete",
     role: "Project Manager, Pr. Eng.",
