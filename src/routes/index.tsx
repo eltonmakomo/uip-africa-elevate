@@ -3,7 +3,6 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import {
   About,
   Appointments,
-  CallToAction,
   Clients,
   Disciplines,
   Hero,
@@ -50,7 +49,6 @@ function Index() {
         <Insights />
         <Appointments />
         <Clients />
-        <CallToAction />
       </main>
       <SiteFooter />
     </div>
