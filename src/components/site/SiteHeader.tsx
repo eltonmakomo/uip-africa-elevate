@@ -43,8 +43,8 @@ export function SiteHeader() {
             <Link
               key={n.to}
               to={n.to}
-              activeProps={{ className: "text-foreground" }}
-              className="link-underline text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
+              activeProps={{ className: "is-active" }}
+              className="nav-link relative py-7 text-sm font-medium text-foreground/70 transition-colors hover:text-foreground"
             >
               {n.label}
             </Link>
@@ -85,7 +85,8 @@ export function SiteHeader() {
                 key={n.to}
                 to={n.to}
                 onClick={() => setOpen(false)}
-                className="border-b border-border/50 py-4 font-display text-2xl transition-colors hover:text-accent"
+                activeProps={{ className: "is-active" }}
+                className="mobile-nav-link border-b border-border/50 py-4 font-display text-2xl transition-all hover:text-accent"
               >
                 {n.label}
               </Link>
