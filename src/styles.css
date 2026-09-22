@@ -225,6 +225,39 @@
   }
 }
 
+.typewriter-heading {
+  position: relative;
+}
+
+.typewriter-measure {
+  visibility: hidden;
+  white-space: inherit;
+}
+
+.typewriter-copy {
+  position: absolute;
+  inset: 0;
+  white-space: inherit;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  width: 0.06em;
+  height: 0.78em;
+  margin-left: 0.06em;
+  background: currentColor;
+  animation: typewriter-blink 0.75s steps(1, end) infinite;
+}
+
+.typewriter-cursor-complete {
+  animation-iteration-count: 3;
+}
+
+@keyframes typewriter-blink {
+  0%, 45% { opacity: 1; }
+  46%, 100% { opacity: 0; }
+}
+
 @utility glass-header {
   background-color: color-mix(in oklab, var(--background) 96%, transparent);
   backdrop-filter: blur(16px) saturate(180%);
@@ -289,4 +322,5 @@
 
 @media (prefers-reduced-motion: reduce) {
   .marquee-track { animation: none; }
+  .typewriter-cursor { display: none; }
 }

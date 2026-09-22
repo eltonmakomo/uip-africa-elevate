@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Pause, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "./Reveal";
+import { TypewriterHeading } from "./TypewriterHeading";
 import { expertise } from "@/lib/site-data";
 
 const STAGE_DURATION = 8;
@@ -71,9 +72,17 @@ function ExpertiseBlock({ block, index }: ExpertiseBlockProps) {
         <div className="grid gap-8 pb-12 md:pb-16 lg:grid-cols-12 lg:items-start">
           <Reveal className="lg:col-span-8">
             <p className="eyebrow">{String(index + 1).padStart(2, "0")} · {block.eyebrow}</p>
-            <h2 className="mt-5 max-w-[10ch] text-balance font-display text-5xl font-semibold leading-[0.92] md:text-7xl lg:text-[5.75rem]">
-              {block.title}
-            </h2>
+            {index === 0 ? (
+              <TypewriterHeading
+                as="h2"
+                text={block.title}
+                className="mt-5 max-w-[12ch] text-balance font-display text-4xl font-semibold uppercase leading-[0.92] md:text-6xl lg:text-7xl"
+              />
+            ) : (
+              <h2 className="mt-5 max-w-[10ch] text-balance font-display text-5xl font-semibold leading-[0.92] md:text-7xl lg:text-[5.75rem]">
+                {block.title}
+              </h2>
+            )}
           </Reveal>
           <Reveal delay={100} className="lg:col-span-4 lg:pt-10">
             <p className="max-w-sm text-base leading-relaxed text-muted-foreground md:text-lg">
