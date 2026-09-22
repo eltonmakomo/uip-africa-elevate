@@ -1,7 +1,10 @@
 # Roadmap
 
-- [ ] Rebuild the footer to match the supplied black reference layout
-- [ ] Audit every header and footer link and create any missing destination pages
-- [ ] Match the reference active-menu treatment
-- [ ] Reproduce the reference Expertise image-changing experience
-- [ ] Verify desktop and mobile rendering, interactions, links, and build status
+- [x] Rebuild the footer to match the supplied black reference layout
+- [x] Audit every header and footer link and create any missing destination pages
+- [x] Match the reference active-menu treatment
+- [x] Reproduce the reference Expertise image-changing experience
+- [x] Verify desktop and mobile rendering, interactions, links, and build status
+- [ ] Audit every redesigned page against the live UIP Africa website
+- [ ] Add missing or inaccurate live-site content while preserving the redesign
+- [ ] Verify all updated pages, links, interactions, and preview health
