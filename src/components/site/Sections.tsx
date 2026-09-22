@@ -72,7 +72,7 @@ export function Hero() {
           <Reveal delay={120} className="lg:col-span-7">
             <div className="flex flex-wrap gap-3">
               <a
-                href="#projects"
+                href="/projects"
                 className="bg-primary px-7 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-primary-foreground transition-colors hover:bg-accent"
               >
                 Our projects
