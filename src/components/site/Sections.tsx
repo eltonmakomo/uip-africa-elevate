@@ -159,6 +159,8 @@ export function Stats() {
   const showcaseProjects = [
     {
       ...projects[0],
+      name: projects[0]?.name ?? "WestProp Pomona City Flats",
+      image: projects[0]?.image ?? featuredProject.image,
       location: "Harare, Zimbabwe",
       headline: "A new perspective on urban living.",
       highlight: "352 apartments across 22 blocks",
@@ -167,6 +169,8 @@ export function Stats() {
     },
     {
       ...projects[1],
+      name: projects[1]?.name ?? "Dacomb Drive Cluster Housing Development",
+      image: projects[1]?.image ?? featuredProject.image,
       location: "Harare, Zimbabwe",
       headline: "Considered living, engineered in detail.",
       highlight: "36 homes across 4.7 hectares",
@@ -175,6 +179,8 @@ export function Stats() {
     },
     {
       ...projects[2],
+      name: projects[2]?.name ?? "Ziminya Dam Water Security & Irrigation Project",
+      image: projects[2]?.image ?? featuredProject.image,
       location: "Nkayi, Zimbabwe",
       headline: "Water security built for generations.",
       highlight: "98 million cubic metres of storage",

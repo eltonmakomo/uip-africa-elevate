@@ -57,8 +57,8 @@ function ContactPage() {
             <p className="mt-4 text-lg leading-snug">39 Hillside Road, Hillside, Harare, Zimbabwe</p>
           </div>
           <div className="bg-card p-8">
-            <p className="eyebrow">Accreditation</p>
-            <p className="mt-4 text-lg leading-snug">ISO 9001:2015 · ZACE member</p>
+            <p className="eyebrow">Location</p>
+            <p className="mt-4 text-lg leading-snug">Harare, Zimbabwe</p>
           </div>
         </div>
         <div className="shell mt-16 grid gap-10 lg:grid-cols-12">
