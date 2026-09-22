@@ -10,7 +10,11 @@ export const Route = createFileRoute("/insights/$slug")({
     if (!insight) throw notFound();
     return insight;
   },
-  head: ({ loaderData }) => ({ meta: [{ title: `${loaderData?.title ?? "Insight"} | UIP Africa` }] }),
+  head: ({ loaderData }) => {
+    const pageTitle = `${loaderData?.title ?? "Insight"} | UIP Africa`;
+    const pageDescription = `A UIP Africa engineering perspective on ${loaderData?.title?.toLowerCase() ?? "infrastructure delivery"}.`;
+    return { meta: [{ title: pageTitle }, { name: "description", content: pageDescription }, { property: "og:title", content: pageTitle }, { property: "og:description", content: pageDescription }, { property: "og:type", content: "article" }, { name: "twitter:card", content: "summary_large_image" }] };
+  },
   component: InsightDetail,
 });
 
