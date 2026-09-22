@@ -496,7 +496,7 @@ export function Clients() {
 }
 
 
-export function Services() {
+export function Services({ showHead = true }: { showHead?: boolean } = {}) {
   const tileStyles = [
     "bg-sand text-foreground",
     "bg-ochre text-foreground",
@@ -509,14 +509,16 @@ export function Services() {
 
   return (
     <section id="services" className="py-24 md:py-32">
-      <div className="shell">
-        <SectionHead
-          eyebrow="Services"
-          title="Engineering that stays connected"
-          copy="From the appointed engineer to the team on site, our services carry one line of technical responsibility through the project."
-          action={{ label: "Explore all services", href: "/services" }}
-        />
-      </div>
+      {showHead && (
+        <div className="shell">
+          <SectionHead
+            eyebrow="Services"
+            title="Engineering that stays connected"
+            copy="From the appointed engineer to the team on site, our services carry one line of technical responsibility through the project."
+            action={{ label: "Explore all services", href: "/services" }}
+          />
+        </div>
+      )}
       <ul className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3">
         {services.map((s, i) => (
           <Reveal

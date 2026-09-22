@@ -28,7 +28,7 @@ function ServicesPage() {
         title="Engineering that stays connected."
         copy="From the appointed engineer to the team on site, our services carry one line of technical responsibility through the project."
       />
-      <Services />
+      <Services showHead={false} />
       <Appointments />
     </PageShell>
   );
