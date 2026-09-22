@@ -508,7 +508,7 @@ export function Services({ showHead = true }: { showHead?: boolean } = {}) {
   ];
 
   return (
-    <section id="services" className="py-24 md:py-32">
+    <section id="services" className="pb-24 pt-10 md:pb-32 md:pt-14">
       {showHead && (
         <div className="shell">
           <SectionHead
