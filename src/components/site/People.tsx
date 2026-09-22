@@ -14,7 +14,7 @@ import { Reveal } from "./Reveal";
 
 export function PeopleGrid() {
   return (
-    <section className="border-t border-border bg-secondary/60 py-24 md:py-32">
+    <section className="border-t border-border bg-secondary/60 py-16 md:py-24">
       <div className="shell">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
           <Reveal className="lg:col-span-7">
@@ -31,7 +31,7 @@ export function PeopleGrid() {
           </Reveal>
         </div>
 
-        <ul className="mt-16 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <ul className="mt-10 grid gap-px border border-border bg-border md:mt-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {people.map((person, index) => (
             <Reveal as="li" key={person.name} delay={(index % 4) * 60} className="bg-card">
               <Dialog>

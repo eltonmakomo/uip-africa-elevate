@@ -66,10 +66,10 @@ function ExpertiseBlock({ block, index }: ExpertiseBlockProps) {
     <section
       ref={sectionRef}
       id={block.slug}
-      className={`border-border bg-background pb-24 pt-20 md:pb-32 md:pt-28 ${index > 0 ? "border-t" : "pt-36 md:pt-44"}`}
+      className={`border-border bg-background pb-16 md:pb-24 ${index > 0 ? "border-t pt-16 md:pt-24" : "pt-28 md:pt-32"}`}
     >
       <div className="shell">
-        <div className="grid gap-8 pb-12 md:pb-16 lg:grid-cols-12 lg:items-start">
+        <div className="grid gap-8 pb-10 md:pb-12 lg:grid-cols-12 lg:items-start">
           <Reveal className="lg:col-span-8">
             <p className="eyebrow">{String(index + 1).padStart(2, "0")} · {block.eyebrow}</p>
             {index === 0 ? (

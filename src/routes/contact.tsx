@@ -30,7 +30,7 @@ function ContactPage() {
         title="Let’s connect and build your dream project."
         copy="We’d love to hear about your project. Reach out, share your ideas, and let’s start shaping them into something real and lasting."
       />
-      <section className="border-t border-border bg-secondary/60 py-20 md:py-28">
+      <section className="border-t border-border bg-secondary/60 py-16 md:py-24">
         <div className="shell grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
           <div className="bg-card p-8">
             <p className="eyebrow">Phone</p>
@@ -61,7 +61,7 @@ function ContactPage() {
             <p className="mt-4 text-lg leading-snug">Harare, Zimbabwe</p>
           </div>
         </div>
-        <div className="shell mt-16 grid gap-10 lg:grid-cols-12">
+        <div className="shell mt-10 grid gap-10 md:mt-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <p className="eyebrow">Get in touch with us</p>
             <h2 className="display-lg mt-5 text-balance">Tell us what you’re building.</h2>
