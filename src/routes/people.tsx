@@ -28,7 +28,7 @@ function PeoplePage() {
         title="The team behind the infrastructure."
         copy="Meet the engineers, designers, managers and technical specialists shaping UIP Africa’s project work across the region."
       />
-      <PeopleGrid />
+      <PeopleGrid showHead={false} />
     </PageShell>
   );
 }

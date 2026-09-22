@@ -12,26 +12,28 @@ import {
 import { people } from "@/lib/site-data";
 import { Reveal } from "./Reveal";
 
-export function PeopleGrid() {
+export function PeopleGrid({ showHead = true }: { showHead?: boolean }) {
   return (
     <section className="border-t border-border bg-secondary/60 py-16 md:py-24">
       <div className="shell">
-        <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
-          <Reveal className="lg:col-span-7">
-            <p className="eyebrow">Our people</p>
-            <h2 className="display-lg mt-5 max-w-3xl text-balance">
-              The engineers, managers and technical specialists behind the work.
-            </h2>
-          </Reveal>
-          <Reveal delay={100} className="lg:col-span-5">
-            <p className="max-w-md text-base leading-relaxed text-muted-foreground">
-              UIP Africa combines senior engineering judgement, site delivery experience and technical
-              office precision across every stage of the project lifecycle.
-            </p>
-          </Reveal>
-        </div>
+        {showHead && (
+          <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
+            <Reveal className="lg:col-span-7">
+              <p className="eyebrow">Our people</p>
+              <h2 className="display-lg mt-5 max-w-3xl text-balance">
+                The engineers, managers and technical specialists behind the work.
+              </h2>
+            </Reveal>
+            <Reveal delay={100} className="lg:col-span-5">
+              <p className="max-w-md text-base leading-relaxed text-muted-foreground">
+                UIP Africa combines senior engineering judgement, site delivery experience and technical
+                office precision across every stage of the project lifecycle.
+              </p>
+            </Reveal>
+          </div>
+        )}
 
-        <ul className="mt-10 grid gap-px border border-border bg-border md:mt-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <ul className={`grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ${showHead ? "mt-10 md:mt-12" : ""}`}>
           {people.map((person, index) => (
             <Reveal as="li" key={person.name} delay={(index % 4) * 60} className="bg-card">
               <Dialog>
