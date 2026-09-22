@@ -761,7 +761,7 @@ export function SiteFooter() {
         <div className="grid gap-14 py-16 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <Link to="/" aria-label="UIP Africa Home" className="inline-block bg-white p-3">
-              <img src="/uip-logo.png" alt="UIP Africa" className="h-14 w-auto object-contain md:h-16" />
+              <img src="/uip-logo-white.png" alt="UIP Africa" className="h-14 w-auto object-contain md:h-16" />
             </Link>
             <p className="mt-7 max-w-xs text-sm leading-relaxed text-ink-muted">Integrated infrastructure engineering. Boundless possibilities.</p>
           </div>
