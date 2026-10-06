@@ -1,15 +1,14 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { TypewriterHeading } from "./TypewriterHeading";
+import { ContactForm } from "./ContactForm";
 import {
   appointments,
   clients,
   differentiators,
   disciplines,
-  featuredProject,
   insights,
   markets,
   projects,
@@ -59,203 +58,97 @@ function SectionHead({
 
 export function Hero() {
   return (
-    <section id="top" className="relative bg-background pt-20">
-      <div className="shell pb-10 pt-20 md:pt-28">
+    <section id="top" className="relative overflow-hidden bg-ink text-ink-foreground">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        poster={heroInterchange}
+        className="absolute inset-0 h-full w-full object-cover"
+        aria-hidden="true"
+      >
+        <source src="/images/Video%20Project.mp4" type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-hero-overlay" />
+
+      <div className="shell relative flex min-h-[100svh] flex-col justify-end pb-10 pt-32 md:pb-14">
         <Reveal>
+          <p className="font-mono text-[0.6875rem] uppercase tracking-[0.28em] text-ink-accent">
+            Civil &amp; structural engineering consultancy · Harare, Zimbabwe
+          </p>
           <TypewriterHeading
-            text={"Boundless\nEngineering"}
-            className="display-xl max-w-[13ch] whitespace-pre-line text-foreground"
+            text={"Engineering built for the realities of today and the needs of tomorrow."}
+            className="mt-6 max-w-[18ch] text-balance font-display text-[2.6rem] font-bold uppercase leading-[0.95] tracking-[-0.03em] sm:text-6xl lg:text-[5.4rem]"
           />
         </Reveal>
 
-        <div className="mt-14 grid gap-10 lg:grid-cols-12 lg:items-end">
-          <Reveal delay={120} className="lg:col-span-7">
-            <div className="flex flex-wrap gap-3">
-              <a
-                href="/projects"
-                className="bg-primary px-7 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-primary-foreground transition-colors hover:bg-accent"
-              >
-                Our projects
-              </a>
-              <a
-                href="/services"
-                className="border border-foreground/20 px-7 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-foreground transition-colors hover:border-foreground"
-              >
-                What we do
-              </a>
-            </div>
-          </Reveal>
-
-          <Reveal delay={180} className="lg:col-span-5">
-            <p className="font-mono text-[0.6875rem] uppercase tracking-[0.28em] text-muted-foreground">
-              ▽ UIP Africa · Harare, Zimbabwe
-            </p>
-            <p className="mt-4 max-w-md text-base leading-relaxed text-foreground/80 md:text-lg">
-              Civil and structural engineering consultancy, construction advisory and CAD drafting
-              across Zimbabwe and the region, from engineers who stay on a project until it is
-              built.
+        <div className="mt-10 grid gap-8 lg:grid-cols-12 lg:items-end">
+          <Reveal delay={120} className="lg:col-span-6">
+            <p className="max-w-xl text-base leading-relaxed text-ink-foreground/85 md:text-lg">
+              Sustainable, technically rigorous infrastructure for African communities — roads, structures,
+              water and serviced land, designed by engineers who stay with the project until it is built.
             </p>
           </Reveal>
+          <Reveal delay={180} className="flex flex-wrap gap-3 lg:col-span-6 lg:justify-end">
+            <Link to="/projects" className="bg-accent px-7 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-accent-foreground transition-colors hover:bg-ink-foreground hover:text-ink">
+              View our projects
+            </Link>
+            <Link to="/contact" className="border border-ink-foreground/50 px-7 py-4 text-xs font-semibold uppercase tracking-[0.16em] transition-colors hover:border-ink-foreground hover:bg-ink-foreground hover:text-ink">
+              Talk to an engineer
+            </Link>
+          </Reveal>
         </div>
-      </div>
 
-      <Reveal delay={100} className="shell">
-        <div className="media-zoom relative overflow-hidden bg-ink">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            poster={heroInterchange}
-            className="h-[46vh] w-full object-cover md:h-[62vh]"
-            aria-label="Aerial view of highway interchange engineering project"
-          >
-            <source src="/images/Video%20Project.mp4" type="video/mp4" />
-            <source src="/images/Video Project.mp4" type="video/mp4" />
-            <img
-              src={heroInterchange}
-              alt="Aerial view of a complex multi-level highway interchange with overlapping flyovers and curved ramps"
-              className="h-[46vh] w-full object-cover md:h-[62vh]"
-            />
-          </video>
-        </div>
-      </Reveal>
-
-      <div className="shell pb-16 md:pb-24">
-        <Reveal delay={140}>
-          <div className="grid grid-cols-2 gap-px border border-border bg-border sm:grid-cols-3">
-            <div className="bg-background p-6">
-              <p className="index-num text-4xl font-semibold">120+</p>
-              <p className="mt-2 text-xs uppercase tracking-[0.14em] text-muted-foreground">
-                Projects delivered
-              </p>
-            </div>
-            <div className="bg-background p-6">
-              <p className="index-num text-4xl font-semibold">10+</p>
-              <p className="mt-2 text-xs uppercase tracking-[0.14em] text-muted-foreground">
-                Years in practice
-              </p>
-            </div>
-            <div className="col-span-2 flex items-center gap-4 bg-background p-6 sm:col-span-1">
-              <span aria-hidden="true" className="index-num text-4xl font-semibold">04</span>
-              <p className="text-xs uppercase leading-relaxed tracking-[0.14em] text-muted-foreground">
-                Connected
-                <br />
-                disciplines
-              </p>
-            </div>
-          </div>
+        <Reveal delay={220}>
+          <dl className="mt-12 grid grid-cols-2 border-t border-ink-foreground/25 md:grid-cols-4">
+            {[
+              ["10+", "Years in practice"],
+              ["120+", "Projects delivered"],
+              [String(projects.length), "Featured case studies"],
+              [String(services.length), "Engineering services"],
+            ].map(([value, label]) => (
+              <div key={label} className="border-ink-foreground/25 py-5 pr-4 md:border-r md:last:border-r-0 md:[&:not(:first-child)]:pl-6">
+                <dt className="sr-only">{label}</dt>
+                <dd className="index-num text-3xl font-semibold md:text-4xl">{value}</dd>
+                <p className="mt-1 text-[0.6875rem] uppercase tracking-[0.14em] text-ink-foreground/70">{label}</p>
+              </div>
+            ))}
+          </dl>
         </Reveal>
       </div>
     </section>
   );
 }
 
-export function Stats() {
-  const showcaseProjects = [
-    {
-      ...projects[0],
-      name: projects[0]?.name ?? "WestProp Pomona City Flats",
-      slug: projects[0]?.slug ?? "westprop-pomona-city-flats",
-      image: projects[0]?.image ?? featuredProject.image,
-      location: "Harare, Zimbabwe",
-      headline: "A new perspective on urban living.",
-      highlight: "352 apartments across 22 blocks",
-      client: "WestProp Pomona City",
-      alt: "Pomona City entrance and access road in Harare",
-    },
-    {
-      ...projects[1],
-      name: projects[1]?.name ?? "Dacomb Drive Cluster Housing Development",
-      slug: projects[1]?.slug ?? "dacomb-drive-cluster-housing-development",
-      image: projects[1]?.image ?? featuredProject.image,
-      location: "Harare, Zimbabwe",
-      headline: "Considered living, engineered in detail.",
-      highlight: "36 homes across 4.7 hectares",
-      client: "Dacomb Drive Cluster Housing",
-      alt: "Dacomb Drive cluster housing development",
-    },
-    {
-      ...projects[2],
-      name: projects[2]?.name ?? "Ziminya Dam Water Security & Irrigation Project",
-      slug: projects[2]?.slug ?? "ziminya-dam-water-security-irrigation-project",
-      image: projects[2]?.image ?? featuredProject.image,
-      location: "Nkayi, Zimbabwe",
-      headline: "Water security built for generations.",
-      highlight: "98 million cubic metres of storage",
-      client: "Ziminya Dam",
-      alt: "Ziminya Dam water security and irrigation project",
-    },
-  ];
-  const [activeProject, setActiveProject] = useState(0);
-  const currentProject = showcaseProjects[activeProject] ?? showcaseProjects[0];
-
-  if (!currentProject) return null;
-
-  const moveProject = (direction: number) => {
-    setActiveProject((current) =>
-      (current + direction + showcaseProjects.length) % showcaseProjects.length,
-    );
-  };
-
+export function Impact() {
   return (
-    <section aria-label="Featured projects" className="relative overflow-hidden bg-ink">
-      <div className="relative min-h-[38rem] md:min-h-[46rem]">
-        <img
-          key={currentProject.name}
-          src={currentProject.image}
-          alt={currentProject.alt}
-          className="absolute inset-0 h-full w-full object-cover motion-safe:animate-in motion-safe:fade-in motion-safe:duration-700"
+    <section className="border-y border-border bg-card py-16 md:py-24">
+      <div className="shell">
+        <SectionHead
+          eyebrow="Impact"
+          title="Measured in assets that work."
+          copy="Verified figures from projects UIP Africa has engineered across Zimbabwe."
         />
-        <div className="absolute inset-0 bg-showcase-overlay" />
-
-        <div className="shell relative flex min-h-[38rem] flex-col justify-end pb-9 pt-24 text-ink-foreground md:min-h-[46rem] md:pb-12">
-          <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
-            <div className="lg:col-span-7">
-              <p className="text-sm font-medium">{currentProject.location}</p>
-              <h2 className="mt-6 max-w-[12ch] font-display text-5xl font-normal leading-[0.94] md:text-7xl">
-                {currentProject.headline}
-              </h2>
-              <p className="mt-7 inline-flex border border-ink-foreground/45 px-4 py-2 text-sm font-semibold">
-                {currentProject.highlight}
-              </p>
-              <Link
-                to="/projects/$slug"
-                params={{ slug: currentProject.slug }}
-                className="mt-6 flex max-w-sm items-center justify-between border-b border-ink-foreground/60 pb-3 text-base font-semibold"
-              >
-                {currentProject.client}
-                <ArrowUpRight aria-hidden="true" className="h-5 w-5" />
+        <ul className="mt-10 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4 md:mt-12">
+          {[
+            ["±98M m³", "Water storage engineered", "Ziminya Dam, Matabeleland North", "ziminya-dam-water-security-irrigation-project"],
+            ["7,000+", "Residential stands serviced", "Northgate Estate, Harare", "northgate-estate-integrated-housing-development"],
+            ["352", "Apartments structurally designed", "WestProp Pomona City Flats", "westprop-pomona-city-flats"],
+            ["±3 months", "Emergency market rebuild", "Mbare Musika, Harare", "mbare-musika-temporary-traders-market-redevelopment"],
+          ].map(([value, label, where, slug], i) => (
+            <Reveal as="li" key={label} delay={i * 70} className="bg-card">
+              <Link to="/projects/$slug" params={{ slug }} className="group flex h-full flex-col p-7 md:p-8">
+                <p className="index-num text-4xl font-semibold text-accent md:text-5xl">{value}</p>
+                <p className="mt-4 text-base font-semibold">{label}</p>
+                <p className="mt-auto flex items-center justify-between pt-6 text-xs text-muted-foreground">
+                  {where}
+                  <ArrowUpRight aria-hidden="true" className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </p>
               </Link>
-            </div>
-
-            <div className="flex items-center gap-5 lg:col-span-5 lg:justify-end">
-              <p className="index-num mr-2 text-sm font-semibold">
-                {String(activeProject + 1).padStart(2, "0")} / {String(showcaseProjects.length).padStart(2, "0")}
-              </p>
-              <Button
-                type="button"
-                variant="outline"
-                size="icon"
-                aria-label="Previous project"
-                onClick={() => moveProject(-1)}
-                className="h-12 w-12 rounded-full border-ink-foreground/65 bg-transparent text-ink-foreground shadow-none hover:bg-ink-foreground hover:text-ink"
-              >
-                <ArrowLeft aria-hidden="true" />
-              </Button>
-              <Button
-                type="button"
-                variant="outline"
-                size="icon"
-                aria-label="Next project"
-                onClick={() => moveProject(1)}
-                className="h-12 w-12 rounded-full border-ink-foreground/65 bg-transparent text-ink-foreground shadow-none hover:bg-ink-foreground hover:text-ink"
-              >
-                <ArrowRight aria-hidden="true" />
-              </Button>
-            </div>
-          </div>
-        </div>
+            </Reveal>
+          ))}
+        </ul>
       </div>
     </section>
   );
@@ -280,12 +173,12 @@ export function About() {
             through seasonal rainfall, demanding traffic loads, and the materials market that
             actually exists on the ground.
           </p>
-          <a
-            href="/about"
+          <Link
+            to="/about"
             className="link-underline mt-8 inline-block font-mono text-xs uppercase tracking-[0.2em] text-accent"
           >
             Our story →
-          </a>
+          </Link>
         </Reveal>
 
         <Reveal delay={120} className="lg:col-span-6">
@@ -318,7 +211,7 @@ export function Why() {
         eyebrow="Why partner with us"
         title="Designed for today. Built for African conditions."
         copy="Firmly founded on a project implementation background with top local and international contracting firms, we anticipate the challenges between design intent and a completed asset, and we design them out before they cost time on site."
-        action={{ label: "Talk to an engineer", href: "#contact" }}
+        action={{ label: "Talk to an engineer", href: "/contact" }}
       />
       <ul className="mt-10 grid gap-px border border-border md:mt-12 md:grid-cols-2">
         {differentiators.map((d, i) => (
@@ -339,80 +232,91 @@ export function Why() {
   );
 }
 
-export function Disciplines() {
-  const [active, setActive] = useState(0);
-  const current = disciplines[active] ?? disciplines[0];
-
-  if (!current) return null;
-
+export function Disciplines({ showHead = true }: { showHead?: boolean } = {}) {
   return (
-    <section id="disciplines" className="bg-ink py-16 text-ink-foreground md:py-24">
+    <section id="disciplines" className="py-16 md:py-24">
       <div className="shell">
-        <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
-          <div className="lg:col-span-7">
-            <p className="font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-ink-accent">
-              Our disciplines
-            </p>
-            <h2 className="display-lg mt-5 text-balance">Four disciplines. One integrated team.</h2>
-          </div>
-          <p className="text-base leading-relaxed text-ink-muted lg:col-span-5">
-            Structure, civils, water and delivery resolved together, so nothing of consequence falls
-            between consultants.
-          </p>
-        </div>
-
-        <div className="mt-14 flex flex-wrap gap-px border border-ink-border bg-ink-border">
-          {disciplines.map((d, i) => (
-            <button
-              key={d.id}
-              type="button"
-              onClick={() => setActive(i)}
-              className={`flex flex-1 items-center justify-center px-5 py-5 text-center text-sm font-medium transition-colors sm:px-7 ${
-                i === active
-                  ? "bg-ink-foreground text-ink"
-                  : "bg-ink text-ink-muted hover:text-ink-foreground"
-              }`}
-            >
-              <span className="whitespace-nowrap">{d.name}</span>
-            </button>
-          ))}
-        </div>
-
-        <div key={current.id} className="mt-px grid gap-px bg-ink-border lg:grid-cols-12">
-          <div className="media-zoom bg-ink lg:col-span-5">
-            <img
-              src={current.image}
-              alt={current.name}
-              className="h-full min-h-72 w-full object-cover"
-              loading="lazy"
-            />
-          </div>
-          <div className="bg-ink p-8 md:p-12 lg:col-span-7">
-            <p className="max-w-2xl font-display text-2xl leading-snug md:text-3xl">
-              {current.lead}
-            </p>
-            <p className="mt-6 max-w-xl text-sm leading-relaxed text-ink-muted">{current.copy}</p>
-            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-              {current.points.map((p) => (
-                <li
-                  key={p}
-                  className="flex items-start gap-3 border-t border-ink-border pt-3 text-sm text-ink-foreground"
-                >
-                  <span className="mt-2 h-1 w-1 shrink-0 bg-ink-accent" />
-                  {p}
-                </li>
-              ))}
-            </ul>
-            <a
-              href="/services"
-              className="link-underline mt-9 inline-block font-mono text-xs uppercase tracking-[0.2em] text-ink-accent"
-            >
-              View related services →
-            </a>
-          </div>
-        </div>
+        {showHead && (
+          <SectionHead
+            eyebrow="What we specialise in"
+            title="Four engineering disciplines."
+            copy="The technical fields our engineers are trained and registered in. Every project draws on one or more of them."
+            action={{ label: "Explore disciplines", href: "/disciplines" }}
+          />
+        )}
+        <ul className={`grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4 ${showHead ? "mt-10 md:mt-12" : ""}`}>
+          {disciplines.map((d, i) => {
+            const count = projects.filter((p) => d.match.some((m) => p.sector.includes(m))).length;
+            return (
+              <Reveal as="li" key={d.id} delay={i * 70} className="group bg-card">
+                <article className="flex h-full flex-col">
+                  <div className="media-zoom">
+                    <img src={d.image} alt={`${d.name} engineering`} className="aspect-4/3 w-full object-cover" loading="lazy" />
+                  </div>
+                  <div className="flex flex-1 flex-col p-7">
+                    <p className="index-num text-xs text-accent">{String(i + 1).padStart(2, "0")}</p>
+                    <h3 className="mt-3 text-2xl">{d.name}</h3>
+                    <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{d.lead}</p>
+                    <p className="mt-6 border-t border-border pt-4 text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                      {count} projects · {d.services.length} services
+                    </p>
+                  </div>
+                </article>
+              </Reveal>
+            );
+          })}
+        </ul>
       </div>
     </section>
+  );
+}
+
+export function DisciplineDetails() {
+  return (
+    <div className="pb-8">
+      {disciplines.map((d, i) => {
+        const related = services.filter((s) => d.services.includes(toSlug(s.name)));
+        const work = projects.filter((p) => d.match.some((m) => p.sector.includes(m))).slice(0, 3);
+        return (
+          <section key={d.id} id={d.id} className="border-t border-border py-16 md:py-20">
+            <div className="shell grid gap-10 lg:grid-cols-12">
+              <Reveal className="lg:col-span-5">
+                <p className="eyebrow">{String(i + 1).padStart(2, "0")} · Discipline</p>
+                <h2 className="display-lg mt-4">{d.name}</h2>
+                <p className="mt-6 text-lg leading-relaxed">{d.lead}</p>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{d.copy}</p>
+                <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+                  {d.points.map((p) => (
+                    <li key={p} className="flex gap-3 border-t border-border pt-3 text-sm"><span className="mt-2 h-1 w-1 shrink-0 bg-accent" />{p}</li>
+                  ))}
+                </ul>
+              </Reveal>
+              <Reveal delay={100} className="lg:col-span-7">
+                <img src={d.image} alt={`${d.name} project`} className="aspect-16/9 w-full object-cover" loading="lazy" />
+                <div className="mt-px grid gap-px border border-border bg-border sm:grid-cols-2">
+                  <div className="bg-card p-6">
+                    <p className="eyebrow">Related services</p>
+                    <ul className="mt-4 space-y-2">
+                      {related.map((s) => (
+                        <li key={s.name}><Link to="/services/$slug" params={{ slug: toSlug(s.name) }} className="link-underline text-sm font-semibold">{s.name} →</Link></li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="bg-card p-6">
+                    <p className="eyebrow">Selected projects</p>
+                    <ul className="mt-4 space-y-2">
+                      {work.map((p) => (
+                        <li key={p.slug}><Link to="/projects/$slug" params={{ slug: p.slug }} className="link-underline text-sm">{p.name}</Link></li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+          </section>
+        );
+      })}
+    </div>
   );
 }
 
@@ -492,127 +396,132 @@ export function Clients() {
 }
 
 
-export function Services({ showHead = true }: { showHead?: boolean } = {}) {
-  const tileStyles = [
-    "bg-sand text-foreground",
-    "bg-ochre text-foreground",
-    "bg-ink text-ink-foreground",
-    "bg-clay text-foreground",
-    "bg-slate-tile text-ink-foreground",
-    "bg-accent text-accent-foreground",
-    "bg-card text-foreground",
-  ];
+const servicePhases = [
+  { phase: "Investigate & plan", names: ["Survey & Geomatics", "Infrastructure Asset Management"] },
+  { phase: "Design & engineer", names: ["Transportation Engineering", "Structural Engineering", "Water & Sanitation Engineering", "Stormwater Management & Design"] },
+  { phase: "Deliver & oversee", names: ["Project Management"] },
+];
 
+export function Services({ showHead = true }: { showHead?: boolean } = {}) {
   return (
-    <section id="services" className="pb-16 pt-8 md:pb-24 md:pt-10">
-      {showHead && (
-        <div className="shell">
+    <section id="services" className="bg-secondary/60 py-16 md:py-24">
+      <div className="shell">
+        {showHead && (
           <SectionHead
-            eyebrow="Services"
-            title="Engineering that stays connected"
-            copy="From the appointed engineer to the team on site, our services carry one line of technical responsibility through the project."
-            action={{ label: "Explore all services", href: "/services" }}
+            eyebrow="What we deliver"
+            title="Services across the project lifecycle."
+            copy="How clients appoint us — from the first survey, through detailed design, to construction oversight."
+            action={{ label: "All services", href: "/services" }}
           />
-        </div>
-      )}
-      <ul className="mt-10 grid md:mt-12 sm:grid-cols-2 lg:grid-cols-3">
-        {services.map((s, i) => (
-          <Reveal
-            as="li"
-            key={s.name}
-            delay={(i % 3) * 60}
-            className={`group min-h-[30rem] ${tileStyles[i] ?? tileStyles[0]}`}
-          >
-            <Link to="/services/$slug" params={{ slug: toSlug(s.name) }} className="flex h-full min-h-[30rem] flex-col p-8 md:p-10">
-              <h3 className="max-w-[14ch] text-3xl uppercase leading-[1.05] md:text-4xl">{s.name}</h3>
-              <div className="mt-auto">
-                <p className="max-w-sm text-base leading-relaxed opacity-75">{s.copy}</p>
-                <span className="mt-8 flex items-center justify-between border-t border-current/35 pt-4 text-xs font-semibold uppercase tracking-[0.16em]">
-                  Read more
-                  <ArrowUpRight aria-hidden="true" className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
-                </span>
+        )}
+        <div className={`space-y-10 ${showHead ? "mt-10 md:mt-12" : ""}`}>
+          {servicePhases.map((group, gi) => (
+            <div key={group.phase} className="grid gap-6 lg:grid-cols-12">
+              <div className="lg:col-span-3">
+                <p className="index-num text-xs text-accent">Phase {String(gi + 1).padStart(2, "0")}</p>
+                <h3 className="mt-2 text-xl">{group.phase}</h3>
               </div>
-            </Link>
-          </Reveal>
-        ))}
-      </ul>
+              <ul className="grid gap-px border border-border bg-border sm:grid-cols-2 lg:col-span-9">
+                {group.names.map((name, i) => {
+                  const s = services.find((x) => x.name === name);
+                  if (!s) return null;
+                  return (
+                    <Reveal as="li" key={name} delay={i * 60} className="bg-card">
+                      <Link to="/services/$slug" params={{ slug: toSlug(s.name) }} className="group flex h-full flex-col p-7 transition-colors hover:bg-background">
+                        <h4 className="text-xl leading-snug group-hover:text-accent">{s.name}</h4>
+                        <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{s.copy}</p>
+                        <span className="mt-6 flex items-center justify-between border-t border-border pt-4 text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+                          Read more
+                          <ArrowUpRight aria-hidden="true" className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                        </span>
+                      </Link>
+                    </Reveal>
+                  );
+                })}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
 
-export function Projects({ limit }: { limit?: number } = {}) {
-  const featured = limit ? projects.slice(0, limit) : projects;
+const SELECTED = [
+  "northgate-estate-integrated-housing-development",
+  "ziminya-dam-water-security-irrigation-project",
+  "mbare-musika-temporary-traders-market-redevelopment",
+  "dacomb-drive-cluster-housing-development",
+  "westprop-pomona-city-flats",
+  "totalenergies-kadoma-service-station-quick-service-restaurant-project",
+];
+
+function ProjectCard({ p, delay = 0 }: { p: (typeof projects)[number]; delay?: number }) {
+  const where = "location" in p && p.location ? p.location : p.meta;
   return (
-    <section id="projects" className="bg-secondary/60 py-16 md:py-24">
+    <Reveal as="li" delay={delay} className="bg-card">
+      <Link to="/projects/$slug" params={{ slug: p.slug }} className="group flex h-full flex-col">
+        <div className="media-zoom">
+          <img src={p.image} alt={p.name} className="aspect-4/3 w-full object-cover" loading="lazy" />
+        </div>
+        <div className="flex flex-1 flex-col p-7">
+          <p className="eyebrow">{p.sector}</p>
+          <h3 className="mt-3 text-xl leading-snug group-hover:text-accent">{p.name}</h3>
+          <p className="mt-3 line-clamp-1 text-xs text-muted-foreground">{where}</p>
+          <span className="mt-auto flex items-center justify-between border-t border-border pt-4 text-xs font-semibold uppercase tracking-[0.16em] text-accent [margin-top:max(1.5rem,auto)]">
+            View case study
+            <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
+          </span>
+        </div>
+      </Link>
+    </Reveal>
+  );
+}
+
+export function Projects({ limit }: { limit?: number } = {}) {
+  const selected = SELECTED.map((slug) => projects.find((p) => p.slug === slug)).filter(Boolean) as typeof projects;
+  const list = limit ? selected.slice(0, limit) : selected;
+  return (
+    <section id="projects" className="py-16 md:py-24">
       <div className="shell">
         <SectionHead
-          eyebrow="Projects"
-          title="Work that inspires and endures"
-          copy="Sound engineering, sustainable practice and careful detailing, every project stands as proof of how we work."
-          {...(limit ? { action: { label: "All projects", href: "/projects" } } : {})}
+          eyebrow="Selected projects"
+          title="Work that inspires and endures."
+          copy="Housing, water security, public markets and energy — a cross-section of the portfolio."
+          action={{ label: `All ${projects.length} projects`, href: "/projects" }}
         />
+        <ul className="mt-10 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3 md:mt-12">
+          {list.map((p, i) => <ProjectCard key={p.slug} p={p} delay={(i % 3) * 80} />)}
+        </ul>
+      </div>
+    </section>
+  );
+}
 
-        <Reveal className="mt-10 md:mt-12">
-          <article className="grid gap-px border border-border bg-border lg:grid-cols-12">
-            <Link to="/projects/$slug" params={{ slug: featuredProject.slug }} className="media-zoom bg-card lg:col-span-7">
-              <img
-                src={featuredProject.image}
-                alt={featuredProject.name}
-                className="h-full min-h-80 w-full object-cover"
-                loading="lazy"
-              />
-            </Link>
-            <div className="flex flex-col justify-center bg-card p-8 md:p-12 lg:col-span-5">
-              <p className="index-num text-xs text-accent">{featuredProject.meta}</p>
-              <h3 className="mt-5 text-3xl leading-tight md:text-4xl">{featuredProject.name}</h3>
-              <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
-                {featuredProject.copy}
-              </p>
-              <Link
-                 to="/projects/$slug"
-                 params={{ slug: featuredProject.slug }}
-                className="link-underline mt-8 self-start font-mono text-xs uppercase tracking-[0.2em] text-accent"
-              >
-                View case study →
-              </Link>
-            </div>
-          </article>
-        </Reveal>
-
-        <ul className="mt-px grid gap-px border-x border-b border-border bg-border lg:grid-cols-3">
-          {featured.map((p, i) => (
-            <Reveal as="li" key={p.name} delay={i * 90} className="bg-card">
-              <article className="flex h-full flex-col">
-                <Link to="/projects/$slug" params={{ slug: p.slug }} className="media-zoom">
-                  <img
-                    src={p.image}
-                    alt={p.name}
-                    className="aspect-4/3 w-full object-cover"
-                    loading="lazy"
-                  />
-                </Link>
-                <div className="flex flex-1 flex-col p-7">
-                  <p className="eyebrow">{p.sector}</p>
-                  <p className="index-num mt-2 text-xs text-muted-foreground">{p.meta}</p>
-                  <h3 className="mt-4 text-xl leading-snug">
-                    <Link to="/projects/$slug" params={{ slug: p.slug }} className="hover:text-accent">
-                      {p.name}
-                    </Link>
-                  </h3>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
-                    {p.copy}
-                  </p>
-                  <Link
-                    to="/projects/$slug"
-                     params={{ slug: p.slug }}
-                    className="link-underline mt-6 self-start font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-accent"
-                  >
-                    View project →
-                  </Link>
-                </div>
-              </article>
-            </Reveal>
+export function ProjectIndex() {
+  const sectors = ["All", ...disciplines.map((d) => d.name)];
+  const [filter, setFilter] = useState("All");
+  const d = disciplines.find((x) => x.name === filter);
+  const list = d ? projects.filter((p) => d.match.some((m) => p.sector.includes(m))) : projects;
+  return (
+    <section className="py-10 md:py-14">
+      <div className="shell">
+        <div role="group" aria-label="Filter projects by discipline" className="flex flex-wrap gap-2">
+          {sectors.map((s) => (
+            <button
+              key={s}
+              type="button"
+              aria-pressed={filter === s}
+              onClick={() => setFilter(s)}
+              className={`border px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] transition-colors ${filter === s ? "border-accent bg-accent text-accent-foreground" : "border-border bg-card hover:border-foreground"}`}
+            >
+              {s}
+            </button>
           ))}
+          <p className="ml-auto self-center text-xs text-muted-foreground">{list.length} projects</p>
+        </div>
+        <ul className="mt-8 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+          {list.map((p, i) => <ProjectCard key={p.slug} p={p} delay={(i % 3) * 60} />)}
         </ul>
       </div>
     </section>
@@ -719,35 +628,40 @@ export function Appointments() {
 
 export function CallToAction() {
   return (
-    <section id="contact" className="bg-ink py-16 text-ink-foreground md:py-24">
-      <div className="shell grid gap-12 lg:grid-cols-12 lg:items-end">
-        <Reveal className="lg:col-span-7">
-          <p className="font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-ink-accent">
-            Partner with us
-          </p>
-          <h2 className="display-lg mt-5 text-balance">
-            Boundless Engineering, from first sketch to final certificate.
-          </h2>
+    <section className="bg-accent py-14 text-accent-foreground md:py-20">
+      <div className="shell grid gap-8 lg:grid-cols-12 lg:items-end">
+        <Reveal className="lg:col-span-8">
+          <p className="font-mono text-[0.6875rem] uppercase tracking-[0.22em] opacity-80">Partner with us</p>
+          <h2 className="display-lg mt-4 text-balance">Have a project in mind? Let’s engineer it properly.</h2>
         </Reveal>
-        <Reveal delay={100} className="lg:col-span-5">
-          <p className="text-base leading-relaxed text-ink-muted">
-            Whether it is residential, commercial, industrial or public infrastructure, tell us
-            where the project stands. We will bring the engineering clarity to move it forward.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center gap-6">
-            <a
-              href="mailto:info@uipafrica.com"
-              className="bg-ink-foreground px-7 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-ink transition-colors hover:bg-ink-accent"
-            >
-              Talk to an engineer
-            </a>
-            <a
-              href="mailto:info@uipafrica.com"
-              className="link-underline font-mono text-sm text-ink-accent"
-            >
-              info@uipafrica.com
-            </a>
-          </div>
+        <Reveal delay={100} className="flex flex-wrap gap-3 lg:col-span-4 lg:justify-end">
+          <Link to="/contact" className="bg-accent-foreground px-7 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-accent transition-opacity hover:opacity-90">
+            Start a conversation
+          </Link>
+          <a href="tel:+263242709222" className="border border-accent-foreground/50 px-7 py-4 text-xs font-semibold uppercase tracking-[0.16em] hover:border-accent-foreground">
+            Call us
+          </a>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+export function ContactBlock() {
+  return (
+    <section id="contact" className="py-16 md:py-24">
+      <div className="shell grid gap-12 lg:grid-cols-12">
+        <Reveal className="lg:col-span-5">
+          <p className="eyebrow">Contact</p>
+          <h2 className="display-lg mt-5 text-balance">Tell us what you’re building.</h2>
+          <dl className="mt-8 space-y-5 text-sm">
+            <div><dt className="eyebrow-muted">Office</dt><dd className="mt-1 text-base">39 Hillside Road, Hillside, Harare, Zimbabwe</dd></div>
+            <div><dt className="eyebrow-muted">Phone</dt><dd className="mt-1 text-base"><a href="tel:+263242709222" className="link-underline">+263 (0) 242 709 222</a></dd></div>
+            <div><dt className="eyebrow-muted">Email</dt><dd className="mt-1 text-base"><a href="mailto:info@uipafrica.com" className="link-underline">info@uipafrica.com</a></dd></div>
+          </dl>
+        </Reveal>
+        <Reveal delay={100} className="lg:col-span-7">
+          <ContactForm compact />
         </Reveal>
       </div>
     </section>
@@ -756,7 +670,7 @@ export function CallToAction() {
 
 export function SiteFooter() {
   const primaryLinks = [
-    ["About", "/about"], ["Expertise", "/expertise"], ["Projects", "/projects"], ["People", "/people"],
+    ["About", "/about"], ["Projects", "/projects"], ["People", "/people"],
   ] as const;
   const secondaryLinks = [
     ["Disciplines", "/disciplines"], ["Services", "/services"], ["Insights", "/insights"], ["Contact", "/contact"],
