@@ -55,7 +55,7 @@ export function SiteHeader() {
             to="/contact"
             className="hidden items-center gap-2 bg-primary px-5 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-primary-foreground transition-colors hover:bg-accent sm:inline-flex"
           >
-            Talk to an engineer
+            Contact Us
           </Link>
           <button
             type="button"
@@ -95,7 +95,7 @@ export function SiteHeader() {
               onClick={() => setOpen(false)}
               className="mt-5 bg-primary px-5 py-4 text-center text-xs font-semibold uppercase tracking-[0.16em] text-primary-foreground transition-colors hover:bg-accent"
             >
-              Talk to an engineer
+              Contact Us
             </Link>
           </nav>
         </div>

@@ -227,7 +227,7 @@ export function Why() {
         eyebrow="Why partner with us"
         title="Designed for today. Built for African conditions."
         copy="Firmly founded on a project implementation background with top local and international contracting firms, we anticipate the challenges between design intent and a completed asset."
-        action={{ label: "Contact Us", href: "/contact" }}
+        action={{ label: "Talk to an engineer", href: "/contact" }}
       />
       <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 md:mt-12">
         <Reveal as="li" className="media-zoom relative min-h-80 overflow-hidden bg-ink text-ink-foreground sm:col-span-2 lg:row-span-2">
