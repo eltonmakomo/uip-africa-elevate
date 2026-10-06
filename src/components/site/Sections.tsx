@@ -138,7 +138,7 @@ export function Impact() {
             ["±3 months", "Emergency market rebuild", "Mbare Musika, Harare", "mbare-musika-temporary-traders-market-redevelopment"],
           ].map(([value, label, where, slug], i) => (
             <Reveal as="li" key={label} delay={i * 70} className="bg-card">
-              <Link to="/projects/$slug" params={{ slug }} className="group flex h-full flex-col p-7 md:p-8">
+              <Link to="/projects/$slug" params={{ slug: slug ?? "" }} className="group flex h-full flex-col p-7 md:p-8">
                 <p className="index-num text-4xl font-semibold text-accent md:text-5xl">{value}</p>
                 <p className="mt-4 text-base font-semibold">{label}</p>
                 <p className="mt-auto flex items-center justify-between pt-6 text-xs text-muted-foreground">
