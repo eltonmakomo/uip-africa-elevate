@@ -73,9 +73,9 @@ function ProjectDetail() {
       <PageHero eyebrow={`Project · ${project.sector}`} title={project.name} copy={project.copy.length > 220 ? `${project.copy.slice(0, 217)}…` : project.copy} />
       <section className="shell py-10 md:py-14">
         <img src={project.image} alt={project.name} className="aspect-[16/8] w-full object-cover" />
-        <dl className="grid grid-cols-2 gap-px border-x border-b border-border bg-border md:grid-cols-4">
+        <dl className="grid grid-cols-2 border-l border-border bg-card md:grid-cols-4">
           {facts.filter(([, v]) => v && v !== "-").map(([label, value]) => (
-            <div key={label} className="bg-card p-5"><dt className="eyebrow">{label}</dt><dd className="mt-2 text-sm leading-snug">{value}</dd></div>
+            <div key={label} className="border-b border-r border-border p-5"><dt className="eyebrow">{label}</dt><dd className="mt-2 text-sm leading-snug">{value}</dd></div>
           ))}
         </dl>
 
@@ -94,9 +94,9 @@ function ProjectDetail() {
         <section className="border-t border-border bg-secondary/60 py-14 md:py-20">
           <div className="shell">
             <p className="eyebrow">Related projects</p>
-            <ul className="mt-6 grid gap-px border border-border bg-border md:grid-cols-3">
+            <ul className="mt-6 grid gap-6 md:grid-cols-3">
               {related.map((r) => (
-                <li key={r.slug} className="bg-card">
+                <li key={r.slug} className="border border-border bg-card">
                   <Link to="/projects/$slug" params={{ slug: r.slug }} className="group block">
                     <img src={r.image} alt={r.name} className="aspect-4/3 w-full object-cover" loading="lazy" />
                     <div className="flex items-start justify-between gap-4 p-6"><h3 className="text-lg leading-snug group-hover:text-accent">{r.name}</h3><ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden="true" /></div>
