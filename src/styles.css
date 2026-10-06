@@ -362,3 +362,9 @@
 @media (prefers-reduced-motion: reduce) {
   .flip-card-inner { transition: none; }
 }
+
+/* Cards that turn burgundy on hover */
+.hover-burgundy { transition: background-color 0.35s ease, color 0.35s ease; }
+.hover-burgundy:hover { background-color: var(--color-accent); color: var(--color-accent-foreground); }
+.hover-burgundy:hover :is(h3, p, span, a, svg) { color: var(--color-accent-foreground) !important; }
+.hover-burgundy:hover .border-t { border-color: color-mix(in oklab, var(--color-accent-foreground) 30%, transparent); }

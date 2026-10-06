@@ -271,7 +271,7 @@ export function Disciplines({ showHead = true }: { showHead?: boolean } = {}) {
           {disciplines.map((d, i) => {
             const count = projects.filter((p) => d.match.some((m) => p.sector.includes(m))).length;
             return (
-              <Reveal as="li" key={d.id} delay={i * 70} className="group bg-card">
+              <Reveal as="li" key={d.id} delay={i * 70} className="group bg-card hover-burgundy">
                 <article className="flex h-full flex-col">
                   <div className="media-zoom">
                     <img src={d.image} alt={`${d.name} engineering`} className="aspect-4/3 w-full object-cover" loading="lazy" />
@@ -353,7 +353,7 @@ export function Markets() {
       />
       <ul className="mt-10 grid gap-px border border-border bg-border md:mt-12 sm:grid-cols-2 lg:grid-cols-3">
         {markets.map((m, i) => (
-          <Reveal as="li" key={m.name} delay={(i % 3) * 80} className="group bg-card">
+          <Reveal as="li" key={m.name} delay={(i % 3) * 80} className="group bg-card hover-burgundy">
             <article className="flex h-full flex-col">
               <div className="media-zoom">
                 <img
@@ -499,7 +499,7 @@ const SELECTED = [
 function ProjectCard({ p, delay = 0 }: { p: (typeof projects)[number]; delay?: number }) {
   const where = "location" in p && p.location ? p.location : p.meta;
   return (
-    <Reveal as="li" delay={delay} className="bg-card">
+    <Reveal as="li" delay={delay} className="bg-card hover-burgundy">
       <Link to="/projects/$slug" params={{ slug: p.slug }} className="group flex h-full flex-col">
         <div className="media-zoom">
           <img src={p.image} alt={p.name} className="aspect-4/3 w-full object-cover" loading="lazy" />
