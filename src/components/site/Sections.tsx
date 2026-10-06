@@ -211,6 +211,13 @@ export function Statement() {
   );
 }
 
+const whyTiles = [
+  "bg-muted text-foreground",
+  "bg-ink text-ink-foreground",
+  "bg-teal text-accent-foreground",
+  "bg-secondary text-foreground border border-border",
+];
+
 export function Why() {
   const img = projects.find((p) => p.slug === "northgate-estate-integrated-housing-development")?.image ?? heroInterchange;
   return (
@@ -235,11 +242,11 @@ export function Why() {
             as="li"
             key={d.title}
             delay={i * 70}
-            className={`flex flex-col p-7 ${i === 1 ? "bg-accent text-accent-foreground" : "border border-border bg-card"}`}
+            className={`group flex cursor-default flex-col p-7 transition-colors duration-300 hover:bg-accent hover:text-accent-foreground ${whyTiles[i] ?? whyTiles[0]}`}
           >
-            <p className={`index-num text-xs ${i === 1 ? "opacity-75" : "text-teal"}`}>{String(i + 1).padStart(2, "0")}</p>
+            <p className="index-num text-xs opacity-75">{String(i + 1).padStart(2, "0")}</p>
             <h3 className="mt-auto pt-10 text-xl">{d.title}</h3>
-            <p className={`mt-3 text-sm leading-relaxed ${i === 1 ? "opacity-85" : "text-muted-foreground"}`}>{d.copy}</p>
+            <p className="mt-3 text-sm leading-relaxed opacity-80">{d.copy}</p>
           </Reveal>
         ))}
       </ul>
