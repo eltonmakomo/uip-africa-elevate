@@ -79,7 +79,7 @@ export function Hero() {
           </p>
           <TypewriterHeading
             text={"Engineering built for the realities of today and the needs of tomorrow."}
-            className="mt-6 max-w-[18ch] text-balance font-display text-[2.6rem] font-bold uppercase leading-[0.95] tracking-[-0.03em] sm:text-6xl lg:text-[5.4rem]"
+            className="mt-6 max-w-[22ch] text-balance font-display text-[2.1rem] font-bold uppercase leading-[0.98] tracking-[-0.025em] sm:text-5xl lg:text-[4rem]"
           />
         </Reveal>
 
