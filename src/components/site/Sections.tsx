@@ -445,7 +445,7 @@ export function Services({ showHead = true }: { showHead?: boolean } = {}) {
         {services.map((s, i) => {
           const tone = serviceTiles[i % serviceTiles.length];
           return (
-            <li key={s.name} className="flip-card min-h-[26rem] md:min-h-[30rem]">
+            <li key={s.name} className={`flip-card min-h-[26rem] md:min-h-[30rem] ${i === services.length - 1 && services.length % 3 === 1 ? "sm:col-span-2 lg:col-span-3" : ""}`}>
               <Link
                 to="/services/$slug"
                 params={{ slug: toSlug(s.name) }}
