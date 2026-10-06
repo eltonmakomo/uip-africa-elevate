@@ -467,8 +467,8 @@ function ProjectCard({ p, delay = 0 }: { p: (typeof projects)[number]; delay?: n
         <div className="flex flex-1 flex-col p-7">
           <p className="eyebrow">{p.sector}</p>
           <h3 className="mt-3 text-xl leading-snug group-hover:text-accent">{p.name}</h3>
-          <p className="mt-3 line-clamp-1 text-xs text-muted-foreground">{where}</p>
-          <span className="mt-auto flex items-center justify-between border-t border-border pt-4 text-xs font-semibold uppercase tracking-[0.16em] text-accent [margin-top:max(1.5rem,auto)]">
+          <p className="mt-3 line-clamp-1 pb-6 text-xs text-muted-foreground">{where}</p>
+          <span className="mt-auto flex items-center justify-between border-t border-border pt-4 text-xs font-semibold uppercase tracking-[0.16em] text-accent">
             View case study
             <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
           </span>

@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, PageShell } from "@/components/site/PageShell";
-import { Disciplines } from "@/components/site/Sections";
+import { Disciplines, DisciplineDetails } from "@/components/site/Sections";
 
-const title = "Disciplines | Transport, structures, water and project management";
+const title = "Disciplines | Transportation, structural, water and civil infrastructure";
 const description =
-  "Four connected disciplines at UIP Africa: transportation, structural engineering, water and sanitation, and project management — each carried by a named engineer.";
+  "UIP Africa's four engineering disciplines — transportation, structural, water & sanitation and civil infrastructure — with related services and projects.";
 
 export const Route = createFileRoute("/disciplines")({
   head: () => ({
@@ -24,11 +24,12 @@ function DisciplinesPage() {
   return (
     <PageShell>
       <PageHero
-        eyebrow="Expertise areas"
+        eyebrow="What we specialise in"
         title="Deep in four disciplines."
-        copy="Every project draws on some mix of these four. Each is carried by a named engineer, not a generalist spread thin across all of them."
+        copy="The technical fields we specialise in. Each links to the services we offer within it and the projects where we have applied it."
       />
-      <Disciplines />
+      <Disciplines showHead={false} />
+      <DisciplineDetails />
     </PageShell>
   );
 }

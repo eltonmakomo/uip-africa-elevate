@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, PageShell } from "@/components/site/PageShell";
-import { Projects, Stats } from "@/components/site/Sections";
+import { ProjectIndex } from "@/components/site/Sections";
 
 const title = "Projects | Delivered infrastructure across Zimbabwe";
 const description =
-  "Pomona City Flats, Dacomb Drive cluster housing, Ziminya Dam and Mbare Musika: projects delivered by UIP Africa across Zimbabwe.";
+  "The full UIP Africa portfolio: housing estates, dams, roads, service stations and public infrastructure across Zimbabwe, filterable by discipline.";
 
 export const Route = createFileRoute("/projects/")({
   head: () => ({
@@ -26,10 +26,9 @@ function ProjectsPage() {
       <PageHero
         eyebrow="Our work"
         title={"Built,\ncommissioned,\nin use."}
-        copy="A selection of the residential, water and public infrastructure projects we have carried from first sketch to final certificate."
+        copy="The full portfolio — housing, water, transport, energy and public infrastructure we have carried from first sketch to final certificate. Filter by discipline."
       />
-      <Stats />
-      <Projects />
+      <ProjectIndex />
     </PageShell>
   );
 }

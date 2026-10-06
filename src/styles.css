@@ -324,3 +324,12 @@
   .marquee-track { animation: none; }
   .typewriter-cursor { display: none; }
 }
+
+@utility bg-hero-overlay {
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--ink) 55%, transparent) 0%,
+    color-mix(in oklab, var(--ink) 25%, transparent) 40%,
+    color-mix(in oklab, var(--ink) 88%, transparent) 100%
+  );
+}
