@@ -745,7 +745,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="grid gap-5 border-t border-ink-border pt-8 text-xs text-ink-muted md:grid-cols-2">
+        <div className="mt-12 grid gap-5 border-t border-ink-border pt-8 text-xs text-ink-muted md:mt-16 md:grid-cols-2">
           <p>© {new Date().getFullYear()} Urban Infrastructure Projects Africa</p>
           <p className="md:text-right">Engineering a better tomorrow.</p>
         </div>
