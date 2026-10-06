@@ -1,5 +1,5 @@
 import purposeImg from "@/assets/purpose-planning.jpg";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "./Reveal";
@@ -192,9 +192,28 @@ export function About() {
 }
 
 export function Statement() {
+  const secRef = useRef<HTMLElement>(null);
+  const imgRef = useRef<HTMLImageElement>(null);
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const sec = secRef.current, img = imgRef.current;
+      if (!sec || !img) return;
+      const r = sec.getBoundingClientRect();
+      const progress = (r.top + r.height / 2 - window.innerHeight / 2) / window.innerHeight;
+      img.style.transform = `translate3d(0, ${(-progress * 120).toFixed(1)}px, 0) scale(1.2)`;
+    };
+    const onScroll = () => { if (!raf) raf = requestAnimationFrame(update); };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => { window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", onScroll); cancelAnimationFrame(raf); };
+  }, []);
   return (
-    <section className="relative overflow-hidden bg-ink text-ink-foreground">
-      <img src={purposeImg} alt="Engineers planning a sustainable energy project over drawings" className="absolute inset-0 h-full w-full object-cover object-[70%_center]" loading="lazy" />
+    <section ref={secRef} className="relative overflow-hidden bg-ink text-ink-foreground">
+      <img ref={imgRef} src={purposeImg} alt="Engineers planning a sustainable energy project over drawings" className="absolute inset-0 h-full w-full object-cover object-[70%_center] scale-[1.2] will-change-transform" loading="lazy" />
       <div className="shell relative py-20 md:py-28">
         <Reveal>
           <div className="max-w-md bg-ink/85 p-8 shadow-2xl backdrop-blur-sm md:p-10">
@@ -271,7 +290,7 @@ export function Disciplines({ showHead = true }: { showHead?: boolean } = {}) {
           {disciplines.map((d, i) => {
             const count = projects.filter((p) => d.match.some((m) => p.sector.includes(m))).length;
             return (
-              <Reveal as="li" key={d.id} delay={i * 70} className="group bg-card">
+              <Reveal as="li" key={d.id} delay={i * 70} className="group bg-card hover-burgundy">
                 <article className="flex h-full flex-col">
                   <div className="media-zoom">
                     <img src={d.image} alt={`${d.name} engineering`} className="aspect-4/3 w-full object-cover" loading="lazy" />
@@ -353,7 +372,7 @@ export function Markets() {
       />
       <ul className="mt-10 grid gap-px border border-border bg-border md:mt-12 sm:grid-cols-2 lg:grid-cols-3">
         {markets.map((m, i) => (
-          <Reveal as="li" key={m.name} delay={(i % 3) * 80} className="group bg-card">
+          <Reveal as="li" key={m.name} delay={(i % 3) * 80} className="group bg-card hover-burgundy">
             <article className="flex h-full flex-col">
               <div className="media-zoom">
                 <img
@@ -499,7 +518,7 @@ const SELECTED = [
 function ProjectCard({ p, delay = 0 }: { p: (typeof projects)[number]; delay?: number }) {
   const where = "location" in p && p.location ? p.location : p.meta;
   return (
-    <Reveal as="li" delay={delay} className="bg-card">
+    <Reveal as="li" delay={delay} className="bg-card hover-burgundy">
       <Link to="/projects/$slug" params={{ slug: p.slug }} className="group flex h-full flex-col">
         <div className="media-zoom">
           <img src={p.image} alt={p.name} className="aspect-4/3 w-full object-cover" loading="lazy" />
