@@ -370,25 +370,21 @@ export function Markets() {
         title="Client industries"
         copy="Each backed by work we have actually delivered, not a list of markets we hope to break into."
       />
-      <ul className="mt-10 grid gap-px border border-border bg-border md:mt-12 sm:grid-cols-2 lg:grid-cols-3">
-        {markets.map((m, i) => (
-          <Reveal as="li" key={m.name} delay={(i % 3) * 80} className="group bg-card hover-burgundy">
-            <article className="flex h-full flex-col">
-              <div className="media-zoom">
-                <img
-                  src={m.image}
-                  alt={m.name}
-                  className="aspect-16/10 w-full object-cover"
-                  loading="lazy"
-                />
+      <ul className="mt-10 grid gap-3 md:mt-12 sm:grid-cols-2 lg:grid-cols-4 lg:auto-rows-[17rem]">
+        {markets.map((m, i) => {
+          const span = i === 0 ? "sm:col-span-2 lg:row-span-2" : i >= 5 ? "lg:col-span-2" : "";
+          return (
+            <Reveal as="li" key={m.name} delay={(i % 4) * 70} className={`group media-zoom relative min-h-72 overflow-hidden bg-ink text-ink-foreground ${span}`}>
+              <img src={m.image} alt={m.name} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/35 to-transparent" />
+              <div className="absolute inset-0 bg-accent/85 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="relative flex h-full flex-col justify-end p-6 md:p-7">
+                <h3 className={i === 0 ? "text-2xl md:text-3xl" : "text-xl"}>{m.name}</h3>
+                <p className={`mt-3 text-sm leading-relaxed text-ink-foreground/85 ${i === 0 ? "max-w-md" : "max-h-0 overflow-hidden opacity-0 transition-all duration-500 group-hover:max-h-40 group-hover:opacity-100"}`}>{m.copy}</p>
               </div>
-              <div className="flex flex-1 flex-col p-7">
-                <h3 className="text-xl">{m.name}</h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{m.copy}</p>
-              </div>
-            </article>
-          </Reveal>
-        ))}
+            </Reveal>
+          );
+        })}
       </ul>
     </section>
   );
