@@ -538,10 +538,11 @@ export function Projects({ limit }: { limit?: number } = {}) {
   const selected = SELECTED.map((slug) => projects.find((p) => p.slug === slug)).filter(Boolean) as typeof projects;
   const list = limit ? selected.slice(0, limit) : selected;
   const [lead, second, third, ...rest] = list;
-  const Feature = ({ p, tall = false }: { p: (typeof projects)[number]; tall?: boolean }) => (
+  const Feature = ({ p, tall = false, tint = "bg-accent" }: { p: (typeof projects)[number]; tall?: boolean; tint?: string }) => (
     <Link to="/projects/$slug" params={{ slug: p.slug }} className={`media-zoom group relative block h-full overflow-hidden bg-ink text-ink-foreground ${tall ? "min-h-[28rem] lg:min-h-[40rem]" : "min-h-[19rem]"}`}>
       <img src={p.image} alt={p.name} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
       <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent" />
+      <div className={`absolute inset-0 ${tint} opacity-0 transition-opacity duration-500 group-hover:opacity-85`} />
       <div className="relative flex h-full flex-col justify-end p-7 md:p-9">
         <p className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-ink-accent">{p.sector}</p>
         <h3 className={`mt-3 max-w-xl leading-tight ${tall ? "text-3xl md:text-4xl" : "text-xl md:text-2xl"}`}>{p.name}</h3>
@@ -563,8 +564,8 @@ export function Projects({ limit }: { limit?: number } = {}) {
         <div className="mt-10 grid gap-3 md:mt-12 lg:grid-cols-12">
           {lead ? <Reveal className="lg:col-span-7"><Feature p={lead} tall /></Reveal> : null}
           <div className="grid gap-3 lg:col-span-5">
-            {second ? <Reveal delay={80}><Feature p={second} /></Reveal> : null}
-            {third ? <Reveal delay={140}><Feature p={third} /></Reveal> : null}
+            {second ? <Reveal delay={80}><Feature p={second} tint="bg-teal" /></Reveal> : null}
+            {third ? <Reveal delay={140}><Feature p={third} tint="bg-ink" /></Reveal> : null}
           </div>
         </div>
         {rest.length ? (
