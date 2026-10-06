@@ -372,12 +372,13 @@ export function Markets() {
       />
       <ul className="mt-10 grid gap-3 md:mt-12 sm:grid-cols-2 lg:grid-cols-4 lg:auto-rows-[17rem]">
         {markets.map((m, i) => {
+          const hovers = ["bg-accent/85", "bg-teal/85", "bg-ink/85", "bg-slate-tile/90"];
           const span = i === 0 ? "sm:col-span-2 lg:row-span-2" : i >= 5 ? "lg:col-span-2" : "";
           return (
-            <Reveal as="li" key={m.name} delay={(i % 4) * 70} className={`group media-zoom relative min-h-72 overflow-hidden bg-ink text-ink-foreground ${span}`}>
+            <Reveal as="li" key={m.name} delay={(i % 4) * 70} className={`group media-zoom relative min-h-72 overflow-hidden bg-ink text-ink-foreground lg:min-h-0 ${span}`}>
               <img src={m.image} alt={m.name} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/35 to-transparent" />
-              <div className="absolute inset-0 bg-accent/85 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className={`absolute inset-0 ${hovers[i % hovers.length]} opacity-0 transition-opacity duration-500 group-hover:opacity-100`} />
               <div className="relative flex h-full flex-col justify-end p-6 md:p-7">
                 <h3 className={i === 0 ? "text-2xl md:text-3xl" : "text-xl"}>{m.name}</h3>
                 <p className={`mt-3 text-sm leading-relaxed text-ink-foreground/85 ${i === 0 ? "max-w-md" : "max-h-0 overflow-hidden opacity-0 transition-all duration-500 group-hover:max-h-40 group-hover:opacity-100"}`}>{m.copy}</p>
