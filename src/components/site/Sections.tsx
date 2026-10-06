@@ -718,7 +718,7 @@ export function SiteFooter() {
     <footer className="bg-ink text-ink-foreground">
       <div className="shell border-t border-ink-border py-12 md:py-16">
         <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-3">
             <Link to="/" aria-label="UIP Africa Home" className="inline-block">
               <img src="/uip-logo-white.png?v=2" alt="UIP Africa" className="h-20 w-auto object-contain md:h-24" />
             </Link>
@@ -734,7 +734,7 @@ export function SiteFooter() {
               <ul className="mt-4 space-y-2 text-sm">{services.map((sv) => <li key={sv.name}><Link to="/services/$slug" params={{ slug: toSlug(sv.name) }} className="footer-link">{sv.name}</Link></li>)}</ul>
             </div>
           </nav>
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-2">
             <p className="font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-ink-accent">Harare, Zimbabwe</p>
             <address className="mt-5 space-y-3 text-sm not-italic leading-relaxed text-ink-muted">
               <p>39 Hillside Road<br />Hillside, Harare<br />Zimbabwe</p>
