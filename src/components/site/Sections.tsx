@@ -192,9 +192,28 @@ export function About() {
 }
 
 export function Statement() {
+  const secRef = useRef<HTMLElement>(null);
+  const imgRef = useRef<HTMLImageElement>(null);
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const sec = secRef.current, img = imgRef.current;
+      if (!sec || !img) return;
+      const r = sec.getBoundingClientRect();
+      const progress = (r.top + r.height / 2 - window.innerHeight / 2) / window.innerHeight;
+      img.style.transform = `translate3d(0, ${(-progress * 120).toFixed(1)}px, 0) scale(1.2)`;
+    };
+    const onScroll = () => { if (!raf) raf = requestAnimationFrame(update); };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => { window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", onScroll); cancelAnimationFrame(raf); };
+  }, []);
   return (
-    <section className="relative overflow-hidden bg-ink text-ink-foreground">
-      <img src={purposeImg} alt="Engineers planning a sustainable energy project over drawings" className="absolute inset-0 h-full w-full object-cover object-[70%_center]" loading="lazy" />
+    <section ref={secRef} className="relative overflow-hidden bg-ink text-ink-foreground">
+      <img ref={imgRef} src={purposeImg} alt="Engineers planning a sustainable energy project over drawings" className="absolute inset-0 h-full w-full object-cover object-[70%_center] scale-[1.2] will-change-transform" loading="lazy" />
       <div className="shell relative py-20 md:py-28">
         <Reveal>
           <div className="max-w-md bg-ink/85 p-8 shadow-2xl backdrop-blur-sm md:p-10">
