@@ -434,7 +434,7 @@ const serviceTiles = [
   "bg-ink text-ink-foreground",
   "bg-card text-foreground",
   "bg-accent text-accent-foreground",
-  "bg-secondary text-foreground",
+  "bg-ink text-ink-foreground",
   "bg-slate-tile text-ink-foreground",
 ];
 
