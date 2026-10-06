@@ -1,5 +1,5 @@
 import purposeImg from "@/assets/purpose-planning.jpg";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "./Reveal";

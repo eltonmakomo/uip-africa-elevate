@@ -8,4 +8,4 @@
 - [x] Audit every redesigned page against the live UIP Africa website
 - [x] Add missing or inaccurate live-site content while preserving the redesign
 - [x] Verify all updated pages, links, interactions, and preview health
-- [ ] Parallax on Our purpose photo
+- [x] Parallax on Our purpose photo
