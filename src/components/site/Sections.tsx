@@ -254,7 +254,7 @@ export function Disciplines({ showHead = true }: { showHead?: boolean } = {}) {
                     <img src={d.image} alt={`${d.name} engineering`} className="aspect-4/3 w-full object-cover" loading="lazy" />
                   </div>
                   <div className="flex flex-1 flex-col p-7">
-                    <p className="index-num text-xs text-accent">{String(i + 1).padStart(2, "0")}</p>
+                    <p className="index-num text-xs text-teal">{String(i + 1).padStart(2, "0")}</p>
                     <h3 className="mt-3 text-2xl">{d.name}</h3>
                     <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{d.lead}</p>
                     <p className="mt-6 border-t border-border pt-4 text-xs uppercase tracking-[0.14em] text-muted-foreground">
@@ -418,7 +418,7 @@ export function Services({ showHead = true }: { showHead?: boolean } = {}) {
           {servicePhases.map((group, gi) => (
             <div key={group.phase} className="grid gap-6 lg:grid-cols-12">
               <div className="lg:col-span-3">
-                <p className="index-num text-xs text-accent">Phase {String(gi + 1).padStart(2, "0")}</p>
+                <p className="index-num text-xs text-teal">Phase {String(gi + 1).padStart(2, "0")}</p>
                 <h3 className="mt-2 text-xl">{group.phase}</h3>
               </div>
               <ul className="grid gap-px border border-border bg-border sm:grid-cols-2 lg:col-span-9">
