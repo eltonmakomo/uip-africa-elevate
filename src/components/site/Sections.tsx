@@ -215,7 +215,7 @@ const whyTiles = [
   "bg-muted text-foreground",
   "bg-ink text-ink-foreground",
   "bg-teal text-accent-foreground",
-  "bg-secondary text-foreground border border-border",
+  "bg-card text-foreground border border-border",
 ];
 
 export function Why() {
