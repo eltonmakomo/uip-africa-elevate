@@ -335,3 +335,30 @@
     color-mix(in oklab, var(--ink) 88%, transparent) 100%
   );
 }
+
+/* Service flip cards */
+.flip-card { perspective: 1600px; }
+.flip-card-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s var(--ease-out-expo);
+}
+.flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.flip-back { transform: rotateY(180deg); }
+@media (hover: hover) {
+  .flip-card:hover .flip-card-inner,
+  .flip-card-inner:focus-visible { transform: rotateY(180deg); }
+}
+.flip-card-inner:focus-visible { transform: rotateY(180deg); outline: 2px solid var(--ring); outline-offset: -4px; }
+@media (hover: none) {
+  .flip-face:not(.flip-back) { display: none; }
+  .flip-back { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flip-card-inner { transition: none; }
+}
