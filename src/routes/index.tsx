@@ -2,20 +2,20 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import {
   About,
-  Appointments,
+  CallToAction,
   Clients,
+  ContactBlock,
   Disciplines,
   Hero,
-  Insights,
+  Impact,
   Markets,
   Projects,
   Services,
   SiteFooter,
-  Stats,
   Why,
 } from "@/components/site/Sections";
 
-const title = "UIP Africa | Civil & Structural Engineering Consultancy, Harare";
+const title = "UIP Africa | Engineering for today and tomorrow, Harare";
 const description =
   "Harare-based civil and structural engineering consultancy: transport, structures, water and project delivery across Zimbabwe. 10+ years and 120+ projects.";
 
@@ -39,16 +39,16 @@ function Index() {
       <SiteHeader />
       <main id="main">
         <Hero />
-        <Stats />
-        <About />
         <Why />
         <Disciplines />
-        <Markets />
         <Services />
-        <Projects limit={3} />
-        <Insights />
-        <Appointments />
+        <Projects />
+        <Markets />
+        <Impact />
+        <About />
         <Clients />
+        <CallToAction />
+        <ContactBlock />
       </main>
       <SiteFooter />
     </div>

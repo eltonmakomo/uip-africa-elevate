@@ -26,7 +26,7 @@ function ServicesPage() {
       <PageHero
         eyebrow="Services"
         title="Engineering that stays connected."
-        copy="From the appointed engineer to the team on site, our services carry one line of technical responsibility through the project."
+        copy="What clients appoint us to do, organised by project phase — from survey and assessment, through design, to construction oversight."
       />
       <Services showHead={false} />
       <Appointments />
