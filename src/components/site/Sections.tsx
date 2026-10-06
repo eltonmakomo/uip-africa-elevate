@@ -156,48 +156,55 @@ export function Impact() {
 
 export function About() {
   return (
-    <section id="about" className="bg-secondary/60 py-16 md:py-24">
-      <div className="shell grid gap-14 lg:grid-cols-12 lg:items-center">
-        <Reveal className="lg:col-span-6">
-          <p className="eyebrow">Who we are</p>
-          <h2 className="display-lg mt-5 text-balance">
-            Engineering infrastructure that shapes communities.
-          </h2>
-          <p className="mt-7 text-base leading-relaxed text-muted-foreground">
-            Urban Infrastructure Projects Africa is a Harare-based civil and structural engineering
-            consultancy with a legacy of delivery across property, public infrastructure, mining and
-            energy.
+    <section id="about" className="bg-secondary/60">
+      <div className="grid lg:grid-cols-2">
+        <Reveal className="media-zoom relative min-h-[22rem] lg:min-h-[40rem]">
+          <img
+            src={aboutEngineers}
+            alt="Civil engineers in hard hats reviewing blueprints on a construction site"
+            className="absolute inset-0 h-full w-full object-cover"
+            loading="lazy"
+          />
+          <p className="absolute bottom-0 left-0 bg-accent px-5 py-3 font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-accent-foreground">
+            Hillside, Harare · Zimbabwe
           </p>
-          <p className="mt-5 max-w-xl font-display text-xl leading-snug">
-            We engineer more than drawings and specifications. We engineer assets that perform
-            through seasonal rainfall, demanding traffic loads, and the materials market that
-            actually exists on the ground.
-          </p>
-          <Link
-            to="/about"
-            className="link-underline mt-8 inline-block font-mono text-xs uppercase tracking-[0.2em] text-accent"
-          >
-            Our story →
-          </Link>
         </Reveal>
+        <Reveal delay={100} className="flex flex-col justify-center px-5 py-16 md:px-12 lg:px-16 xl:px-24">
+          <p className="eyebrow">Who we are</p>
+          <h2 className="display-lg mt-5 max-w-xl text-balance">Engineering infrastructure that shapes communities.</h2>
+          <p className="mt-7 max-w-xl text-base leading-relaxed text-muted-foreground">
+            Urban Infrastructure Projects Africa is a Harare-based civil and structural engineering
+            consultancy with a legacy of delivery across property, public infrastructure, mining and energy.
+          </p>
+          <p className="mt-5 max-w-xl border-l-2 border-accent pl-5 font-display text-xl leading-snug">
+            We engineer assets that perform through seasonal rainfall, demanding traffic loads, and the
+            materials market that actually exists on the ground.
+          </p>
+          <div className="mt-9 flex flex-wrap gap-6">
+            <Link to="/about" className="link-underline font-mono text-xs uppercase tracking-[0.2em] text-accent">Our story →</Link>
+            <Link to="/people" className="link-underline font-mono text-xs uppercase tracking-[0.2em] text-accent">Meet the team →</Link>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
 
-        <Reveal delay={120} className="lg:col-span-6">
-          <figure className="media-zoom relative">
-            <img
-              src={aboutEngineers}
-              alt="Civil engineers in hard hats and high-visibility vests reviewing blueprints on a construction site with a city skyline behind them"
-              className="aspect-4/3 w-full object-cover"
-              loading="lazy"
-            />
-            <figcaption className="absolute inset-x-0 bottom-0 bg-ink/85 p-6 text-ink-foreground backdrop-blur-sm">
-              <p className="font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-ink-accent">
-                Hillside, Harare · Zimbabwe
-              </p>
-              <p className="mt-2 text-sm text-ink-muted">
-                One accountable engineer from first sketch to final certificate.
-              </p>
-            </figcaption>
-          </figure>
+export function Statement() {
+  const img = projects.find((p) => p.slug === "ziminya-dam-water-security-irrigation-project")?.image ?? heroInterchange;
+  return (
+    <section className="relative overflow-hidden bg-ink text-ink-foreground">
+      <img src={img} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover opacity-45" loading="lazy" />
+      <div className="absolute inset-0 bg-hero-overlay" />
+      <div className="shell relative py-24 md:py-36">
+        <Reveal>
+          <p className="font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-ink-accent">Our purpose</p>
+          <blockquote className="mt-6 max-w-5xl font-display text-3xl font-semibold leading-[1.1] md:text-5xl lg:text-6xl">
+            “Every development we embark on is done with sustainability and respect for the environment in mind.”
+          </blockquote>
+          <Link to="/about" className="mt-10 inline-flex items-center gap-3 border-b border-ink-foreground/60 pb-2 text-sm font-semibold">
+            Our vision &amp; mission <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
+          </Link>
         </Reveal>
       </div>
     </section>
@@ -205,26 +212,34 @@ export function About() {
 }
 
 export function Why() {
+  const img = projects.find((p) => p.slug === "northgate-estate-integrated-housing-development")?.image ?? heroInterchange;
   return (
     <section className="shell py-16 md:py-24">
       <SectionHead
         eyebrow="Why partner with us"
         title="Designed for today. Built for African conditions."
-        copy="Firmly founded on a project implementation background with top local and international contracting firms, we anticipate the challenges between design intent and a completed asset, and we design them out before they cost time on site."
+        copy="Firmly founded on a project implementation background with top local and international contracting firms, we anticipate the challenges between design intent and a completed asset."
         action={{ label: "Talk to an engineer", href: "/contact" }}
       />
-      <ul className="mt-10 grid gap-px border border-border md:mt-12 md:grid-cols-2">
+      <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 md:mt-12">
+        <Reveal as="li" className="media-zoom relative min-h-80 overflow-hidden bg-ink text-ink-foreground sm:col-span-2 lg:row-span-2">
+          <img src={img} alt="Northgate Estate serviced stands, Harare" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+          <div className="absolute inset-0 bg-hero-overlay" />
+          <div className="relative flex h-full flex-col justify-end p-8 md:p-10">
+            <p className="index-num text-5xl font-semibold md:text-6xl">7,000+</p>
+            <p className="mt-2 max-w-xs text-sm text-ink-foreground/85">Residential stands serviced at Northgate Estate — civil design and project management by UIP.</p>
+          </div>
+        </Reveal>
         {differentiators.map((d, i) => (
           <Reveal
             as="li"
             key={d.title}
             delay={i * 70}
-            className="group bg-card p-8 transition-colors hover:bg-secondary md:p-12"
+            className={`flex flex-col p-7 ${i === 1 ? "bg-accent text-accent-foreground" : "border border-border bg-card"}`}
           >
-            <h3 className="text-xl md:text-2xl">{d.title}</h3>
-            <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
-              {d.copy}
-            </p>
+            <p className={`index-num text-xs ${i === 1 ? "opacity-75" : "text-teal"}`}>{String(i + 1).padStart(2, "0")}</p>
+            <h3 className="mt-auto pt-10 text-xl">{d.title}</h3>
+            <p className={`mt-3 text-sm leading-relaxed ${i === 1 ? "opacity-85" : "text-muted-foreground"}`}>{d.copy}</p>
           </Reveal>
         ))}
       </ul>
@@ -481,6 +496,20 @@ function ProjectCard({ p, delay = 0 }: { p: (typeof projects)[number]; delay?: n
 export function Projects({ limit }: { limit?: number } = {}) {
   const selected = SELECTED.map((slug) => projects.find((p) => p.slug === slug)).filter(Boolean) as typeof projects;
   const list = limit ? selected.slice(0, limit) : selected;
+  const [lead, second, third, ...rest] = list;
+  const Feature = ({ p, tall = false }: { p: (typeof projects)[number]; tall?: boolean }) => (
+    <Link to="/projects/$slug" params={{ slug: p.slug }} className={`media-zoom group relative block h-full overflow-hidden bg-ink text-ink-foreground ${tall ? "min-h-[28rem] lg:min-h-[40rem]" : "min-h-[19rem]"}`}>
+      <img src={p.image} alt={p.name} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent" />
+      <div className="relative flex h-full flex-col justify-end p-7 md:p-9">
+        <p className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-ink-accent">{p.sector}</p>
+        <h3 className={`mt-3 max-w-xl leading-tight ${tall ? "text-3xl md:text-4xl" : "text-xl md:text-2xl"}`}>{p.name}</h3>
+        <span className="mt-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em]">
+          View case study <ArrowUpRight aria-hidden="true" className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+        </span>
+      </div>
+    </Link>
+  );
   return (
     <section id="projects" className="py-16 md:py-24">
       <div className="shell">
@@ -490,9 +519,18 @@ export function Projects({ limit }: { limit?: number } = {}) {
           copy="Housing, water security, public markets and energy — a cross-section of the portfolio."
           action={{ label: `All ${projects.length} projects`, href: "/projects" }}
         />
-        <ul className="mt-10 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3 md:mt-12">
-          {list.map((p, i) => <ProjectCard key={p.slug} p={p} delay={(i % 3) * 80} />)}
-        </ul>
+        <div className="mt-10 grid gap-3 md:mt-12 lg:grid-cols-12">
+          {lead ? <Reveal className="lg:col-span-7"><Feature p={lead} tall /></Reveal> : null}
+          <div className="grid gap-3 lg:col-span-5">
+            {second ? <Reveal delay={80}><Feature p={second} /></Reveal> : null}
+            {third ? <Reveal delay={140}><Feature p={third} /></Reveal> : null}
+          </div>
+        </div>
+        {rest.length ? (
+          <ul className="mt-3 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+            {rest.map((p, i) => <ProjectCard key={p.slug} p={p} delay={i * 80} />)}
+          </ul>
+        ) : null}
       </div>
     </section>
   );
@@ -686,9 +724,15 @@ export function SiteFooter() {
             </Link>
             <p className="mt-7 max-w-xs text-sm leading-relaxed text-ink-muted">Integrated infrastructure engineering. Boundless possibilities.</p>
           </div>
-          <nav aria-label="Footer navigation" className="grid grid-cols-2 gap-8 lg:col-span-4">
+          <nav aria-label="Footer navigation" className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:col-span-7">
+            <div className="col-span-2 grid grid-cols-2 gap-8 sm:col-span-2">
             <ul className="space-y-3">{primaryLinks.map(([label, to]) => <li key={to}><Link to={to} className="footer-link">{label}</Link></li>)}</ul>
             <ul className="space-y-3">{secondaryLinks.map(([label, to]) => <li key={to}><Link to={to} className="footer-link">{label}</Link></li>)}</ul>
+            </div>
+            <div className="col-span-2 sm:col-span-2">
+              <p className="font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-ink-accent">Services</p>
+              <ul className="mt-4 space-y-2 text-sm">{services.map((sv) => <li key={sv.name}><Link to="/services/$slug" params={{ slug: toSlug(sv.name) }} className="footer-link">{sv.name}</Link></li>)}</ul>
+            </div>
           </nav>
           <div className="lg:col-span-3">
             <p className="font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-ink-accent">Harare, Zimbabwe</p>
