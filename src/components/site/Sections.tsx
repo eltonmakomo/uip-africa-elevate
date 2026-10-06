@@ -436,12 +436,12 @@ export function Services({ showHead = true }: { showHead?: boolean } = {}) {
                 <p className="index-num text-xs text-teal">Phase {String(gi + 1).padStart(2, "0")}</p>
                 <h3 className="mt-2 text-xl">{group.phase}</h3>
               </div>
-              <ul className="grid gap-px border border-border bg-border sm:grid-cols-2 lg:col-span-9">
+              <ul className="grid gap-3 sm:grid-cols-2 lg:col-span-9">
                 {group.names.map((name, i) => {
                   const s = services.find((x) => x.name === name);
                   if (!s) return null;
                   return (
-                    <Reveal as="li" key={name} delay={i * 60} className="bg-card">
+                    <Reveal as="li" key={name} delay={i * 60} className="border border-border bg-card">
                       <Link to="/services/$slug" params={{ slug: toSlug(s.name) }} className="group flex h-full flex-col p-7 transition-colors hover:bg-background">
                         <h4 className="text-xl leading-snug group-hover:text-accent">{s.name}</h4>
                         <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{s.copy}</p>
