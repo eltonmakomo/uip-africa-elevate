@@ -1,3 +1,4 @@
+import purposeImg from "@/assets/purpose-planning.jpg";
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
@@ -191,20 +192,20 @@ export function About() {
 }
 
 export function Statement() {
-  const img = projects.find((p) => p.slug === "ziminya-dam-water-security-irrigation-project")?.image ?? heroInterchange;
   return (
     <section className="relative overflow-hidden bg-ink text-ink-foreground">
-      <img src={img} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover opacity-45" loading="lazy" />
-      <div className="absolute inset-0 bg-hero-overlay" />
-      <div className="shell relative py-24 md:py-36">
+      <img src={purposeImg} alt="Engineers planning a sustainable energy project over drawings" className="absolute inset-0 h-full w-full object-cover object-[70%_center]" loading="lazy" />
+      <div className="shell relative py-20 md:py-28">
         <Reveal>
-          <p className="font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-ink-accent">Our purpose</p>
-          <blockquote className="mt-6 max-w-5xl font-display text-3xl font-semibold leading-[1.1] md:text-5xl lg:text-6xl">
-            “Every development we embark on is done with sustainability and respect for the environment in mind.”
-          </blockquote>
-          <Link to="/about" className="mt-10 inline-flex items-center gap-3 border-b border-ink-foreground/60 pb-2 text-sm font-semibold">
-            Our vision &amp; mission <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
-          </Link>
+          <div className="max-w-md bg-ink/85 p-8 shadow-2xl backdrop-blur-sm md:p-10">
+            <p className="font-mono text-[0.6875rem] uppercase tracking-[0.22em] text-ink-accent">Our purpose</p>
+            <blockquote className="mt-5 font-display text-2xl font-semibold leading-[1.15] md:text-3xl">
+              “Every development we embark on is done with sustainability and respect for the environment in mind.”
+            </blockquote>
+            <Link to="/about" className="mt-8 inline-flex items-center gap-3 border-b border-ink-foreground/60 pb-2 text-sm font-semibold">
+              Our vision &amp; mission <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
+            </Link>
+          </div>
         </Reveal>
       </div>
     </section>
