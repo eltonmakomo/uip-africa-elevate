@@ -418,53 +418,60 @@ export function Clients() {
 }
 
 
-const servicePhases = [
-  { phase: "Investigate & plan", names: ["Survey & Geomatics", "Infrastructure Asset Management"] },
-  { phase: "Design & engineer", names: ["Transportation Engineering", "Structural Engineering", "Water & Sanitation Engineering", "Stormwater Management & Design"] },
-  { phase: "Deliver & oversee", names: ["Project Management"] },
+const serviceTiles = [
+  "bg-muted text-foreground",
+  "bg-teal text-accent-foreground",
+  "bg-ink text-ink-foreground",
+  "bg-card text-foreground",
+  "bg-accent text-accent-foreground",
+  "bg-secondary text-foreground",
+  "bg-slate-tile text-ink-foreground",
 ];
 
 export function Services({ showHead = true }: { showHead?: boolean } = {}) {
   return (
-    <section id="services" className="bg-secondary/60 py-16 md:py-24">
-      <div className="shell">
-        {showHead && (
+    <section id="services" className="py-16 md:py-24">
+      {showHead && (
+        <div className="shell">
           <SectionHead
-            eyebrow="What we deliver"
-            title="Services across the project lifecycle."
-            copy="How clients appoint us — from the first survey, through detailed design, to construction oversight."
-            action={{ label: "All services", href: "/services" }}
+            eyebrow="Services"
+            title="Engineering that stays connected"
+            copy="From the appointed engineer to the team on site, our services carry one line of technical responsibility through the project."
+            action={{ label: "Explore all services", href: "/services" }}
           />
-        )}
-        <div className={`space-y-10 ${showHead ? "mt-10 md:mt-12" : ""}`}>
-          {servicePhases.map((group, gi) => (
-            <div key={group.phase} className="grid gap-6 lg:grid-cols-12">
-              <div className="lg:col-span-3">
-                <p className="index-num text-xs text-teal">Phase {String(gi + 1).padStart(2, "0")}</p>
-                <h3 className="mt-2 text-xl">{group.phase}</h3>
-              </div>
-              <ul className="grid gap-3 sm:grid-cols-2 lg:col-span-9">
-                {group.names.map((name, i) => {
-                  const s = services.find((x) => x.name === name);
-                  if (!s) return null;
-                  return (
-                    <Reveal as="li" key={name} delay={i * 60} className="border border-border bg-card">
-                      <Link to="/services/$slug" params={{ slug: toSlug(s.name) }} className="group flex h-full flex-col p-7 transition-colors hover:bg-background">
-                        <h4 className="text-xl leading-snug group-hover:text-accent">{s.name}</h4>
-                        <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{s.copy}</p>
-                        <span className="mt-6 flex items-center justify-between border-t border-border pt-4 text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-                          Read more
-                          <ArrowUpRight aria-hidden="true" className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                        </span>
-                      </Link>
-                    </Reveal>
-                  );
-                })}
-              </ul>
-            </div>
-          ))}
         </div>
-      </div>
+      )}
+      <ul className={`grid sm:grid-cols-2 lg:grid-cols-3 ${showHead ? "mt-10 md:mt-12" : ""}`}>
+        {services.map((s, i) => {
+          const tone = serviceTiles[i % serviceTiles.length];
+          return (
+            <li key={s.name} className="flip-card min-h-[26rem] md:min-h-[30rem]">
+              <Link
+                to="/services/$slug"
+                params={{ slug: toSlug(s.name) }}
+                aria-label={`${s.name} — read more`}
+                className="flip-card-inner group block h-full min-h-[26rem] md:min-h-[30rem]"
+              >
+                <div className={`flip-face flex flex-col p-8 md:p-10 ${tone}`}>
+                  <h3 className="max-w-[14ch] text-3xl uppercase leading-[1.05] md:text-4xl">{s.name}</h3>
+                  <p className="mt-auto font-mono text-[0.625rem] uppercase tracking-[0.2em] opacity-60">Hover to explore</p>
+                </div>
+                <div className={`flip-face flip-back flex flex-col p-8 md:p-10 ${tone}`}>
+                  <h3 className="max-w-[16ch] text-2xl uppercase leading-[1.05]">{s.name}</h3>
+                  <p className="mt-5 text-base leading-relaxed opacity-85">{s.copy}</p>
+                  <ul className="mt-6 space-y-2 text-sm opacity-85">
+                    {s.offers.map((o) => <li key={o} className="flex gap-3"><span className="mt-2 h-1 w-1 shrink-0 bg-current" />{o}</li>)}
+                  </ul>
+                  <span className="mt-auto flex items-center justify-between border-t border-current/35 pt-4 text-xs font-semibold uppercase tracking-[0.16em]">
+                    Read more
+                    <ArrowUpRight aria-hidden="true" className="h-5 w-5" />
+                  </span>
+                </div>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
     </section>
   );
 }
