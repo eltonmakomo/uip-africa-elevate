@@ -418,6 +418,16 @@ export function Clients() {
 }
 
 
+const bentoSpans = [
+  "sm:col-span-2 lg:row-span-2",
+  "",
+  "",
+  "",
+  "",
+  "lg:col-span-2",
+  "lg:col-span-2",
+];
+
 const serviceTiles = [
   "bg-muted text-foreground",
   "bg-teal text-accent-foreground",
@@ -441,25 +451,25 @@ export function Services({ showHead = true }: { showHead?: boolean } = {}) {
           />
         </div>
       )}
-      <ul className={`grid sm:grid-cols-2 lg:grid-cols-3 ${showHead ? "mt-10 md:mt-12" : ""}`}>
+      <ul className={`grid auto-rows-[22rem] gap-3 px-3 sm:grid-cols-2 lg:grid-cols-4 lg:auto-rows-[20rem] ${showHead ? "mt-10 md:mt-12" : ""}`}>
         {services.map((s, i) => {
           const tone = serviceTiles[i % serviceTiles.length];
           return (
-            <li key={s.name} className={`flip-card min-h-[26rem] md:min-h-[30rem] ${i === services.length - 1 && services.length % 3 === 1 ? "sm:col-span-2 lg:col-span-3" : ""}`}>
+            <li key={s.name} className={`flip-card ${bentoSpans[i] ?? ""}`}>
               <Link
                 to="/services/$slug"
                 params={{ slug: toSlug(s.name) }}
                 aria-label={`${s.name} — read more`}
-                className="flip-card-inner group block h-full min-h-[26rem] md:min-h-[30rem]"
+                className="flip-card-inner group block h-full"
               >
                 <div className={`flip-face flex flex-col p-8 md:p-10 ${tone}`}>
-                  <h3 className="max-w-[14ch] text-3xl uppercase leading-[1.05] md:text-4xl">{s.name}</h3>
+                  <h3 className={`max-w-[14ch] uppercase leading-[1.05] ${i === 0 ? "text-4xl md:text-6xl" : "text-2xl md:text-3xl"}`}>{s.name}</h3>
                   <p className="mt-auto font-mono text-[0.625rem] uppercase tracking-[0.2em] opacity-60">Hover to explore</p>
                 </div>
                 <div className={`flip-face flip-back flex flex-col p-8 md:p-10 ${tone}`}>
                   <h3 className="max-w-[16ch] text-2xl uppercase leading-[1.05]">{s.name}</h3>
-                  <p className="mt-5 text-base leading-relaxed opacity-85">{s.copy}</p>
-                  <ul className="mt-6 space-y-2 text-sm opacity-85">
+                  <p className="mt-4 text-sm leading-relaxed opacity-85 md:text-base">{s.copy}</p>
+                  <ul className={`mt-6 space-y-2 text-sm opacity-85 ${i === 0 ? "" : "hidden"}`}>
                     {s.offers.map((o) => <li key={o} className="flex gap-3"><span className="mt-2 h-1 w-1 shrink-0 bg-current" />{o}</li>)}
                   </ul>
                   <span className="mt-auto flex items-center justify-between border-t border-current/35 pt-4 text-xs font-semibold uppercase tracking-[0.16em]">
