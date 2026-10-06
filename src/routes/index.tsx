@@ -12,6 +12,7 @@ import {
   Projects,
   Services,
   SiteFooter,
+  Statement,
   Why,
 } from "@/components/site/Sections";
 
@@ -42,6 +43,7 @@ function Index() {
         <Why />
         <Disciplines />
         <Services />
+        <Statement />
         <Projects />
         <Markets />
         <Impact />

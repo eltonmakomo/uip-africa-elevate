@@ -36,7 +36,7 @@ export function buildProjectStory(details: readonly string[] = [], summary?: str
       story.contribution.push(line);
       section = "solution";
       continue;
-    } else if (/(expected to deliver|completed development|outcome|impact|result|demonstrates|benefit)/.test(lower) && (isHeading(line) || long)) {
+    } else if (/(expected to deliver|completed development|outcomes?:|results?:|key benefits|demonstrates)/.test(lower) && (isHeading(line) || long)) {
       section = "outcomes";
       if (isHeading(line)) continue;
     }
