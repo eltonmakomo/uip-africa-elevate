@@ -394,7 +394,7 @@ export const projects = [
     name: "SHERWOOD ROAD",
     sector: "Transportation",
     meta: "2017",
-    image: projectSherwood,
+    image: disciplineTransport,
     copy: "The works consisted of redesign and supervision of an 8km road. The new road provided the local community vital access to the local clinic as well as access to nearby markets in kwekwe.",
     value: "USD$ 1,290,000",
     year: "2017",
