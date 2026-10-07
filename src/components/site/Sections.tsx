@@ -1,3 +1,4 @@
+import heroVideo from "@/assets/uip-quality.mp4.asset.json";
 import purposeImg from "@/assets/purpose-planning.jpg";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
@@ -69,7 +70,7 @@ export function Hero() {
         className="absolute inset-0 h-full w-full object-cover"
         aria-hidden="true"
       >
-        <source src="/images/Video%20Project.mp4" type="video/mp4" />
+        <source src={heroVideo.url} type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-hero-overlay" />
 
