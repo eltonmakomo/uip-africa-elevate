@@ -58,6 +58,33 @@ function SectionHead({
   );
 }
 
+function CountUp({ value }: { value: string }) {
+  const target = parseInt(value, 10) || 0;
+  const suffix = value.replace(/^\d+/, "");
+  const ref = useRef<HTMLSpanElement>(null);
+  const [n, setN] = useState(target);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    setN(0);
+    let raf = 0;
+    const io = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return;
+      io.disconnect();
+      const start = performance.now();
+      const tick = (t: number) => {
+        const k = Math.min(1, (t - start) / 1800);
+        setN(Math.round(target * (1 - Math.pow(1 - k, 3))));
+        if (k < 1) raf = requestAnimationFrame(tick);
+      };
+      raf = requestAnimationFrame(tick);
+    });
+    io.observe(el);
+    return () => { io.disconnect(); cancelAnimationFrame(raf); };
+  }, [target]);
+  return <span ref={ref}>{n}{suffix}</span>;
+}
+
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden bg-ink text-ink-foreground">
@@ -112,7 +139,7 @@ export function Hero() {
             ].map(([value, label]) => (
               <div key={label} className="border-ink-foreground/25 py-5 pr-4 md:border-r md:last:border-r-0 md:[&:not(:first-child)]:pl-6">
                 <dt className="sr-only">{label}</dt>
-                <dd className="index-num text-3xl font-semibold md:text-4xl">{value}</dd>
+                <dd className="index-num text-3xl font-semibold md:text-4xl"><CountUp value={value} /></dd>
                 <p className="mt-1 text-[0.6875rem] uppercase tracking-[0.14em] text-ink-foreground/70">{label}</p>
               </div>
             ))}
