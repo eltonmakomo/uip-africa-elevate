@@ -74,7 +74,6 @@ import expertiseDigital03 from "@/assets/expertise-digital-03.jpg";
 import expertiseDigital04 from "@/assets/expertise-digital-04.jpg";
 import expertiseDigital05 from "@/assets/expertise-digital-05.jpg";
 import expertiseDigital06 from "@/assets/expertise-digital-06.jpg";
-import teamRalph from "@/assets/team-ralph-ellis.jpg";
 import teamSimba from "@/assets/team-simba-kaseke.jpg";
 import teamPrivilage from "@/assets/team-privilage-dzadagu.jpg";
 import teamTinashe from "@/assets/team-tinashe-mazokera.jpg";
@@ -744,13 +743,6 @@ export const expertise = [
 ];
 
 export const people = [
-  {
-    name: "Ralph Ellis",
-    role: "Non-Executive Chairman",
-    image: teamRalph,
-    experience: "Board leadership",
-    bio: "Ralph Ellis serves as Non-Executive Chairman of Urban Infrastructure Projects Africa, providing independent board leadership and strategic oversight.",
-  },
   {
     name: "Simba Kaseke",
     role: "Partner Special Projects",
