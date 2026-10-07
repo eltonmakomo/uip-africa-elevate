@@ -14,7 +14,6 @@ import projectNorthgate from "@/assets/project-northgate-estate.jpg";
 import projectTotalKadoma from "@/assets/project-total-kadoma.jpg";
 import projectGreenhill from "@/assets/project-greenhill-estate.jpg";
 import projectZvirenje from "@/assets/project-zvirenje-road.jpg";
-import projectSherwood from "@/assets/project-sherwood-road.jpg";
 import projectDema from "@/assets/project-dema-power.jpg";
 import projectChisipite from "@/assets/project-chisipite-venue.jpg";
 import liveProject2000MtLpgDepotRuwa from "@/assets/live-projects/2000mt-lpg-depot-ruwa.jpg";
