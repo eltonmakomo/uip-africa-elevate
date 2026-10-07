@@ -14,7 +14,6 @@ import projectNorthgate from "@/assets/project-northgate-estate.jpg";
 import projectTotalKadoma from "@/assets/project-total-kadoma.jpg";
 import projectGreenhill from "@/assets/project-greenhill-estate.jpg";
 import projectZvirenje from "@/assets/project-zvirenje-road.jpg";
-import projectSherwood from "@/assets/project-sherwood-road.jpg";
 import projectDema from "@/assets/project-dema-power.jpg";
 import projectChisipite from "@/assets/project-chisipite-venue.jpg";
 import liveProject2000MtLpgDepotRuwa from "@/assets/live-projects/2000mt-lpg-depot-ruwa.jpg";
@@ -394,7 +393,7 @@ export const projects = [
     name: "SHERWOOD ROAD",
     sector: "Transportation",
     meta: "2017",
-    image: projectSherwood,
+    image: disciplineTransport,
     copy: "The works consisted of redesign and supervision of an 8km road. The new road provided the local community vital access to the local clinic as well as access to nearby markets in kwekwe.",
     value: "USD$ 1,290,000",
     year: "2017",
