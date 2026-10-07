@@ -69,7 +69,7 @@ function CountUp({ value }: { value: string }) {
     setN(0);
     let raf = 0;
     const io = new IntersectionObserver(([e]) => {
-      if (!e.isIntersecting) return;
+      if (!e?.isIntersecting) return;
       io.disconnect();
       const start = performance.now();
       const tick = (t: number) => {
@@ -139,7 +139,7 @@ export function Hero() {
             ].map(([value, label]) => (
               <div key={label} className="border-ink-foreground/25 py-5 pr-4 md:border-r md:last:border-r-0 md:[&:not(:first-child)]:pl-6">
                 <dt className="sr-only">{label}</dt>
-                <dd className="index-num text-3xl font-semibold md:text-4xl"><CountUp value={value} /></dd>
+                <dd className="index-num text-3xl font-semibold md:text-4xl"><CountUp value={value ?? ""} /></dd>
                 <p className="mt-1 text-[0.6875rem] uppercase tracking-[0.14em] text-ink-foreground/70">{label}</p>
               </div>
             ))}
