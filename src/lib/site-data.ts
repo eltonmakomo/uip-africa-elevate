@@ -1,3 +1,4 @@
+import disciplineTransport from "@/assets/discipline-transportation.jpg";
 import marketResidential from "@/assets/market-residential.jpg";
 import marketWater from "@/assets/market-water.jpg";
 import marketTransport from "@/assets/market-transport.jpg";
@@ -130,7 +131,7 @@ export const disciplines = [
   {
     id: "transportation",
     name: "Transportation",
-    image: projectSherwood,
+    image: disciplineTransport,
     lead: "Comprehensive planning, design and optimisation of transport networks for safe, efficient and sustainable mobility.",
     copy: "UIP Africa’s transportation work is grounded in rigorous engineering principles and international best practice, from feasibility through detailed design and strategic transport development.",
     points: ["Road design and rehabilitation", "Traffic engineering and analysis", "Transport infrastructure planning", "Urban, intercity and industrial access routes"],
