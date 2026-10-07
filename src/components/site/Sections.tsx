@@ -452,7 +452,7 @@ const serviceTiles = [
   "bg-ink text-ink-foreground",
   "bg-card text-foreground",
   "bg-accent text-accent-foreground",
-  "bg-ink text-ink-foreground",
+  "bg-orange text-accent-foreground",
   "bg-slate-tile text-ink-foreground",
 ];
 
